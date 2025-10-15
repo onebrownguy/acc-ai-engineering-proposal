@@ -1,0 +1,116 @@
+# ========================================
+# ACC AI Faculty Committee - GitHub Security
+# ========================================
+# Created: October 14, 2025
+# Purpose: Prevent sensitive data leaks to GitHub
+# ========================================
+
+# ========================================
+# SENSITIVE DATA (NEVER COMMIT)
+# ========================================
+
+# Session files and chat exports
+.claude/
+*.claude-session
+*session-summary.md
+*chat-export*
+
+# Personal information
+*_PRIVATE_*
+*PERSONAL*
+*credentials*
+*passwords*
+*.env
+*.env.*
+
+# Email addresses and contact info
+*contact-info*
+*email-list*
+
+# Draft/working documents
+*DRAFT*
+*WIP*
+*TODO*
+*NOTES*
+
+# ========================================
+# VERIFICATION REPORTS (Keep Private)
+# ========================================
+# These contain detailed research but not needed for pitch
+
+*VERIFICATION*.md
+BUDGET_MODEL_VERIFICATION.md
+BUDGET_VERIFICATION_SUMMARY.md
+BUDGET_REPLACEMENT_TEXT.md
+BUDGET_COMPARISON_VISUAL.md
+00_BUDGET_VERIFICATION_INDEX.md
+JOB_MARKET_VERIFICATION.md
+TUITION_COST_VERIFICATION.md
+TOOL_PRICING_VERIFICATION.md
+COPY_PASTE_REPLACEMENTS.md
+URGENT_PROPOSAL_UPDATES_NEEDED.md
+EXECUTIVE_SUMMARY_Job_Market_Analysis.md
+JOB_MARKET_ANALYSIS_INDEX.md
+READ_ME_FIRST*.md
+
+# ========================================
+# MARKDOWN RESEARCH DOCS (Keep Private)
+# ========================================
+# Detailed research - HTML versions are public-facing
+
+*.md
+!README.md
+!CITATIONS.md
+
+# ========================================
+# SYSTEM FILES
+# ========================================
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# ========================================
+# SAFE TO COMMIT (Public-Facing)
+# ========================================
+# Allow these specific HTML files for Friday pitch
+
+!INDEX.html
+!Executive_Summary_Integration.html
+!Committee_Charges_Comparative_Analysis.html
+!ACC_AI_Innovation_Society_One_Pager.html
+!Committee_Members_Report.html
+!CITATIONS.md
+!README.md
+
+# ========================================
+# BUILD/DEPLOYMENT
+# ========================================
+
+node_modules/
+dist/
+build/
+.cache/
+*.min.js
+*.min.css
+
+# ========================================
+# NOTES
+# ========================================
+# This .gitignore is designed for maximum security
+# Only essential HTML presentation files will be committed
+# All research, verification, and private data stays local
+# ========================================

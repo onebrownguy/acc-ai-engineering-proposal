@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee Member Profiles - ACC AI Implementation</title>
+    <style>
+        :root {
+            --primary: #374151;
+            --secondary: #6b7280;
+            --accent: #9ca3af;
+            --danger: #4b5563;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --border: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .filters {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .members-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s;
+            border-left: 4px solid var(--primary);
+        }
+
+        .member-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-card.leader {
+            border-left-color: var(--accent);
+            border-left-width: 6px;
+        }
+
+        .member-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .member-name.leader::after {
+            content: " ⭐";
+            color: var(--accent);
+        }
+
+        .status-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-submitted {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+
+        .status-pending {
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+
+        .member-role {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .focus-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .focus-tag {
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .blurb-section {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .blurb-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .blurb-text {
+            color: #334155;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .objective-section {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .objective-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .alignment-section {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .alignment-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .alignment-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .alignment-tag {
+            padding: 4px 10px;
+            background: white;
+            color: #4b5563;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            border: 1px solid #d1d5db;
+        }
+
+        .category-primary {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e5e7eb;
+            color: #374151;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .recommendation-box {
+            background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .recommendation-box h4 {
+            color: #1f2937;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .recommendation-box p {
+            color: #374151;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .expand-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        .expand-btn:hover {
+            background: #1f2937;
+        }
+
+        .details-hidden {
+            display: none;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            min-width: 200px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .bar-fill {
+            height: 30px;
+            background: linear-gradient(90deg, #4b5563, #6b7280);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: width 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(55, 65, 81, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(31, 41, 55, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bar-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bar-label {
+                min-width: unset;
+            }
+        }
+
+        @media print {
+            .filters, .print-btn, .expand-btn {
+                display: none;
+            }
+
+            .details-hidden {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👥 Committee Member Profiles</h1>
+            <p>ACC AI Implementation Steering Committee - October 2025</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">18</div>
+                <div class="stat-label">Submitted Charges (45%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">21</div>
+                <div class="stat-label">Pending Submissions (55%)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Recommended Leaders ⭐</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">📊 Committee Focus Distribution</h2>
+            <div class="bar-chart">
+                <div class="bar-item">
+                    <div class="bar-label">Governance & Policy</div>
+                    <div class="bar-fill" style="width: 67%;">67%</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">AI Literacy & Training</div>
+                    <div class="bar-fill" style="width: 61%;">61%</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">Academic Integrity</div>
+                    <div class="bar-fill" style="width: 39%;">39%</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">Data Privacy & FERPA</div>
+                    <div class="bar-fill" style="width: 22%;">22%</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-label">Technical Systems</div>
+                    <div class="bar-fill" style="width: 6%;">6% (CRITICAL GAP)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search members, departments, focus areas, or objectives...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Members</button>
+                <button class="filter-btn" data-filter="hierarchy">By Rank/Hierarchy</button>
+                <button class="filter-btn" data-filter="submitted">Submitted</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="leaders">Recommended Leaders ⭐</button>
+                <button class="filter-btn" data-filter="governance">Governance Focus</button>
+                <button class="filter-btn" data-filter="training">Training Focus</button>
+                <button class="filter-btn" data-filter="equity">Equity Focus</button>
+                <button class="filter-btn" data-filter="technical">Technical Focus</button>
+            </div>
+        </div>
+
+        <div class="members-grid" id="membersGrid">
+            <!-- Members will be dynamically inserted here -->
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print Profiles</button>
+    </div>
+
+    <footer>
+        <p>ACC AI Implementation Steering Committee | October 2025</p>
+        <p>Faculty Mentor: Professor Alex Watkins</p>
+    </footer>
+
+    <script>
+        const members = [
+            {
+                name: "Emilie Kunze",
+                email: "emilie.kunze@austincc.edu",
+                department: "IT/Information Security",
+                title: "Cybersecurity Governance, Risk, and Compliance Manager",
+                credentials: "ITIL, CRISC",
+                experience: "20+ years in Higher Education",
+                linkedin: "https://linkedin.com/in/emilie-kunze-itil-crisc-a38b9339",
+                leader: true,
+                status: "submitted",
+                role: "Recommended: Policy Development & Risk Management Chair",
+                focusAreas: ["Governance", "Compliance", "Training"],
+                blurb: "• AI Governance and Policy: Finalize and roll out the AI Vision, Values, and Governance Framework along with collegewide guidance and guardrails\n• Institutional AI Tool Vetting (TRAIGA-HB 149 Compliance): Implement framework for intake, evaluation, approval, and lifecycle of all AI tools\n• Institutional AI Literacy Program: Design multi-faceted program for students, faculty, and staff with tiered training modules",
+                objective: "Establish comprehensive governance framework and literacy programs to ensure responsible AI use across ACC",
+                category: "Governance, Compliance, Training",
+                alignment: ["Prompt Engineering (foundational literacy)", "AI Evaluation & Observability (tool vetting)", "Training Infrastructure"],
+                notes: "Most comprehensive submission. 20+ years Higher Ed experience. ITIL/CRISC certified. Expert in cybersecurity governance and HB 149 compliance."
+            },
+            {
+                name: "David Cantu",
+                email: "david.cantu@austincc.edu",
+                department: "IT Infrastructure/Technology",
+                title: "IT Infrastructure Leader",
+                credentials: "MBA, CCISO, CIGO®, CIGO/AI®, PhD Candidate",
+                experience: "20+ years in Technology, 15+ years Application Service",
+                linkedin: "https://linkedin.com/in/dzcantu",
+                leader: true,
+                status: "submitted",
+                role: "Recommended: Policy Development & Risk Management Co-Chair",
+                focusAreas: ["Compliance", "Data Governance", "Cybersecurity"],
+                blurb: "• Establish College-Wide AI Governance aligned with TAC 202 and state bills 475, 37, 1964, 149, 2818, 3512\n• Integrate AI initiative with Data Governance and Cybersecurity\n• Develop phased AI Roadmap with testing use cases and metrics",
+                objective: "Create comprehensive governance framework integrated with existing data and security infrastructure",
+                category: "Compliance, Data Governance, Cybersecurity",
+                alignment: ["AI Infrastructure & MLOps (integration)", "AI Security Systems (cybersecurity integration)"],
+                notes: "CIGO/AI® certified (AI Governance specialist - rare credential). Legislative expert referencing 6 state bills + TAC 202. CCISO = Chief Information Security Officer certification. PhD Candidate."
+            },
+            {
+                name: "Keri Moczygemba",
+                email: "keri.moczygemba@austincc.edu",
+                phone: "512-223-1585",
+                department: "Library Services",
+                title: "Dean of Library Services / Head Librarian / Associate Professor",
+                campuses: "Hays Campus Library, Riverside Campus Library, Interim at Cypress Creek",
+                leader: true,
+                status: "submitted",
+                role: "Recommended: Educational Framework Subcommittee Chair",
+                focusAreas: ["Equity", "Accessibility", "Student Success"],
+                blurb: "• Set collegewide guidance for responsible AI use aligned to mission and student success (transparency, academic integrity, accessibility by design, equity, human oversight)\n• Build AI literacy with defined learning outcomes and training pathways\n• Protect college data through governance standards, vendor reviews, data-minimization, incident response",
+                objective: "Establish equity-focused governance framework with emphasis on accessibility and student success",
+                category: "Equity, Accessibility, Student Success, Data Governance",
+                alignment: ["Prompt Engineering (accessible entry point)", "Conversational AI (accessibility tools)", "Document Intelligence (accessible documents)"],
+                notes: "Dean-level position with multi-campus responsibility. Library Services = information access equity champion. Only member emphasizing 'accessibility by design' and UDL principles."
+            },
+            {
+                name: "Manuel Duran",
+                email: "mduran12@austincc.edu",
+                department: "Computer Science & Information Technology (CSIT)",
+                title: "Associate Professor / Assistant Dean for Assessment CSIT Division",
+                education: "MS Computer Science (Marist College, 2003)",
+                since: "Associate Professor since Jan 2015, Assistant Dean since Jan 2025",
+                linkedin: "https://linkedin.com/in/manuel-duran-21541a71",
+                leader: true,
+                status: "submitted",
+                role: "⭐ CRITICAL: Assistant Dean for YOUR Division (CS, Software Dev, LAN Admin)",
+                focusAreas: ["Leadership", "National Positioning", "Oversight"],
+                blurb: "• Finalize and roll out AI vision, values, governance framework, and academic integrity policies\n• Launch professional development, communication campaigns, and pilot initiatives with evaluation metrics\n• Create permanent oversight mechanism to monitor adoption, assess risks, report annually, position ACC as national leader",
+                objective: "Establish ACC as national leader in responsible AI integration with permanent accountability structure",
+                category: "Leadership, National Positioning, Permanent Oversight",
+                alignment: ["AI Infrastructure & MLOps (permanent systems)", "AI Evaluation & Observability (monitoring and metrics)"],
+                notes: "🎯 DIVISION LEADERSHIP - Assistant Dean for Assessment in YOUR division (Computer Science, Software Dev, LAN Admin). Recently promoted Jan 2025. Faculty Fellow. Most ambitious vision - positioning ACC as national leader."
+            },
+            {
+                name: "Elizabeth A. Mosser Knight",
+                email: "elizabeth.knight@austincc.edu",
+                department: "Academic Programs",
+                title: "Associate Vice Chancellor of Academic Programs",
+                credentials: "Dr. (Doctorate)",
+                leader: true,
+                status: "submitted",
+                role: "Recommended: Implementation & Communication Chair (HIGHEST AUTHORITY)",
+                focusAreas: ["Knowledge Management", "Communication", "Tool Guidance"],
+                blurb: "• Continue AI Strategic Planning Committee work and action recommendations supporting foundational governance\n• Provide clear guidance and foundational PD on Google Gemini including parameters for employee and institutional use\n• Partner with Division of Instruction for cohesive yet flexible approach [Seeks 'source of truth' for ACC's AI approach]",
+                objective: "Create single source of truth for AI guidance and establish clear institutional learning pathways",
+                category: "Knowledge Management, Communication, Tool Guidance",
+                alignment: ["RAG Systems (source of truth = knowledge base)", "Prompt Engineering (Google Gemini training)", "Knowledge Graphs (structured knowledge system)"],
+                notes: "🏆 HIGHEST AUTHORITY - Associate Vice Chancellor oversees all academic programs. Final curriculum approval authority. Her 'source of truth' concept aligns with Knowledge Management systems (RAG!)."
+            },
+            {
+                name: "Marisa Mendoza",
+                email: "marisa.mejia@austincc.edu",
+                department: "Distance Education / TLED",
+                title: "Manager, Instructional Design",
+                note: "Listed as 'Marisa Mejia' in ACC directory",
+                leader: false,
+                status: "submitted",
+                role: "Faculty - Workforce Development Focus (Instructional Design Expert)",
+                focusAreas: ["Workforce Preparation", "Targeted Training"],
+                blurb: "• Promote AI use in classroom to prepare students for workforce (using current company examples)\n• Provide specific training on adopted tools and appropriate uses\n• Build AI Literacy targeted for: Students, Faculty, Staff, Administrators, Hourly/Part-Time",
+                objective: "Connect AI training to workforce needs with differentiated training by stakeholder group",
+                category: "Workforce Preparation, Targeted Training",
+                alignment: ["Agentic AI (workforce systems)", "RAG Systems (practical apps)", "Prompt Engineering (foundational skill)", "Code Generation AI (workforce skill)"],
+                notes: "🔥 KEY ALLY #1 - Manager of Instructional Design can help formalize 3-course Prompt Engineering curriculum. TLED role = trains faculty. Workforce preparation aligns perfectly with technical training proposal."
+            },
+            {
+                name: "Ron Johns",
+                email: "rjohns@austincc.edu",
+                phone: "512-223-7491",
+                department: "Assessment & Evaluation",
+                title: "Associate Dean for Assessment & Evaluation / Geology Professor",
+                education: "PhD Geological Sciences (UT Austin, 1993), BS Geology with Honors (Purdue)",
+                notable: "Co-founder of Texas Museum of Science and Technology (TXMOST)",
+                leader: false,
+                status: "submitted",
+                role: "Academic Affairs - Curriculum Focus (Associate Dean - Decision Authority)",
+                focusAreas: ["Curriculum", "Academic Integrity", "Gen Ed Competency"],
+                blurb: "• Provide guidance for implementing AI in tutoring/coaching, advising, business services\n• Incorporate learning AI into curricula, consider making AI fluency a general education competency\n• Develop assessments that minimize AI cheating incentives\n• Promote repository of ethical AI materials",
+                objective: "Integrate AI into curriculum and student services while maintaining academic integrity",
+                category: "Curriculum, Academic Integrity, Gen Ed Competency",
+                alignment: ["Prompt Engineering (as gen ed competency)", "RAG Systems (repository)", "Conversational AI (tutoring/coaching)"],
+                notes: "🔥 KEY ALLY #2 - Associate Dean for Assessment = curriculum authority. Explicitly wants AI fluency as gen ed competency. Co-founder TXMOST = innovation mindset. Prompt Engineering IS the curriculum he needs."
+            },
+            {
+                name: "Robert Foster",
+                email: "robert.foster@austincc.edu",
+                department: "Office of Faculty Communications (TLED)",
+                title: "Front End Developer, Instructional Web Projects",
+                office: "HBC 301.6",
+                leader: false,
+                status: "submitted",
+                role: "Faculty Communications - Technical + Communication Skills",
+                focusAreas: ["Standardization", "Departmental Autonomy"],
+                blurb: "• Determine standardized language and definitions for AI at ACC (Gen AI vs. Agentic AI terminology)\n• Consider starting Department/AoS committees for AI guidance since Art and Comp Sci have drastically different needs",
+                objective: "Establish clear terminology and departmental autonomy for AI policy implementation",
+                category: "Standardization, Departmental Flexibility",
+                alignment: ["All AI Systems (recognizes different departments need different approaches)", "Agentic AI (specifically mentions terminology)"],
+                notes: "Front End Developer = understands tool needs for building applications. Office of Faculty Communications = bridge between technical and non-technical. Strategic thinker recognizing departmental diversity."
+            },
+            {
+                name: "Chris Davis",
+                leader: false,
+                status: "submitted",
+                role: "Academic Technology",
+                focusAreas: ["AI Hallucinations", "Academic Honesty", "Copyright"],
+                blurb: "Prepare guidance on identifying and mitigating AI hallucinations. | Availability of AI scholastic honesty confirmation tools for faculty. | Clear guidance on generative AI usage considering copyright and creative commons licensing.",
+                objective: "Address technical AI limitations and provide faculty tools for academic integrity enforcement",
+                category: "Technical Understanding, Academic Integrity, Copyright",
+                alignment: ["AI Evaluation & Observability (hallucination detection)", "AI Security Systems (academic honesty tools)"],
+                notes: "Technical focus on AI limitations and detection tools"
+            },
+            {
+                name: "Pamela Chukwuneke",
+                leader: false,
+                status: "submitted",
+                role: "Faculty Affairs",
+                focusAreas: ["Role Impact", "Equity", "Enforcement Standards"],
+                blurb: "Faculty/Staff: Outline how AI will enhance or harm current roles, plan for those negatively impacted, determine if training is mandatory, determine usage limitations. | Faculty: Establish guidelines for AI use in grading, syllabus creation, content creation, test creation. Ensure students have foundational knowledge before AI integration. | Students: Implement standards for investigating suspected illegal AI use, ensure consistency and equity across departments, ensure investigations are unbiased.",
+                objective: "Address role impact and establish equitable enforcement standards across all stakeholders",
+                category: "Role Impact, Equity, Enforcement Standards",
+                alignment: ["Prompt Engineering (faculty tool use guidelines)"],
+                notes: "Comprehensive submission - concerned about AI impact on employment. Emphasis on equitable investigation standards."
+            },
+            {
+                name: "Jennifer Black",
+                leader: false,
+                status: "submitted",
+                role: "Faculty Development",
+                focusAreas: ["Training Programs", "Tool Assessment", "General Education"],
+                blurb: "Develop Targeted Training Programs for faculty (pedagogy, research, course design) and staff (administrative efficiency). | Assess and Approve Tools ensuring alignment with pedagogical goals, privacy standards, equitable access. | General Education: Teach what AI is, what it can/can't do, pros and cons.",
+                objective: "Create differentiated training programs and establish tool approval framework",
+                category: "Training Programs, Tool Assessment, General Education",
+                alignment: ["Prompt Engineering (foundational training)", "AI Evaluation & Observability (tool assessment)"],
+                notes: "Practical training focus - assessment framework"
+            },
+            {
+                name: "Jason Martinez",
+                leader: false,
+                status: "submitted",
+                role: "Student Services",
+                focusAreas: ["Plagiarism Detection", "Student Education"],
+                blurb: "Draft clear guidelines to explain and demystify AI's role in detecting/creating plagiarized materials. | Reinforce that human programming means room for error. | Educate students on plagiarism dangers and seek remediation from tutors/professors.",
+                objective: "Demystify AI plagiarism detection and emphasize human judgment in academic integrity",
+                category: "Student Education, Academic Integrity, AI Limitations",
+                alignment: ["AI Evaluation & Observability (plagiarism detection)", "AI Security Systems (detection tool limitations)"],
+                notes: "Student education focus - wants to explain rather than just enforce"
+            },
+            {
+                name: "Enrique Suárez",
+                leader: false,
+                status: "submitted",
+                role: "Compliance",
+                focusAreas: ["FERPA", "Privacy", "AI Limitations"],
+                blurb: "Craft recommendations to preserve privacy while using AI tools (FERPA compliance). | Awareness that AI results have limitations in generated insights (can't see big picture), assumptions and bias.",
+                objective: "Ensure data privacy compliance and manage expectations around AI limitations",
+                category: "Privacy, FERPA Compliance, AI Limitations",
+                alignment: ["AI Security Systems (privacy protection)"],
+                notes: "Critical compliance focus - privacy expert"
+            },
+            {
+                name: "Jose Resendez",
+                leader: false,
+                status: "submitted",
+                role: "Change Management",
+                focusAreas: ["Communications", "Stakeholder Management"],
+                blurb: "Operationalize CAISP recommendations with comprehensive change management: communications strategy, stakeholder management, training/professional development, monitoring and continuous improvement.",
+                objective: "Ensure successful implementation through structured change management processes",
+                category: "Change Management, Implementation",
+                alignment: ["Implementation Infrastructure (process-focused rather than technical systems)"],
+                notes: "Process focus - implementation support"
+            },
+            {
+                name: "Shih-Ting Lee",
+                email: "shih-ting.lee@austincc.edu",
+                department: "Faculty Evaluation / TLED",
+                title: "Manager of Faculty Evaluation / Adjunct Professor / Instructional Designer",
+                education: "PhD Curriculum & Instruction (2009)",
+                credentials: "PMP (Project Management Professional)",
+                experience: "10+ years in academic leadership (ACC, St. Edward's, Indiana State)",
+                linkedin: "https://linkedin.com/in/shihtinglee",
+                leader: false,
+                status: "submitted",
+                role: "Industry Partnerships (PMP = Project Management Expert)",
+                focusAreas: ["Community Partnerships", "Industry Connections"],
+                blurb: "• Building strong partnerships with employers, community groups, and other colleges to connect to real-world opportunities\n• Shared guidelines and support for fair and effective tool use\n• Weigh opportunities and risks to ensure responsible adoption aligned to mission",
+                objective: "Establish external partnerships while ensuring thoughtful internal implementation",
+                category: "Industry Partnerships, Responsible Adoption",
+                alignment: ["All High-Demand AI Systems (industry needs)", "RAG Systems", "Agentic AI", "MLOps", "Computer Vision", "Code Gen (specific industry demands)"],
+                notes: "🔥 KEY ALLY #3 - PMP certification = perfect for managing mentorship program implementation. PhD in Curriculum & Instruction. 10+ years academic leadership. Industry partnership champion. Lilly Scholarship recipient."
+            },
+            {
+                name: "La Tasha Roberts",
+                leader: false,
+                status: "submitted",
+                role: "Assessment",
+                focusAreas: ["Academic Integrity Tools"],
+                blurb: "I would like to see what Respondus Lockdown Monitor uses as their factors to detect cheating. We could use the information as a benchmark.",
+                objective: "Benchmark AI cheating detection tools against industry standards",
+                category: "Academic Integrity Tools",
+                alignment: ["AI Evaluation & Observability (tool benchmarking)"],
+                notes: "Brief submission - tool evaluation focus"
+            },
+            {
+                name: "[Your Name]",
+                leader: false,
+                status: "pending",
+                role: "Student - LAN Administration & Software Development",
+                focusAreas: ["Tool Access", "Technical Training", "Career Equity"],
+                blurb: "Tool Access Program: Provide free access to AI APIs, vector databases, cloud compute for technical program students ($1,500/student/year). | Prompt Engineering Curriculum: 3-course sequence covering fundamentals, RAG systems, AI agents. | Portfolio Development: Structured program with industry mentorships and ACC AI Engineer certification.",
+                objective: "Remove financial barriers preventing ACC students from competing for AI engineering careers ($120K-$180K)",
+                category: "Technical Training, Career Equity, Tool Access",
+                alignment: ["Agentic AI", "RAG Systems", "Fine-tuning", "MLOps", "Prompt Engineering", "Code Generation", "All Builder Systems (comprehensive technical focus)"],
+                notes: "STUDENT VOICE - Technical depth advocate bringing market reality and lived experience of barriers"
+            },
+            // Pending members
+            {name: "Abel Rincon", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Meena Momand", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Suyeon Hong", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Chandra Vanajakshi", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Kyle Shaw", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "LaKisha Barrett", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Tina Carver", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "Name listed but no submission"},
+            {name: "Toño Ramirez", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Larry Stephens", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Linda Terry", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Darin Duvall", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Herb Coleman", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Sean Loraas", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Theresa Glenn", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Giao Phan", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Jeanie McGough", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Marc Petrick", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Steve Gray", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"},
+            {name: "Miguel DeLeon", leader: false, status: "pending", role: "Unknown", focusAreas: [], blurb: "", objective: "", category: "", alignment: [], notes: "No submission yet - follow up needed"}
+        ];
+
+        function renderMembers(membersToRender) {
+            const grid = document.getElementById('membersGrid');
+            grid.innerHTML = '';
+
+            membersToRender.forEach(member => {
+                const card = document.createElement('div');
+                card.className = `member-card ${member.leader ? 'leader' : ''}`;
+                card.setAttribute('data-status', member.status);
+                card.setAttribute('data-searchable', `${member.name} ${member.email || ''} ${member.department || ''} ${member.title || ''} ${member.role} ${member.focusAreas.join(' ')} ${member.objective} ${member.category} ${member.alignment.join(' ')} ${member.notes}`.toLowerCase());
+
+                const statusClass = member.status === 'submitted' ? 'status-submitted' : 'status-pending';
+                const statusText = member.status === 'submitted' ? '✅ Submitted' : '⚠️ Pending';
+
+                const hasDetails = member.blurb && member.blurb.trim() !== '';
+
+                card.innerHTML = `
+                    <div class="member-header">
+                        <h2 class="member-name ${member.leader ? 'leader' : ''}">${member.name}</h2>
+                        <span class="status-badge ${statusClass}">${statusText}</span>
+                    </div>
+
+                    <div class="member-role">${member.role}</div>
+
+                    ${(member.email || member.phone || member.department || member.linkedin) ? `
+                        <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 3px solid var(--primary);">
+                            ${member.email ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">📧 Email:</strong>
+                                <a href="mailto:${member.email}" style="color: var(--primary); text-decoration: none;">${member.email}</a>
+                            </div>` : ''}
+                            ${member.phone ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">📞 Phone:</strong> ${member.phone}
+                            </div>` : ''}
+                            ${member.department ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">🏢 Department:</strong> ${member.department}
+                            </div>` : ''}
+                            ${member.title ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">💼 Title:</strong> ${member.title}
+                            </div>` : ''}
+                            ${member.credentials ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">🎓 Credentials:</strong> ${member.credentials}
+                            </div>` : ''}
+                            ${member.experience ? `<div style="margin-bottom: 8px; font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">⏱️ Experience:</strong> ${member.experience}
+                            </div>` : ''}
+                            ${member.linkedin ? `<div style="font-size: 0.9rem;">
+                                <strong style="color: var(--dark);">🔗 LinkedIn:</strong>
+                                <a href="${member.linkedin}" target="_blank" style="color: var(--primary); text-decoration: none;">View Profile →</a>
+                            </div>` : ''}
+                        </div>
+                    ` : ''}
+
+                    ${member.category ? `<div class="category-primary">${member.category}</div>` : ''}
+
+                    ${member.focusAreas.length > 0 ? `
+                        <div class="focus-tags">
+                            ${member.focusAreas.map(area => `<span class="focus-tag">${area}</span>`).join('')}
+                        </div>
+                    ` : ''}
+
+                    ${hasDetails ? `
+                        <div class="details-section" id="details-${member.name.replace(/\s/g, '-')}">
+                            ${member.objective ? `
+                                <div class="objective-section">
+                                    <h4>🎯 Strategic Objective</h4>
+                                    <p>${member.objective}</p>
+                                </div>
+                            ` : ''}
+
+                            ${member.alignment.length > 0 ? `
+                                <div class="alignment-section">
+                                    <h4>🔗 Aligned AI Systems</h4>
+                                    <div class="alignment-tags">
+                                        ${member.alignment.map(sys => `<span class="alignment-tag">${sys}</span>`).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            ${member.blurb ? `
+                                <div class="blurb-section details-hidden">
+                                    <h4>📝 Full Charge Suggestion</h4>
+                                    <div class="blurb-text">${member.blurb.split('\n').filter(b => b.trim()).map(b => `<p>${b}</p>`).join('')}</div>
+                                </div>
+                            ` : ''}
+
+                            ${member.leader ? `
+                                <div class="recommendation-box">
+                                    <h4>⭐ Leadership Recommendation</h4>
+                                    <p>${member.role}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <button class="expand-btn" onclick="toggleDetails('${member.name.replace(/\s/g, '-')}', this)">
+                            Show Full Details ▼
+                        </button>
+                    ` : `
+                        <p style="color: #94a3b8; font-style: italic; margin-top: 10px;">${member.notes}</p>
+                    `}
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleDetails(id, button) {
+            const hidden = document.querySelector(`#details-${id} .details-hidden`);
+            if (hidden) {
+                if (hidden.style.display === 'none' || hidden.style.display === '') {
+                    hidden.style.display = 'block';
+                    button.textContent = 'Hide Full Details ▲';
+                } else {
+                    hidden.style.display = 'none';
+                    button.textContent = 'Show Full Details ▼';
+                }
+            }
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                let filtered = members;
+
+                switch(filter) {
+                    case 'hierarchy':
+                        // Sort by leadership hierarchy
+                        filtered = [...members].sort((a, b) => {
+                            const getRank = (member) => {
+                                if (member.title && member.title.includes('Vice Chancellor')) return 1;
+                                if (member.title && member.title.includes('Dean')) return 2;
+                                if (member.title && (member.title.includes('Assistant Dean') || member.title.includes('Associate Dean'))) return 3;
+                                if (member.title && member.title.includes('Manager')) return 4;
+                                if (member.title && (member.title.includes('Professor') || member.title.includes('Faculty'))) return 5;
+                                if (member.role && member.role.includes('Student')) return 7;
+                                return 6; // Staff and others
+                            };
+                            return getRank(a) - getRank(b);
+                        });
+                        break;
+                    case 'submitted':
+                        filtered = members.filter(m => m.status === 'submitted');
+                        break;
+                    case 'pending':
+                        filtered = members.filter(m => m.status === 'pending');
+                        break;
+                    case 'leaders':
+                        filtered = members.filter(m => m.leader === true);
+                        break;
+                    case 'governance':
+                        filtered = members.filter(m => m.category.toLowerCase().includes('governance') || m.category.toLowerCase().includes('policy'));
+                        break;
+                    case 'training':
+                        filtered = members.filter(m => m.category.toLowerCase().includes('training') || m.category.toLowerCase().includes('education'));
+                        break;
+                    case 'equity':
+                        filtered = members.filter(m => m.category.toLowerCase().includes('equity') || m.category.toLowerCase().includes('accessibility'));
+                        break;
+                    case 'technical':
+                        filtered = members.filter(m => m.category.toLowerCase().includes('technical') || m.focusAreas.some(f => f.toLowerCase().includes('technical')));
+                        break;
+                }
+
+                renderMembers(filtered);
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.member-card');
+
+            cards.forEach(card => {
+                const searchableContent = card.getAttribute('data-searchable');
+                card.style.display = searchableContent.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Initialize
+        renderMembers(members);
+    </script>
+</body>
+</html>
