@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC AI Innovation Society - Speaker Script</title>
+    <style>
+        :root {
+            --acc-purple: #512888;
+            --acc-orange: #FF6A13;
+            --acc-light-purple: #7B4BA3;
+            --acc-dark-purple: #3A1C5F;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --bg-white: #FFFFFF;
+            --border-color: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-dark-purple) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px 12px 0 0;
+            margin: -40px -40px 40px -40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .link-box {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-box a {
+            color: var(--acc-orange);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .controls {
+            background: linear-gradient(to right, #FFF3E0, #FFE0B2);
+            border-left: 4px solid var(--acc-orange);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .controls h3 {
+            color: var(--acc-orange);
+            margin-bottom: 15px;
+        }
+
+        .controls ul {
+            list-style: none;
+            font-size: 1.1rem;
+        }
+
+        .controls li {
+            padding: 8px 0;
+        }
+
+        .controls li::before {
+            content: "⌨️ ";
+            margin-right: 10px;
+        }
+
+        .slide-section {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-left: 6px solid var(--acc-purple);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .slide-section:hover {
+            box-shadow: 0 4px 12px rgba(81, 40, 136, 0.15);
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .slide-title {
+            flex: 1;
+        }
+
+        .slide-title h2 {
+            color: var(--acc-purple);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .slide-emoji {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .timing {
+            background: var(--acc-orange);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .on-screen {
+            background: linear-gradient(to right, #F3F4F6, #E5E7EB);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .on-screen h4 {
+            color: var(--acc-purple);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .on-screen ul {
+            margin-left: 20px;
+        }
+
+        .speaker-notes {
+            background: linear-gradient(to right, #FEF3C7, #FDE68A);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--acc-orange);
+        }
+
+        .speaker-notes h4 {
+            color: var(--acc-orange);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .speaker-notes blockquote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--text-dark);
+        }
+
+        .speaker-notes strong {
+            color: var(--acc-purple);
+            font-style: normal;
+        }
+
+        .key-message {
+            background: var(--acc-purple);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .key-message::before {
+            content: "🎯 Key Message: ";
+            color: var(--acc-orange);
+        }
+
+        .advance-note {
+            text-align: right;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .timing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .timing-table thead {
+            background: var(--acc-purple);
+            color: white;
+        }
+
+        .timing-table th,
+        .timing-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .timing-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .timing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .qa-section {
+            background: linear-gradient(to right, #E0F2FE, #BAE6FD);
+            border-left: 4px solid #0ea5e9;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .qa-section h3 {
+            color: #0284c7;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .qa-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .qa-item h4 {
+            color: var(--acc-purple);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .qa-item blockquote {
+            color: var(--text-dark);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .checklist {
+            background: linear-gradient(to right, #DCFCE7, #BBF7D0);
+            border-left: 4px solid #22c55e;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .checklist h3 {
+            color: #16a34a;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .checklist-group {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .checklist-group h4 {
+            color: var(--acc-purple);
+            margin-bottom: 15px;
+        }
+
+        .checklist-group ul {
+            list-style: none;
+        }
+
+        .checklist-group li {
+            padding: 8px 0;
+            font-size: 1rem;
+        }
+
+        .checklist-group li::before {
+            content: "☐ ";
+            color: #22c55e;
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .reference-card {
+            background: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-dark-purple) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .reference-card h3 {
+            color: var(--acc-orange);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .reference-card pre {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .tips-section {
+            background: linear-gradient(to right, #F3E5F5, #FCE4EC);
+            border-left: 4px solid var(--acc-purple);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .tips-section h3 {
+            color: var(--acc-purple);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .tip-item h4 {
+            color: var(--acc-orange);
+            margin-bottom: 10px;
+        }
+
+        .tip-item ul {
+            margin-left: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .slide-section {
+                page-break-inside: avoid;
+                border: 1px solid #000;
+            }
+            header {
+                background: var(--acc-purple);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .slide-header {
+                flex-direction: column;
+            }
+            .timing {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ACC AI Innovation Society</h1>
+            <p>Speaker Script for Pitch Deck Presentation</p>
+            <div class="link-box">
+                <p><strong>Slide Deck Link:</strong></p>
+                <a href="https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_Pitch_Deck.html" target="_blank">
+                    https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_Pitch_Deck.html
+                </a>
+            </div>
+        </header>
+
+        <div class="controls">
+            <h3>🎮 Presentation Controls</h3>
+            <ul>
+                <li><strong>Space / Arrow Keys</strong> → Navigate slides</li>
+                <li><strong>Press N</strong> → Toggle speaker notes</li>
+                <li><strong>Click buttons</strong> → Navigate manually</li>
+            </ul>
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🎬</span>SLIDE 1: Title Slide</h2>
+                </div>
+                <div class="timing">0:00 - 0:30</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>🚀 ACC AI Innovation Society</li>
+                    <li>By Students, For Students</li>
+                    <li>Steering ACC's AI Narrative Together</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Welcome everyone. Thank you for the opportunity to present today.<br><br>
+                    I'm here to propose something that addresses a critical gap in ACC's AI strategy — <strong>student voice and leadership</strong>.<br><br>
+                    This is the ACC AI Innovation Society.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Opening - establish credibility and purpose</div>
+
+            <p class="advance-note">⏭️ Press Space or Click "Next"</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">💡</span>SLIDE 2: The Student Opportunity</h2>
+                </div>
+                <div class="timing">0:30 - 1:15</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>4 student groups: Technical, Business, Creative, Health Sciences</li>
+                    <li>"A successful person sees where the opportunity lies ahead"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Students across ALL backgrounds want AI involvement.<br><br>
+                    <strong>Technical students</strong> need skills for $120K-180K careers.<br><br>
+                    <strong>Business students</strong> need to understand AI strategy.<br><br>
+                    <strong>Creative students</strong> explore AI tools for content creation.<br><br>
+                    <strong>Health sciences students</strong> encounter AI in healthcare.<br><br>
+                    <strong>A successful person sees opportunity ahead. Students are READY to lead this movement.</strong>
+                </blockquote>
+            </div>
+
+            <div class="key-message">Student demand exists across ALL majors</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">⚠️</span>SLIDE 3: The Gap</h2>
+                </div>
+                <div class="timing">1:15 - 1:45</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>40+ Committee Members ❌ 0 Student Representatives</li>
+                    <li>"Students need a seat at the table"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    We have 40+ committee members — faculty, administrators, deans, IT professionals.<br><br>
+                    But <strong>ZERO organized student representation</strong>.<br><br>
+                    Students receive policy, we don't shape it.<br><br>
+                    <strong>We need a seat at the table to steer our own narrative with AI.</strong>
+                </blockquote>
+            </div>
+
+            <div class="key-message">Critical gap in student voice</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🎯</span>SLIDE 4: Our Vision</h2>
+                </div>
+                <div class="timing">1:45 - 2:30</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>ACC's First Inclusive Student-Led AI Committee</li>
+                    <li>"Steering our future with AI"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    We propose the <strong>ACC AI Innovation Society</strong> — the first inclusive student-led AI committee by students, for students.<br><br>
+                    Not just implementing your charges.<br><br>
+                    <strong>STEERING our future with AI.</strong><br><br>
+                    Taking ownership of how AI shapes our education and careers.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Student-led ownership, not just participation</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🏛️</span>SLIDE 5: What We Are</h2>
+                </div>
+                <div class="timing">2:30 - 3:00</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>Three Pillars: Learning Community, Industry Bridge, Implementation Vehicle</li>
+                    <li>"Open to all majors"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Three pillars:<br><br>
+                    <strong>Learning Community</strong> — peer-led workshops where students teach students.<br><br>
+                    <strong>Industry Bridge</strong> — student liaison to Austin AI Alliance's 120+ companies.<br><br>
+                    <strong>Implementation Vehicle</strong> — executing committee charges with real student involvement.<br><br>
+                    <strong>Open to ALL majors</strong> — Computer Science, Business, Liberal Arts, Health Sciences, Design, Engineering, everyone welcome.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Structured organization with clear purpose</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">✅</span>SLIDE 6: Committee Charges Alignment</h2>
+                </div>
+                <div class="timing">3:00 - 4:00</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>5 committee member charges with student org solutions</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    We specifically address <strong>5 committee charges:</strong><br><br>
+                    <strong>Marisa Mendoza's workforce prep</strong> — through workshops on AI tools Austin companies use.<br><br>
+                    <strong>Shih-Ting Lee's industry partnerships</strong> — through our Alliance liaison role.<br><br>
+                    <strong>Ron Johns' gen ed competency</strong> — through literacy workshops for non-technical students.<br><br>
+                    <strong>Manuel Duran's pilot implementation</strong> — we're the cohort. Student org members are the first pilot.<br><br>
+                    <strong>Keri Moczygemba's equity</strong> — through free multi-campus access and peer-led learning.
+                </blockquote>
+            </div>
+
+            <div class="key-message">"I don't compete with your charges — I complete them"</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">📅</span>SLIDE 7: Year 1 Activities</h2>
+                </div>
+                <div class="timing">4:00 - 4:30</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>Weekly workshops, Monthly speakers, Semester showcases, Peer mentorship</li>
+                    <li>Target: 10+ events, 50+ members, 80% satisfaction</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Year 1 activities:<br><br>
+                    <strong>Weekly workshops</strong> on prompt engineering, RAG systems, AI tools.<br><br>
+                    <strong>Monthly industry speakers</strong> from Austin AI Alliance companies.<br><br>
+                    <strong>Semester showcases</strong> where students present projects to industry.<br><br>
+                    <strong>Peer mentorship</strong> where upper-level students guide beginners.<br><br>
+                    Real programming, measurable outcomes.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Concrete, actionable plan</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🏗️</span>SLIDE 8: Leveraging Infrastructure</h2>
+                </div>
+                <div class="timing">4:30 - 5:00</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>CGCS Facility, Austin AI Alliance, Scale AI Model</li>
+                    <li>"We maximize ROI on existing investments"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    We activate existing investments:<br><br>
+                    <strong>CGCS facility</strong> at Building 3000 — weekly meetings, workshops, showcases.<br><br>
+                    <strong>Austin AI Alliance membership</strong> — ACC already has access to 120+ companies.<br><br>
+                    <strong>Scale AI partnership model</strong> — we transform one-off events into semester-long programs.<br><br>
+                    <strong>We're not asking you to build new — we maximize ROI on what exists.</strong>
+                </blockquote>
+            </div>
+
+            <div class="key-message">Smart use of existing resources</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">💼</span>SLIDE 9: The Ask</h2>
+                </div>
+                <div class="timing">5:00 - 5:45</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>Official Support, Strategic Guidance, Pilot Funding, Timeline</li>
+                    <li>Total: $48K-80K first year</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Here's what we're asking for:<br><br>
+                    <strong>Official endorsement</strong> for Student Life registration.<br><br>
+                    <strong>Faculty advisor</strong> — we recommend Manuel Duran.<br><br>
+                    <strong>CGCS access</strong> and <strong>Alliance introduction</strong>.<br><br>
+                    <strong>Strategic guidance</strong> through quarterly check-ins.<br><br>
+                    <strong>Pilot funding:</strong> $48K-80K first year for tool access (30-50 students) plus events.<br><br>
+                    <strong>Timeline:</strong> Approval November 2025, Launch January 2026.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Clear ask with specific investment</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">📊</span>SLIDE 10: Success Metrics</h2>
+                </div>
+                <div class="timing">5:45 - 6:15</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>6 metrics: 50+ members, 80% satisfaction, 30+ active, 10+ events, 3+ campuses, 15+ portfolios</li>
+                    <li>"Student involvement is the primary metric"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Student involvement is the metric.<br><br>
+                    <strong>50+ members, 80% satisfaction, 30+ active participants, 10+ events per semester, 3+ campuses represented.</strong><br><br>
+                    If tool access is approved: <strong>15+ student portfolios completed.</strong><br><br>
+                    Long-term: <strong>waitlist proves demand exceeds capacity.</strong>
+                </blockquote>
+            </div>
+
+            <div class="key-message">Clear, measurable success criteria</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🌟</span>SLIDE 11: Bigger Picture</h2>
+                </div>
+                <div class="timing">6:15 - 6:45</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>National Leadership, Student Agency, Career Outcomes</li>
+                    <li>"Students taking ownership of our AI future"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    This is bigger than a student club:<br><br>
+                    <strong>ACC becomes first community college</strong> with thriving student-led AI org. National model.<br><br>
+                    <strong>Students have agency</strong> shaping AI integration, not just learning about it.<br><br>
+                    <strong>Career outcomes:</strong> students compete for high-paying AI careers with portfolios and experience.<br><br>
+                    This is students taking ownership of our AI future at ACC.
+                </blockquote>
+            </div>
+
+            <div class="key-message">Strategic institutional impact</div>
+
+            <p class="advance-note">⏭️ Press Space</p>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide-section">
+            <div class="slide-header">
+                <div class="slide-title">
+                    <h2><span class="slide-emoji">🚀</span>SLIDE 12: Call to Action</h2>
+                </div>
+                <div class="timing">6:45 - 7:15</div>
+            </div>
+
+            <div class="on-screen">
+                <h4>On Screen:</h4>
+                <ul>
+                    <li>"Students are ready to lead"</li>
+                    <li>"Let's steer our narrative together"</li>
+                </ul>
+            </div>
+
+            <div class="speaker-notes">
+                <h4>Speaker Notes:</h4>
+                <blockquote>
+                    Students are ready to lead.<br><br>
+                    Demand exists. Infrastructure is ready. Opportunity is clear.<br><br>
+                    We're asking for your endorsement, guidance, and investment to prove this works.<br><br>
+                    By creating ACC's first inclusive student-led AI committee, we demonstrate that students aren't just the future of AI at ACC — <strong>we're leading it today.</strong><br><br>
+                    <strong>Let's steer our narrative together.</strong><br><br>
+                    <strong>I'm ready for questions and discussion.</strong>
+                </blockquote>
+            </div>
+
+            <div class="key-message">Confident call to action</div>
+
+            <p class="advance-note">🏁 END OF PRESENTATION</p>
+        </div>
+
+        <!-- Timing Table -->
+        <h2 style="color: var(--acc-purple); margin: 40px 0 20px 0; font-size: 2rem;">📋 Complete Timing Breakdown</h2>
+        <table class="timing-table">
+            <thead>
+                <tr>
+                    <th>Slide</th>
+                    <th>Topic</th>
+                    <th>Time</th>
+                    <th>Cumulative</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Title</td><td>30s</td><td>0:30</td></tr>
+                <tr><td>2</td><td>Student Opportunity</td><td>45s</td><td>1:15</td></tr>
+                <tr><td>3</td><td>The Gap</td><td>30s</td><td>1:45</td></tr>
+                <tr><td>4</td><td>Our Vision</td><td>45s</td><td>2:30</td></tr>
+                <tr><td>5</td><td>What We Are</td><td>30s</td><td>3:00</td></tr>
+                <tr><td>6</td><td>Committee Charges</td><td>60s</td><td>4:00</td></tr>
+                <tr><td>7</td><td>Year 1 Activities</td><td>30s</td><td>4:30</td></tr>
+                <tr><td>8</td><td>Infrastructure</td><td>30s</td><td>5:00</td></tr>
+                <tr><td>9</td><td>The Ask</td><td>45s</td><td>5:45</td></tr>
+                <tr><td>10</td><td>Success Metrics</td><td>30s</td><td>6:15</td></tr>
+                <tr><td>11</td><td>Bigger Picture</td><td>30s</td><td>6:45</td></tr>
+                <tr><td>12</td><td>Call to Action</td><td>30s</td><td>7:15</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Q&A Section -->
+        <div class="qa-section">
+            <h3>💬 Q&A Preparation</h3>
+
+            <div class="qa-item">
+                <h4>Budget Questions</h4>
+                <blockquote>
+                    "We modeled this on ACC's Adobe and Office 365 access programs. Just as ACC subsidizes creative software for design students, we're proposing AI development tools. The $48K-80K covers 30-50 students with professional-grade APIs — about $1,000-1,600 per student for a full year of learning."
+                </blockquote>
+            </div>
+
+            <div class="qa-item">
+                <h4>Sustainability Questions</h4>
+                <blockquote>
+                    "Student Life registration means this survives graduation. We'll establish officer succession, document processes, and recruit across class years. Leadership rotates but the organization persists — just like ACC's existing student organizations."
+                </blockquote>
+            </div>
+
+            <div class="qa-item">
+                <h4>Why Students Not Faculty?</h4>
+                <blockquote>
+                    "We're not replacing faculty leadership — we're partnering with it. Students bring authentic demand signals, peer learning credibility, and the energy to activate existing resources like Austin AI Alliance in ways that pure faculty initiatives can't."
+                </blockquote>
+            </div>
+
+            <div class="qa-item">
+                <h4>Equity Concerns</h4>
+                <blockquote>
+                    "All majors welcome, not just CS students. Free workshops remove financial barriers. Multi-campus events ensure access. Peer-led model means students teach students in accessible language, not intimidating jargon."
+                </blockquote>
+            </div>
+
+            <div class="qa-item">
+                <h4>Tool Access Concerns</h4>
+                <blockquote>
+                    "We're proposing the same model ACC uses for Adobe Creative Cloud and Office 365 — institutional licenses that give students professional tools for learning. This isn't luxury access — it's workforce preparation for a $70K-90K entry-level job market."
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="checklist">
+            <h3>✅ Pre-Presentation Checklist</h3>
+
+            <div class="checklist-group">
+                <h4>Technical Setup</h4>
+                <ul>
+                    <li>Open slide deck in browser (link at top of page)</li>
+                    <li>Test keyboard controls (arrow keys, space, N for notes)</li>
+                    <li>Check speaker notes toggle (press N)</li>
+                    <li>Verify slides display correctly (all 12 slides)</li>
+                    <li>Connect laptop to projector and test display</li>
+                </ul>
+            </div>
+
+            <div class="checklist-group">
+                <h4>Content Preparation</h4>
+                <ul>
+                    <li>Print this script for reference</li>
+                    <li>Print quick reference card (see below)</li>
+                    <li>Memorize opening and closing (slides 1 and 12)</li>
+                    <li>Practice slide 6 (committee charges) — most complex</li>
+                    <li>Review Q&A responses</li>
+                </ul>
+            </div>
+
+            <div class="checklist-group">
+                <h4>Mental Preparation</h4>
+                <ul>
+                    <li>You're proposing partnership, not asking permission</li>
+                    <li>You're the technical expert (only one in room)</li>
+                    <li>You have 250K+ words of evidence backing this</li>
+                    <li>Your charges complete theirs, not compete</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Reference Card -->
+        <div class="reference-card">
+            <h3>📱 Quick Reference Card (Print on Index Card)</h3>
+            <pre>
+SLIDE DECK LINK:
+https://onebrownguy.github.io/acc-ai-engineering-proposal
+    /presentation/ACC_AI_Innovation_Society_Pitch_Deck.html
+
+KEY NUMBERS:
+• 120+ Austin AI Alliance companies
+• $48K-80K first year investment
+• 50+ target members, 80% satisfaction
+• 10+ events per semester
+• $120K-180K career salaries
+
+COALITION ALLIES:
+• Manuel Duran (Dean - KEY)
+• Marisa Mendoza (workforce)
+• Shih-Ting Lee (industry)
+• Ron Johns (gen ed)
+• Keri Moczygemba (equity)
+
+KEYBOARD CONTROLS:
+• Space / Arrow → Navigate
+• N → Toggle notes
+            </pre>
+        </div>
+
+        <!-- Delivery Tips -->
+        <div class="tips-section">
+            <h3>🎤 Delivery Tips</h3>
+
+            <div class="tip-item">
+                <h4>Pacing</h4>
+                <ul>
+                    <li>Speak confidently — you're proposing student leadership, embody it</li>
+                    <li>Pause after key phrases: "steering our narrative", "students are ready to lead"</li>
+                    <li>Don't rush the committee charges slide (Slide 6) — it's your coalition builder</li>
+                </ul>
+            </div>
+
+            <div class="tip-item">
+                <h4>Body Language</h4>
+                <ul>
+                    <li>Stand confidently, make eye contact with committee members</li>
+                    <li>Gesture naturally when emphasizing "all majors", "student voice"</li>
+                    <li>Focus on Manuel Duran, Marisa Mendoza, Shih-Ting Lee during their charges</li>
+                </ul>
+            </div>
+
+            <div class="tip-item">
+                <h4>Digital Presentation</h4>
+                <ul>
+                    <li>Use keyboard (space bar) to advance — smoother than clicking</li>
+                    <li>Toggle speaker notes (N key) if you need a reminder</li>
+                    <li>If technical issues occur, have backup: printed slides or talk from script</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px 0; border-top: 2px solid var(--border-color); margin-top: 60px;">
+            <p style="font-size: 1.5rem; color: var(--acc-purple); font-weight: bold; margin-bottom: 20px;">
+                💡 Final Thought
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: var(--text-dark);">
+                You're not just pitching a club. You're proposing <strong>student leadership</strong> in ACC's AI transformation.<br><br>
+                You're showing that students aren't just future stakeholders — <strong>we're present leaders</strong>.<br><br>
+                <strong>You've got the research. You've got the plan. You've got the coalition.</strong><br><br>
+                Now execute with confidence.<br><br>
+                <strong style="color: var(--acc-purple); font-size: 1.3rem;">Let's steer our narrative together. 🚀</strong>
+            </p>
+            <p style="margin-top: 30px; font-size: 0.9rem; color: var(--text-light);">
+                <strong>Last Updated:</strong> October 15, 2025<br>
+                <strong>Presentation Date:</strong> October 17, 2025 (Friday)<br>
+                <strong>Repository:</strong> <a href="https://github.com/onebrownguy/acc-ai-engineering-proposal" style="color: var(--acc-purple);">github.com/onebrownguy/acc-ai-engineering-proposal</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
