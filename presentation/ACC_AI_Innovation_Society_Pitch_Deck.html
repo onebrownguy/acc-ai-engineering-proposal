@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC AI Innovation Society - Committee Pitch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1e293b;
+            color: white;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 80px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Slide 1 - Title */
+        .slide-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .slide-1 h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-1 .subtitle {
+            font-size: 2rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .slide-1 .meta {
+            font-size: 1.3rem;
+            opacity: 0.85;
+            margin-top: 60px;
+        }
+
+        /* Slide 2 - Student Opportunity */
+        .slide-2 {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .slide-2 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .opportunity-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .opportunity-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .opportunity-card p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 3 - The Gap */
+        .slide-3 {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .slide-3 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .gap-visual {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            gap: 40px;
+        }
+
+        .gap-box {
+            flex: 1;
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .gap-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .gap-box p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .arrow {
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        /* Slide 4 - Vision */
+        .slide-4 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            text-align: center;
+        }
+
+        .slide-4 h1 {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+        }
+
+        .vision-statement {
+            font-size: 2rem;
+            line-height: 1.8;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            background: rgba(255,255,255,0.15);
+            padding: 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Slide 5 - What We Are */
+        .slide-5 {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+
+        .slide-5 h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .what-we-are-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 6 - Committee Charges */
+        .slide-6 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .slide-6 h1 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+        }
+
+        .charges-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .charge-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .charge-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fbbf24;
+        }
+
+        .charge-item p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Slide 7 - Year 1 Activities */
+        .slide-7 {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .slide-7 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .activity-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .activity-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 8 - Infrastructure */
+        .slide-8 {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .slide-8 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .infra-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .infra-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .infra-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 9 - The Ask */
+        .slide-9 {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .slide-9 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .ask-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .ask-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .ask-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .ask-card ul {
+            list-style: none;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .ask-card li::before {
+            content: '✓ ';
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Slide 10 - Success Metrics */
+        .slide-10 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .slide-10 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .metric-card {
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .metric-card .number {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .metric-card .label {
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
+
+        /* Slide 11 - Bigger Picture */
+        .slide-11 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            text-align: center;
+        }
+
+        .slide-11 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .vision-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .vision-box {
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .vision-box .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .vision-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .vision-box p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 12 - Call to Action */
+        .slide-12 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .slide-12 h1 {
+            font-size: 4rem;
+            margin-bottom: 50px;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.15);
+            padding: 60px;
+            border-radius: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #fbbf24;
+        }
+
+        .cta-box p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Speaker Notes */
+        .speaker-notes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            padding: 20px 40px;
+            color: #fbbf24;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            z-index: 999;
+        }
+
+        .speaker-notes.show {
+            display: block;
+        }
+
+        .notes-toggle {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+        }
+
+        @media print {
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                position: relative;
+                height: 100vh;
+            }
+            .nav-buttons, .slide-counter, .notes-toggle, .speaker-notes {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="notes-toggle" onclick="toggleNotes()">Toggle Speaker Notes</button>
+
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <div class="slide slide-1 active">
+            <h1>🚀 ACC AI Innovation Society</h1>
+            <p class="subtitle">By Students, For Students</p>
+            <p class="subtitle" style="font-size: 1.5rem;">Steering ACC's AI Narrative Together</p>
+            <div class="meta">
+                <p>AI Implementation Steering Committee Pitch</p>
+                <p>October 17, 2025</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Student Opportunity -->
+        <div class="slide slide-2">
+            <h1>💡 The Student Opportunity</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 30px;">Students across ALL backgrounds want to be part of the AI movement.</p>
+
+            <div class="opportunity-grid">
+                <div class="opportunity-card">
+                    <h3>🎓 Technical Students</h3>
+                    <p>CS, Software Dev, LAN Admin students want hands-on AI engineering skills to compete for $120K-180K careers</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>💼 Business Students</h3>
+                    <p>Future managers need to understand AI's impact on finance, marketing, operations, and strategy</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>🎨 Creative Students</h3>
+                    <p>Arts, Media, Design students exploring AI tools for content creation, video editing, and immersive experiences</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>🏥 Health Sciences</h3>
+                    <p>Future healthcare workers encountering AI in diagnostics, patient care, and medical records</p>
+                </div>
+            </div>
+
+            <p style="font-size: 1.8rem; margin-top: 50px; text-align: center; font-weight: bold;">
+                A successful person sees where the opportunity lies ahead. Students are ready to lead.
+            </p>
+        </div>
+
+        <!-- Slide 3: The Gap -->
+        <div class="slide slide-3">
+            <h1>⚠️ The Gap: Missing Student Voice</h1>
+
+            <div class="gap-visual">
+                <div class="gap-box">
+                    <h2>40+ Committee Members</h2>
+                    <p>Faculty, administrators, IT professionals, deans, associate vice chancellors</p>
+                    <p style="margin-top: 20px; font-weight: bold;">Policy makers and implementers</p>
+                </div>
+
+                <div class="arrow">❌</div>
+
+                <div class="gap-box">
+                    <h2>0 Student Representatives</h2>
+                    <p>Students are recipients of policy decisions, not partners in shaping them</p>
+                    <p style="margin-top: 20px; font-weight: bold;">No organized student voice</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; background: rgba(255,255,255,0.15); padding: 40px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.8rem; line-height: 1.8;">
+                    <strong>Students need a seat at the table.</strong><br>
+                    Not just to receive guidance, but to steer our own narrative with AI at ACC.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 4: Our Vision -->
+        <div class="slide slide-4">
+            <h1>🎯 Our Vision</h1>
+
+            <div class="vision-statement">
+                <p style="font-size: 2.5rem; font-weight: bold; margin-bottom: 30px;">
+                    ACC's First Inclusive Student-Led AI Committee
+                </p>
+                <p>
+                    We propose creating the <strong>ACC AI Innovation Society</strong> — a Student Life registered
+                    organization that empowers students across ALL academic backgrounds to participate in ACC's AI transformation.
+                </p>
+                <p style="margin-top: 30px;">
+                    Not just implementing committee charges.<br>
+                    <strong style="font-size: 2.2rem; color: #fbbf24;">Steering our future with AI.</strong>
+                </p>
+            </div>
+
+            <p style="font-size: 1.5rem; margin-top: 40px;">
+                By creating this inclusive committee by students, for students, we begin to take ownership of how AI shapes our education and careers.
+            </p>
+        </div>
+
+        <!-- Slide 5: What We Are -->
+        <div class="slide slide-5">
+            <h1>🏛️ ACC AI Innovation Society</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 20px;">A Student Life Registered Organization with Three Pillars</p>
+
+            <div class="what-we-are-grid">
+                <div class="feature-card">
+                    <div class="icon">🎓</div>
+                    <h3>Learning Community</h3>
+                    <p>Peer-led workshops, study groups, and project showcases where students teach students</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤝</div>
+                    <h3>Industry Bridge</h3>
+                    <p>Student liaison to Austin AI Alliance (120+ companies) for mentorships, site visits, and career pathways</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Implementation Vehicle</h3>
+                    <p>Student-led execution of committee charges — proving concepts before institution-wide investment</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.15); padding: 30px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.4rem;">
+                    <strong>Open to all majors:</strong> Computer Science, Business, Liberal Arts, Health Sciences,
+                    Design, Engineering, Social Services — everyone welcome.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Committee Charges -->
+        <div class="slide slide-6">
+            <h1>✅ Addressing 5 Committee Charges</h1>
+
+            <div class="charges-list">
+                <div class="charge-item">
+                    <h3>1. Marisa Mendoza - Workforce Preparation</h3>
+                    <p><strong>Student Org Solution:</strong> Monthly workshops on AI tools Austin companies use (discovered through Alliance partnerships). Peer-led training supplements faculty instruction.</p>
+                </div>
+
+                <div class="charge-item">
+                    <h3>2. Shih-Ting Lee - Industry Partnerships</h3>
+                    <p><strong>Student Org Solution:</strong> Official student liaison to Austin AI Alliance (120+ companies). Coordinates mentorship matching, site visits, portfolio reviews.</p>
+                </div>
+
+                <div class="charge-item">
+                    <h3>3. Ron Johns - Gen Ed AI Competency</h3>
+                    <p><strong>Student Org Solution:</strong> "AI Literacy" workshops for non-technical students (all majors). Creates peer learning environment supporting future gen ed requirement.</p>
+                </div>
+
+                <div class="charge-item">
+                    <h3>4. Manuel Duran - Implementation & National Leadership</h3>
+                    <p><strong>Student Org Solution:</strong> Student org members = first pilot cohort for tool access (30-50 students). Provides immediate implementation vehicle with built-in evaluation metrics.</p>
+                </div>
+
+                <div class="charge-item">
+                    <h3>5. Keri Moczygemba - Equity & Accessibility</h3>
+                    <p><strong>Student Org Solution:</strong> Free peer-led workshops, shared resources, equitable tool access. Multi-campus events ensure all students can participate.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Year 1 Activities -->
+        <div class="slide slide-7">
+            <h1>📅 Year 1 Activities Plan</h1>
+
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <h3>🎓 Weekly AI Workshops</h3>
+                    <p>Peer-led sessions covering prompt engineering, RAG systems, AI tools for different majors. All skill levels welcome. Free and open to all ACC students.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🏢 Monthly Industry Speaker Series</h3>
+                    <p>Austin AI Alliance companies present real-world AI applications. Q&A sessions, networking, career insights. Hosted at CGCS facility.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🎨 Semester Portfolio Showcases</h3>
+                    <p>Students present AI projects to peers and industry professionals. Portfolio review feedback, hiring pipeline connections, celebration of student work.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>🤝 Peer Mentorship Program</h3>
+                    <p>Upper-level students mentor beginners. Study groups for AI courses. Collaborative learning environment where everyone teaches and learns.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px;">
+                <p style="font-size: 1.4rem;">
+                    <strong>Target:</strong> 10+ events per semester | 50+ registered members | 80% satisfaction rating
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Infrastructure -->
+        <div class="slide slide-8">
+            <h1>🏗️ Leveraging Existing Infrastructure</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 20px;">We're not asking ACC to build new systems. We activate what already exists.</p>
+
+            <div class="infrastructure-grid">
+                <div class="infra-card">
+                    <h3>🏛️ CGCS Facility</h3>
+                    <p><strong>Location:</strong> Rio Grande Campus, Building 3000</p>
+                    <p style="margin-top: 15px;"><strong>Current Use:</strong> Civic hackathons, simulation labs</p>
+                    <p style="margin-top: 15px;"><strong>Our Use:</strong> Weekly meetings, workshops, industry showcases</p>
+                    <p style="margin-top: 15px; color: #fbbf24;"><strong>Partnership:</strong> Bryan Port (CGCS Director)</p>
+                </div>
+
+                <div class="infra-card">
+                    <h3>🤝 Austin AI Alliance</h3>
+                    <p><strong>ACC Membership:</strong> Full Member (501c6 consortium)</p>
+                    <p style="margin-top: 15px;"><strong>Network:</strong> 120+ companies, nonprofits, institutions</p>
+                    <p style="margin-top: 15px;"><strong>Our Role:</strong> Student liaison activating member company mentorships</p>
+                    <p style="margin-top: 15px; color: #fbbf24;"><strong>Opportunity:</strong> Working group seats for students</p>
+                </div>
+
+                <div class="infra-card">
+                    <h3>✅ Proven Model</h3>
+                    <p><strong>Scale AI Hackathon (2023):</strong> ACC partnered with Scale AI for student AI event</p>
+                    <p style="margin-top: 15px;"><strong>Success:</strong> Students + industry + real AI tools</p>
+                    <p style="margin-top: 15px;"><strong>Our Model:</strong> Transform one-off events into semester-long programs</p>
+                    <p style="margin-top: 15px; color: #fbbf24;"><strong>Template:</strong> Proven we can execute</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center; background: rgba(255,255,255,0.15); padding: 30px; border-radius: 12px;">
+                <p style="font-size: 1.5rem;">
+                    <strong>Strategic Positioning:</strong> We maximize ROI on ACC's existing investments by creating systematic student access.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: The Ask -->
+        <div class="slide slide-9">
+            <h1>💼 What We're Asking For</h1>
+
+            <div class="ask-grid">
+                <div class="ask-card">
+                    <h3>Official Support</h3>
+                    <ul>
+                        <li>Committee endorsement for Student Life registration</li>
+                        <li>Faculty Advisor assignment (recommend: Manuel Duran or Professor Watkins)</li>
+                        <li>CGCS facility access partnership</li>
+                        <li>Introduction to Austin AI Alliance for student liaison role</li>
+                    </ul>
+                </div>
+
+                <div class="ask-card">
+                    <h3>Strategic Guidance</h3>
+                    <ul>
+                        <li>Quarterly check-ins with committee leadership</li>
+                        <li>Insight on institutional AI priorities</li>
+                        <li>Feedback on student org initiatives</li>
+                        <li>Connections to relevant stakeholders</li>
+                    </ul>
+                </div>
+
+                <div class="ask-card">
+                    <h3>Pilot Funding</h3>
+                    <ul>
+                        <li><strong>Tool Access:</strong> $45,000-75,000 for 30-50 student members (AI APIs, vector databases, cloud credits)</li>
+                        <li><strong>Events:</strong> $3,000-5,000/year (speakers, materials, food)</li>
+                        <li>Student org members = first pilot cohort proving demand</li>
+                    </ul>
+                </div>
+
+                <div class="ask-card">
+                    <h3>Timeline</h3>
+                    <ul>
+                        <li><strong>Nov 2025:</strong> Committee approval & Student Life registration</li>
+                        <li><strong>Jan 2026:</strong> First meeting, elect officers</li>
+                        <li><strong>Feb 2026:</strong> First event (workshop or speaker)</li>
+                        <li><strong>Spring 2026:</strong> Monthly programming + pilot tool access</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center; background: rgba(255,255,255,0.15); padding: 30px; border-radius: 12px;">
+                <p style="font-size: 1.5rem;">
+                    <strong>Total First-Year Investment:</strong> $48,000-80,000 | <strong>Impact:</strong> 50+ students directly, 200+ through events
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 10: Success Metrics -->
+        <div class="slide slide-10">
+            <h1>📊 How We Measure Success</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 30px;">Student involvement is the primary metric. If students show up and engage, we're succeeding.</p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="number">50+</div>
+                    <div class="label">Registered Student Members by Spring 2026</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">80%</div>
+                    <div class="label">Event Satisfaction Rating (post-event surveys)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">30+</div>
+                    <div class="label">Active Participants Attending Regularly</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">10+</div>
+                    <div class="label">Events Hosted Per Semester</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">3+</div>
+                    <div class="label">Campuses Represented (Equity Metric)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">15+</div>
+                    <div class="label">Student Portfolios Completed (if tool access approved)</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center; background: rgba(255,255,255,0.15); padding: 30px; border-radius: 12px;">
+                <p style="font-size: 1.5rem;">
+                    <strong>Long-term indicator:</strong> Waitlist for membership proves demand exceeds capacity → justifies scaling investment
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: Bigger Picture -->
+        <div class="slide slide-11">
+            <h1>🌟 The Bigger Picture</h1>
+
+            <div class="vision-boxes">
+                <div class="vision-box">
+                    <div class="icon">🏆</div>
+                    <h3>National Leadership</h3>
+                    <p>ACC becomes the first community college with a thriving student-led AI organization. Model for institutions nationwide.</p>
+                </div>
+
+                <div class="vision-box">
+                    <div class="icon">🎓</div>
+                    <h3>Student Agency</h3>
+                    <p>Students aren't just learning about AI — we're shaping how ACC integrates AI into education and careers.</p>
+                </div>
+
+                <div class="vision-box">
+                    <div class="icon">💼</div>
+                    <h3>Career Outcomes</h3>
+                    <p>ACC students compete for $120K-180K AI careers with portfolios, mentorships, and real-world experience.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; background: rgba(255,255,255,0.15); padding: 50px; border-radius: 20px;">
+                <p style="font-size: 2rem; line-height: 1.8;">
+                    This isn't just a student club.<br>
+                    <strong style="font-size: 2.5rem; color: #fbbf24;">It's students taking ownership of our AI future at ACC.</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 12: Call to Action -->
+        <div class="slide slide-12">
+            <h1>🚀 Let's Build This Together</h1>
+
+            <div class="cta-box">
+                <h2>Students are ready to lead.</h2>
+                <p style="margin-bottom: 30px;">
+                    The demand exists across all majors. The infrastructure is in place. The opportunity is clear.
+                </p>
+
+                <p style="font-size: 2rem; margin: 40px 0; color: #fbbf24; font-weight: bold;">
+                    We're asking for your endorsement, guidance, and investment to prove this model works.
+                </p>
+
+                <p style="margin-top: 40px;">
+                    By creating ACC's first inclusive student-led AI committee, we demonstrate that students aren't
+                    just the future of AI at ACC — <strong>we're leading it today.</strong>
+                </p>
+
+                <p style="margin-top: 50px; font-size: 2.5rem; font-weight: bold;">
+                    Let's steer our narrative together.
+                </p>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <p style="font-size: 1.4rem;">Questions? Discussion? Let's talk about how we make this real.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">12</span>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="prevSlide()">← Previous</button>
+        <button class="nav-button" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <div class="speaker-notes" id="speaker-notes"></div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 12;
+
+        const speakerNotes = {
+            1: "OPENING (30 seconds): Welcome everyone. I'm here to propose something that addresses a critical gap in ACC's AI strategy — student voice and leadership. This is ACC AI Innovation Society.",
+            2: "STUDENT DEMAND (45 seconds): Students across ALL backgrounds want AI involvement. Technical students need skills for $120K-180K careers. Business students need to understand AI strategy. Creative students explore AI tools. Health sciences students encounter AI in healthcare. A successful person sees opportunity ahead. Students are READY to lead this movement.",
+            3: "THE GAP (30 seconds): We have 40+ committee members — faculty, administrators, deans, IT professionals. But ZERO organized student representation. Students receive policy, we don't shape it. We need a seat at the table to steer our own narrative with AI.",
+            4: "OUR VISION (45 seconds): We propose ACC AI Innovation Society — the first inclusive student-led AI committee by students, for students. Not just implementing your charges. STEERING our future with AI. Taking ownership of how AI shapes our education and careers.",
+            5: "WHAT WE ARE (30 seconds): Three pillars: Learning Community (peer-led workshops), Industry Bridge (student liaison to Austin AI Alliance's 120+ companies), and Implementation Vehicle (executing committee charges). Open to ALL majors.",
+            6: "COMMITTEE ALIGNMENT (1 minute): We specifically address 5 committee charges: Marisa's workforce prep through workshops. Shih-Ting's industry partnerships through Alliance liaison. Ron's gen ed competency through literacy workshops. Manuel's pilot implementation — we're the cohort. Keri's equity through free multi-campus access.",
+            7: "YEAR 1 ACTIVITIES (30 seconds): Weekly workshops, monthly industry speakers, semester showcases, peer mentorship. Target: 10+ events, 50+ members, 80% satisfaction. Real programming, measurable outcomes.",
+            8: "INFRASTRUCTURE LEVERAGE (30 seconds): We activate existing investments — CGCS facility (Building 3000), Austin AI Alliance membership (120+ companies), Scale AI partnership model. We're not asking you to build new — we maximize ROI on what exists.",
+            9: "THE ASK (45 seconds): Official endorsement for Student Life registration. Faculty advisor (recommend Manuel Duran). CGCS access. Alliance introduction. Strategic guidance. Pilot funding: $48K-80K first year for tool access (30-50 students) plus events. Timeline: Approval Nov 2025, Launch Jan 2026.",
+            10: "SUCCESS METRICS (30 seconds): Student involvement is the metric. 50+ members, 80% satisfaction, 30+ active participants, 10+ events per semester, 3+ campuses represented. Long-term: waitlist proves demand exceeds capacity.",
+            11: "BIGGER PICTURE (30 seconds): ACC becomes first community college with thriving student-led AI org. National model. Students have agency shaping AI integration. Career outcomes: students compete for high-paying AI careers with portfolios and experience.",
+            12: "CLOSING (30 seconds): Students are ready to lead. Demand exists. Infrastructure is ready. Opportunity is clear. We're asking for endorsement, guidance, and investment to prove this works. Let's steer our narrative TOGETHER. Questions?"
+        };
+
+        function updateSlide() {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.querySelector(`.slide-${currentSlide}`).classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide;
+            document.getElementById('speaker-notes').textContent = speakerNotes[currentSlide] || '';
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function toggleNotes() {
+            document.getElementById('speaker-notes').classList.toggle('show');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'n' || e.key === 'N') {
+                toggleNotes();
+            }
+        });
+
+        document.getElementById('total-slides').textContent = totalSlides;
+    </script>
+</body>
+</html>

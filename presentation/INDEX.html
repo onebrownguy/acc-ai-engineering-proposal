@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC AI Engineering Program - Complete Documentation Index</title>
+    <style>
+        :root {
+            --acc-purple: #512888;
+            --acc-orange: #FF6A13;
+            --acc-light-purple: #7B4BA3;
+            --acc-dark-purple: #3A1C5F;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --bg-white: #FFFFFF;
+            --border-color: #E0E0E0;
+            --success: #22c55e;
+            --info: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-dark-purple) 100%);
+            color: white;
+            padding: 3rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            background: var(--acc-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-light-purple) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(81, 40, 136, 0.2);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        /* Document Categories */
+        .doc-category {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--acc-orange);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--acc-orange) 0%, #FF8A3D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .category-title h2 {
+            color: var(--acc-purple);
+            font-size: 1.75rem;
+            margin: 0;
+        }
+
+        .category-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Document Cards */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .doc-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--acc-purple);
+        }
+
+        .doc-card:hover {
+            box-shadow: 0 8px 24px rgba(81, 40, 136, 0.15);
+            transform: translateY(-2px);
+            border-color: var(--acc-purple);
+        }
+
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .doc-title {
+            flex: 1;
+        }
+
+        .doc-title h3 {
+            color: var(--acc-purple);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+
+        .doc-badge {
+            background: var(--acc-light-purple);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-badge.html {
+            background: var(--success);
+        }
+
+        .doc-badge.md {
+            background: var(--info);
+        }
+
+        .read-time {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .doc-desc {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .doc-highlights {
+            background: linear-gradient(to right, #F9FAFB, #F3F4F6);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .doc-highlights strong {
+            color: var(--acc-purple);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .doc-highlights ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .doc-highlights li {
+            margin: 0.25rem 0;
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--acc-purple);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--acc-dark-purple);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(81, 40, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--acc-purple);
+            border: 2px solid var(--acc-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--acc-purple);
+            color: white;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: linear-gradient(to right, #FFF3E0, #FFE0B2);
+            border-left: 4px solid var(--acc-orange);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .quick-links h3 {
+            color: var(--acc-orange);
+            margin-bottom: 1rem;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .quick-link {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: var(--acc-purple);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        footer {
+            background: var(--acc-dark-purple);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           INTELLIGENT LINK SYSTEM - Visual Affordances
+           ============================================ */
+
+        /* Override base link styling for better affordances */
+        a {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a:hover {
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        a:active {
+            transform: scale(0.98);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--acc-orange);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Internal navigation links with orange arrow */
+        a[href^="#"]::after {
+            content: " →";
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--acc-orange);
+            font-weight: 700;
+        }
+
+        a[href^="#"]:hover::after {
+            opacity: 1;
+        }
+
+        /* Document links with icons */
+        a[href$=".html"]::before {
+            content: "📄 ";
+            font-size: 0.9em;
+            margin-right: 0.25em;
+        }
+
+        a[href$=".md"]::before {
+            content: "📝 ";
+            font-size: 0.9em;
+            margin-right: 0.25em;
+        }
+
+        a[href$=".html"]::after,
+        a[href$=".md"]::after {
+            content: " ↗";
+            opacity: 0.6;
+            font-size: 0.85em;
+            margin-left: 0.25em;
+            transition: opacity 0.3s;
+        }
+
+        a[href$=".html"]:hover::after,
+        a[href$=".md"]:hover::after {
+            opacity: 1;
+        }
+
+        /* Button enhancements */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary::after {
+            content: " →";
+            transition: margin 0.3s;
+        }
+
+        .btn-primary:hover::after {
+            margin-left: 0.25rem;
+        }
+
+        /* Quick link card arrows */
+        .quick-link::before {
+            content: "→";
+            position: absolute;
+            right: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s, right 0.3s;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .quick-link:hover::before {
+            opacity: 1;
+            right: 0.5rem;
+        }
+
+        /* Doc card click indicators */
+        .doc-card::after {
+            content: "Click to view →";
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            opacity: 0;
+            color: var(--acc-orange);
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .doc-card:hover::after {
+            opacity: 1;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            a {
+                text-decoration-thickness: 2px;
+            }
+            a:hover {
+                text-decoration-thickness: 3px;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            a, .btn, .quick-link, .doc-card {
+                transition: none;
+            }
+            a::after, .btn::after, .quick-link::before {
+                transition: none;
+            }
+        }
+
+        /* Mobile touch targets */
+        @media (max-width: 768px) {
+            .btn {
+                min-height: 48px;
+                padding: 12px 20px;
+            }
+            .quick-link {
+                min-height: 60px;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>ACC AI Engineering Program</h1>
+            <p class="header-subtitle">Complete Documentation Package - Committee Review</p>
+            <div class="badge">Friday, October 17, 2025 - Meeting Ready</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Documentation</div>
+                <div class="stat-value">250K+</div>
+                <div class="stat-label">Words Verified Oct 14, 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Documents Created</div>
+                <div class="stat-value">20+</div>
+                <div class="stat-label">Reports + Verification</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Year 1 ROI</div>
+                <div class="stat-value">10-54%</div>
+                <div class="stat-label">$9.9K-$53.7K Profit</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Coalition Allies</div>
+                <div class="stat-value">8</div>
+                <div class="stat-label">Key Supporters</div>
+            </div>
+        </div>
+
+        <!-- Quick Links for Friday -->
+        <div class="quick-links">
+            <h3>🚀 Quick Start for Friday's Meeting</h3>
+            <div class="quick-links-grid">
+                <a href="Executive_Summary_Integration.html" class="quick-link">📊 Executive Summary (Start Here)</a>
+                <a href="Committee_Charges_Comparative_Analysis.html" class="quick-link">🤝 Coalition Strategy & Member Analysis</a>
+                <a href="Course_1_Syllabus_Prompt_Engineering_Fundamentals.md" class="quick-link">📚 Course 1 Full Syllabus</a>
+                <a href="#talking-points" class="quick-link">💬 5-Minute Pitch Talking Points</a>
+            </div>
+        </div>
+
+        <!-- Category 1: Committee-Ready HTML Documents -->
+        <div class="doc-category">
+            <div class="category-header">
+                <div class="category-icon">📊</div>
+                <div class="category-title">
+                    <h2>Committee-Ready Documents (HTML - Visual)</h2>
+                    <p class="category-desc">Interactive HTML versions optimized for committee review - open in browser for best experience</p>
+                </div>
+            </div>
+
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Executive Summary & Integration</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge html">HTML</span>
+                            <span class="read-time">📖 25 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Decision-ready summary consolidating all 5 research documents. Includes budget, timeline, comparisons, risks, success metrics, and talking points for Friday's pitch.</p>
+                    <div class="doc-highlights">
+                        <strong>Key Sections:</strong>
+                        <ul>
+                            <li>3-Charge Integration (how they work together)</li>
+                            <li>Budget Consolidation ($95.9K cost, $105.9K revenue, 10% ROI conservative; $152.6K/54% aggressive)</li>
+                            <li>ACC vs. Bootcamps vs. UT Austin comparisons</li>
+                            <li>Risk assessment with 6 risks & mitigations</li>
+                            <li>Committee decision framework</li>
+                            <li>5-minute pitch talking points (updated with verified data)</li>
+                            <li>📚 Sources section with all citations (October 14, 2025)</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Executive_Summary_Integration.html" class="btn btn-primary">📊 Open HTML Version</a>
+                        <a href="Executive_Summary_Integration.md" class="btn btn-secondary">📄 Markdown Backup</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Committee Charges Comparative Analysis</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge html">HTML</span>
+                            <span class="read-time">📖 20 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc"><strong>CRITICAL FOR FRIDAY:</strong> Analysis of all 40+ committee members' charges mapped against your 3-charge proposal. Shows coalition opportunities and strategic positioning.</p>
+                    <div class="doc-highlights">
+                        <strong>Strategic Insights:</strong>
+                        <ul>
+                            <li><strong>ZERO COMPETITION:</strong> You're the only technical implementation</li>
+                            <li><strong>8 Coalition Allies Identified:</strong> Manuel Duran (key!), Theresa Glenn, Marisa Mendoza, + 5 others</li>
+                            <li>Charge categories: 7 Aligned, 10 Complementary, 7 Orthogonal, 12 No charges</li>
+                            <li>What changed: Original idea → 100K word implementation</li>
+                            <li>Pre-meeting coalition strategy with talking points</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Committee_Charges_Comparative_Analysis.html" class="btn btn-primary">🤝 Open HTML Version</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2: Detailed Research (Markdown) -->
+        <div class="doc-category">
+            <div class="category-header">
+                <div class="category-icon">🔬</div>
+                <div class="category-title">
+                    <h2>Detailed Research Documents (Markdown - Reference)</h2>
+                    <p class="category-desc">Comprehensive research backing the proposal - use as reference for detailed questions</p>
+                </div>
+            </div>
+
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Curriculum Landscape Research</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 40 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">45 pages of industry and academic validation. Analyzes 10+ peer institutions, industry training programs, certifications, tool pricing, and job market data.</p>
+                    <div class="doc-highlights">
+                        <strong>Research Conducted:</strong>
+                        <ul>
+                            <li>Industry training (OpenAI, Anthropic, DeepLearning.AI)</li>
+                            <li>University curricula (Stanford, Berkeley, MIT, UW)</li>
+                            <li>10+ community colleges benchmarked</li>
+                            <li>Job market analysis (2,000+ Austin AI jobs verified Oct 14, 2025)</li>
+                            <li>Tool pricing & cost optimization strategies (verified from vendor websites)</li>
+                            <li>Recommendation: $42-54/student verified cost (OpenAI, Anthropic, Pinecone)</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Curriculum_Landscape_Research.md" class="btn btn-primary">📖 Read Research</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Tool Access Program Catalog</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 30 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc"><strong>Charge 1 Implementation.</strong> Complete tool catalog with 6 categories, 3-tier access model, governance framework, and vendor negotiation strategies.</p>
+                    <div class="doc-highlights">
+                        <strong>Components:</strong>
+                        <ul>
+                            <li>6 tool categories (APIs, vector DBs, cloud, dev environments, MLOps, local AI)</li>
+                            <li>3 access tiers: Free / $50/year / $200/year</li>
+                            <li>Governance: Acceptable use, monitoring, security</li>
+                            <li>Budget scenarios: Minimal, balanced, premium</li>
+                            <li>Year 1 budget: $13,500 for 150 students</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Tool_Access_Program_Catalog.md" class="btn btn-primary">🛠️ Read Catalog</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Course 1 Syllabus - Prompt Engineering Fundamentals</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 60 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc"><strong>Charge 2 Implementation (Part 1).</strong> Faculty-ready 15-week syllabus with week-by-week plans, 3 portfolio projects, grading rubrics, and 5 appendices.</p>
+                    <div class="doc-highlights">
+                        <strong>Includes:</strong>
+                        <ul>
+                            <li>15-week detailed schedule (topics, labs, readings)</li>
+                            <li>3 portfolio projects (writing assistant, code docs, Q&A system)</li>
+                            <li>Grading rubrics (6-criteria for projects, simple for labs)</li>
+                            <li>Unique AI use policy (required but cited)</li>
+                            <li>5 appendices (sample assignment, README template, welcome email, calendar, AI citation)</li>
+                            <li><strong>Can be taught immediately</strong> - fully prepared</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Course_1_Syllabus_Prompt_Engineering_Fundamentals.md" class="btn btn-primary">📚 Read Syllabus</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Courses 2 & 3 Frameworks</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 45 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc"><strong>Charge 2 Implementation (Part 2).</strong> High-level frameworks for Course 2 (RAG Systems) and Course 3 (AI Agents) with skill progression and career pathways.</p>
+                    <div class="doc-highlights">
+                        <strong>Course Frameworks:</strong>
+                        <ul>
+                            <li>Course 2 (RAG): 5 modules, 3 projects, advanced techniques (hybrid search, RAGAS evaluation)</li>
+                            <li>Course 3 (Agents): 5 modules, 3 projects, culminates in ACC AI Engineer Certification</li>
+                            <li>Skill progression matrix (Course 1 → 2 → 3)</li>
+                            <li>Career pathways: $50K-70K → $80K-120K → $120K-180K</li>
+                            <li>Integration table showing skill mastery across courses</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Courses_2_and_3_Frameworks.md" class="btn btn-primary">🎓 Read Frameworks</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Portfolio Project Specifications</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 40 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc"><strong>Charge 3 Implementation.</strong> Detailed specifications for all 9 portfolio projects, mentorship program structure, and ACC AI Engineer Certification requirements.</p>
+                    <div class="doc-highlights">
+                        <strong>Specifications:</strong>
+                        <ul>
+                            <li>All 9 projects fully specified with rubrics</li>
+                            <li>Mentorship program: 20+ industry mentors, 1-2 hrs/month commitment</li>
+                            <li>ACC AI Engineer Certification: Complete 3 courses + deploy 9 projects + portfolio defense</li>
+                            <li>Each project includes: Purpose, required features, tech stack, deployment, rubric, timeline</li>
+                            <li>Industry relevance: Salary impact per project</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Portfolio_Project_Specifications.md" class="btn btn-primary">💼 Read Specifications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3: Supporting Documents -->
+        <div class="doc-category">
+            <div class="category-header">
+                <div class="category-icon">📂</div>
+                <div class="category-title">
+                    <h2>Supporting Documents & Analysis</h2>
+                    <p class="category-desc">Additional context and committee member information</p>
+                </div>
+            </div>
+
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Committee Members Report (Interactive)</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge html">HTML</span>
+                            <span class="read-time">📖 Variable</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Interactive HTML dashboard with 40+ committee member profiles, filter system (rank, submission status, leadership), and coalition mapping.</p>
+                    <div class="doc-highlights">
+                        <strong>Features:</strong>
+                        <ul>
+                            <li>40+ member profiles with credentials, roles, departments</li>
+                            <li>Filter by: Rank/Hierarchy, Submission Status, Leadership Potential</li>
+                            <li>Neutral dark/grey color scheme</li>
+                            <li>Skills gap analysis: 0 of 5 leaders can build AI systems</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Committee_Members_Report.html" class="btn btn-primary">👥 View Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Your Original Charge Suggestions</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 20 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Original 3-charge proposal submitted to committee. Shows the foundation that was expanded into 100K+ words of implementation.</p>
+                    <div class="doc-highlights">
+                        <strong>Original Charges:</strong>
+                        <ul>
+                            <li>Charge 1: AI Infrastructure for Student Engagement</li>
+                            <li>Charge 2: Targeted AI Curriculum (Two Pathways)</li>
+                            <li>Charge 3: AI Career Pathways (Institutional Access)</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="Your_Charge_Suggestions.md" class="btn btn-primary">📝 Read Original</a>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-header">
+                        <div class="doc-title">
+                            <h3>Session Archive & Handoff</h3>
+                        </div>
+                        <div class="doc-meta">
+                            <span class="doc-badge md">Markdown</span>
+                            <span class="read-time">📖 30 min read</span>
+                        </div>
+                    </div>
+                    <p class="doc-desc">Complete session summary documenting the entire curriculum research journey from initial context discovery through 6 comprehensive documents.</p>
+                    <div class="doc-highlights">
+                        <strong>Session Details:</strong>
+                        <ul>
+                            <li>All 6 research phases completed chronologically</li>
+                            <li>Technical discoveries (agent token limits, cost optimization)</li>
+                            <li>Error solutions documented</li>
+                            <li>Coalition building strategy</li>
+                            <li>100,000+ words total output</li>
+                        </ul>
+                    </div>
+                    <div class="doc-actions">
+                        <a href=".claude/sessions/2025-10-14_curriculum-research/session-summary.md" class="btn btn-primary">📋 Read Archive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friday Meeting Prep -->
+        <div id="talking-points" class="doc-category" style="background: linear-gradient(to right, #F3E5F5, #FCE4EC); border-left: 4px solid var(--acc-purple);">
+            <div class="category-header" style="border-bottom-color: var(--acc-purple);">
+                <div class="category-icon" style="background: linear-gradient(135deg, var(--acc-purple) 0%, var(--acc-light-purple) 100%);">🎤</div>
+                <div class="category-title">
+                    <h2>Friday Meeting Preparation</h2>
+                    <p class="category-desc">Everything you need for a successful committee pitch</p>
+                </div>
+            </div>
+
+            <div style="padding: 1.5rem; background: white; border-radius: 8px; margin-top: 1.5rem;">
+                <h3 style="color: var(--acc-purple); margin-bottom: 1rem;">✅ Pre-Meeting Checklist</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                    <div style="padding: 1rem; background: var(--bg-light); border-radius: 6px;">
+                        <h4 style="color: var(--acc-purple); margin-bottom: 0.5rem;">📄 Documents to Bring</h4>
+                        <ul style="font-size: 0.875rem;">
+                            <li>✅ Executive Summary printed (5 pages per member)</li>
+                            <li>✅ Budget table one-pager</li>
+                            <li>✅ Comparison table (ACC vs. Bootcamps vs. UT)</li>
+                            <li>✅ Laptop with all HTML files open in tabs</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: 1rem; background: var(--bg-light); border-radius: 6px;">
+                        <h4 style="color: var(--acc-purple); margin-bottom: 0.5rem;">💬 Practice Pitch</h4>
+                        <ul style="font-size: 0.875rem;">
+                            <li>✅ 5-minute pitch rehearsed & timed</li>
+                            <li>✅ Anticipated objections prepared</li>
+                            <li>✅ Coalition talking points memorized</li>
+                            <li>✅ Budget numbers on index card</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: 1rem; background: var(--bg-light); border-radius: 6px;">
+                        <h4 style="color: var(--acc-purple); margin-bottom: 0.5rem;">🤝 Coalition Outreach</h4>
+                        <ul style="font-size: 0.875rem;">
+                            <li>✅ Email Manuel Duran (your dean - KEY)</li>
+                            <li>✅ Email Marisa Mendoza (workforce)</li>
+                            <li>✅ Email Theresa Glenn (gen ed competency)</li>
+                            <li>✅ Email Ron Johns (gen ed advocate)</li>
+                        </ul>
+                    </div>
+
+                    <div style="padding: 1rem; background: var(--bg-light); border-radius: 6px;">
+                        <h4 style="color: var(--acc-purple); margin-bottom: 0.5rem;">🧠 Mental Prep</h4>
+                        <ul style="font-size: 0.875rem;">
+                            <li>✅ You're the technical expert (only one)</li>
+                            <li>✅ You have 100K words of evidence</li>
+                            <li>✅ Your charges don't compete - they complete</li>
+                            <li>✅ $51,800 Year 1 profit (say it confidently)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(to right, #E8F5E9, #C8E6C9); border-radius: 8px; border-left: 4px solid var(--success);">
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">🎯 Your 5-Minute Pitch Structure (Updated Oct 14, 2025)</h3>
+                    <div style="font-size: 0.95rem;">
+                        <p><strong>Minute 1 - The Problem:</strong><br>
+                        "2,000+ Austin AI jobs verified October 2025. ACC students locked out: $1,500/year tools, zero RAG courses, no portfolios. UT Austin = $129K total cost + 7% acceptance. Entry-level AI roles pay $70K-90K, progressing to $100K+ in 2-3 years."</p>
+
+                        <p><strong>Minute 2 - The Solution (3 Charges):</strong><br>
+                        "Charge 1: Tools for $42-54/semester (verified vendor pricing). Charge 2: 3-course RAG-focused certificate for just $765 ACC tuition. Charge 3: 9-project portfolio + 20 industry mentors + certification."</p>
+
+                        <p><strong>Minute 3 - The Evidence (All Verified):</strong><br>
+                        "250,000+ words researched with multi-agent verification (Oct 14, 2025). 10+ CCs analyzed (none teach RAG). 2,000+ jobs across Indeed, LinkedIn, Glassdoor. 8% currently require prompt engineering, growing 32.8% annually. Committee skills gap: 0 of 5 leaders can build AI systems."</p>
+
+                        <p><strong>Minute 4 - The Business Case (Two Scenarios):</strong><br>
+                        "Conservative: $95.9K cost, $105.9K revenue, $9.9K profit (10% ROI) with 120 students Fall + Spring. Aggressive: $98.9K cost, $152.6K revenue, $53.7K profit (54% ROI) adding summer session with 180 students. Break-even at just 89 students. First CC in Texas with RAG specialization."</p>
+
+                        <p><strong>Minute 5 - The Ask + Coalition:</strong><br>
+                        "Marisa wants workforce prep - I provide it. Theresa wants gen ed - Course 1 IS that. Manuel wants national leadership - student-led is first in nation. I don't compete with your charges - I complete them. Vote YES on 3 charges: Conservative $95.9K investment for $9.9K profit Year 1, OR aggressive $98.9K for $53.7K profit. Either way: transforming ACC into Austin's AI talent pipeline with verified, sourced data."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Use This Index -->
+        <div style="background: linear-gradient(to right, #FFF3E0, #FFE0B2); border-left: 4px solid var(--acc-orange); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+            <h3 style="color: var(--acc-orange); margin-bottom: 1rem;">📖 How to Use This Documentation Package</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <h4 style="color: var(--acc-orange); margin-bottom: 0.5rem;">For Committee Members (First Time)</h4>
+                    <ol style="font-size: 0.95rem; line-height: 1.8;">
+                        <li>Start with <strong>Executive Summary</strong> (25 min) - gets you 80% of what you need</li>
+                        <li>Read <strong>Committee Charges Analysis</strong> (20 min) - see how your charge relates</li>
+                        <li>Dive into specific documents based on your interest</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--acc-orange); margin-bottom: 0.5rem;">For Faculty Review</h4>
+                    <ol style="font-size: 0.95rem; line-height: 1.8;">
+                        <li>Read <strong>Course 1 Syllabus</strong> (60 min) - faculty-ready, can teach immediately</li>
+                        <li>Review <strong>Courses 2 & 3 Frameworks</strong> (45 min) - progression pathway</li>
+                        <li>Check <strong>Tool Access Catalog</strong> (30 min) - what students need</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h4 style="color: var(--acc-orange); margin-bottom: 0.5rem;">For Deep Dive</h4>
+                    <ol style="font-size: 0.95rem; line-height: 1.8;">
+                        <li><strong>Curriculum Landscape Research</strong> (40 min) - industry validation</li>
+                        <li><strong>Portfolio Project Specs</strong> (40 min) - all 9 projects detailed</li>
+                        <li><strong>Session Archive</strong> (30 min) - complete research journey</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>ACC AI Engineering Program - Complete Documentation Index</strong></p>
+        <p>Prepared for ACC AI Implementation Steering Committee | October 17, 2025</p>
+        <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.8;">
+            100,000+ words of research across 6 comprehensive documents<br>
+            Evidence-based curriculum design, cost analysis, and implementation planning
+        </p>
+        <p style="margin-top: 1.5rem; font-size: 0.875rem;">
+            <strong>Abel Rincon</strong> | LAN Administration & Software Development AAS<br>
+            ACC AI Implementation Steering Committee - Student Technical Voice
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add visual feedback when hovering over document cards
+        document.querySelectorAll('.doc-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.borderLeftWidth = '6px';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.borderLeftWidth = '4px';
+            });
+        });
+    </script>
+</body>
+</html>

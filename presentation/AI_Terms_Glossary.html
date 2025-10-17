@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Industry Terms - Resource Guide for ACC Committee</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #22c55e;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .search-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .alphabet-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .alphabet-nav button {
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .alphabet-nav button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .alphabet-nav button.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .terms-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s;
+            border-left: 4px solid var(--primary);
+        }
+
+        .term-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .term-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .term-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .term-category {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .term-purpose {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .term-purpose h4 {
+            color: #92400e;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .term-purpose p {
+            color: #78350f;
+            margin: 0;
+        }
+
+        .definition-section {
+            margin-bottom: 15px;
+        }
+
+        .definition-section h4 {
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .technical-def {
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .simple-def {
+            background: #d1fae5;
+            padding: 12px;
+            border-radius: 6px;
+            color: #065f46;
+            font-size: 0.95rem;
+        }
+
+        .related-terms {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .related-terms h4 {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .related-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .usage-example {
+            background: #ede9fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 3px solid #8b5cf6;
+        }
+
+        .usage-example h4 {
+            color: #5b21b6;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .usage-example p {
+            color: #6b21a8;
+            margin: 0;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        .stats-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .alphabet-nav {
+                gap: 4px;
+            }
+
+            .alphabet-nav button {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 165, 233, 0.5);
+        }
+
+        @media print {
+            .search-section, .filter-tabs, .alphabet-nav, .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 AI Industry Terms - Resource Guide</h1>
+            <p>Essential terminology for ACC AI Implementation Committee members</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="totalTerms">60+</div>
+                <div class="stat-label">Terms Defined</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Non-Technical Translations</div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search terms, definitions, or examples...">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">All Terms</button>
+                <button class="filter-tab" data-category="foundational">Foundational Concepts</button>
+                <button class="filter-tab" data-category="technical">Technical Systems</button>
+                <button class="filter-tab" data-category="development">Development Tools</button>
+                <button class="filter-tab" data-category="operations">Operations & Deployment</button>
+                <button class="filter-tab" data-category="business">Business & Career</button>
+            </div>
+        </div>
+
+        <div class="alphabet-nav" id="alphabetNav">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <div class="terms-grid" id="termsGrid">
+            <!-- Terms will be dynamically inserted here -->
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print Glossary</button>
+    </div>
+
+    <footer>
+        <p>ACC AI Implementation Steering Committee Resource | October 2025</p>
+        <p>Prepared to support informed committee discussions and decision-making</p>
+    </footer>
+
+    <script>
+        const terms = [
+            {
+                term: "AI (Artificial Intelligence)",
+                category: "foundational",
+                purpose: "The foundational technology enabling computers to perform tasks that typically require human intelligence.",
+                technical: "Computer systems that can perform tasks requiring human cognitive functions through machine learning, pattern recognition, and decision-making algorithms.",
+                simple: "Software that can learn and make decisions, similar to how humans think and solve problems.",
+                usage: "\"We're using AI to help advisors provide better guidance to students by analyzing patterns in successful academic pathways.\"",
+                related: ["Machine Learning", "Deep Learning", "Neural Networks", "LLM"]
+            },
+            {
+                term: "LLM (Large Language Model)",
+                category: "foundational",
+                purpose: "The core technology behind modern AI assistants like ChatGPT, capable of understanding and generating human-like text.",
+                technical: "Neural network trained on massive text datasets to predict and generate language, typically with billions of parameters, using transformer architecture.",
+                simple: "A very smart computer program that has read millions of books and websites, so it can understand and write text almost like a human.",
+                usage: "\"Students can use an LLM to get explanations of complex concepts in their own words, making learning more accessible.\"",
+                related: ["GPT-4", "Claude", "Gemini", "Transformer", "Training", "Parameters"]
+            },
+            {
+                term: "Prompt Engineering",
+                category: "foundational",
+                purpose: "The skill of effectively communicating with AI systems to get desired results - becoming as important as programming.",
+                technical: "The systematic design and optimization of input instructions to LLMs to achieve specific, reliable outputs through techniques like few-shot learning, chain-of-thought reasoning, and role-based prompting.",
+                simple: "The art of asking AI questions the right way to get the best answers - like knowing the right questions to ask a very knowledgeable expert.",
+                usage: "\"Through prompt engineering, faculty can create AI assistants that provide consistent, accurate responses to common student questions about course policies.\"",
+                related: ["Few-Shot Learning", "Chain-of-Thought", "System Prompt", "Context Window"]
+            },
+            {
+                term: "RAG (Retrieval-Augmented Generation)",
+                category: "technical",
+                purpose: "The most common architecture for building AI systems that need to answer questions using specific documents or knowledge bases.",
+                technical: "A system that combines vector database retrieval with LLM generation, first searching relevant documents via semantic similarity, then using retrieved context to generate accurate, grounded responses.",
+                simple: "An AI system that looks up relevant information in your documents before answering, ensuring responses are based on your actual data rather than the AI's general knowledge.",
+                usage: "\"ACC could use RAG to build a chatbot that answers questions about financial aid using only official ACC policies, preventing hallucinations or incorrect advice.\"",
+                related: ["Vector Database", "Embeddings", "Semantic Search", "Chunking", "Context Injection"]
+            },
+            {
+                term: "Vector Database",
+                category: "technical",
+                purpose: "Specialized database that enables AI to find relevant information based on meaning, not just keywords.",
+                technical: "Database optimized for storing and querying high-dimensional vector embeddings, using algorithms like HNSW or IVF for approximate nearest neighbor search at scale.",
+                simple: "A smart filing system that organizes information by what it means, so AI can find relevant documents even if they use different words.",
+                usage: "\"A vector database lets our chatbot find the right policy document even if a student asks their question using completely different wording than what's in the policy.\"",
+                related: ["Embeddings", "Semantic Search", "Pinecone", "Weaviate", "Similarity Search"]
+            },
+            {
+                term: "Embeddings",
+                category: "technical",
+                purpose: "The mathematical representation that allows AI to understand meaning and similarity between text, images, or other data.",
+                technical: "Dense numerical vector representations of data (typically 384-1536 dimensions) that capture semantic meaning, enabling similarity comparisons via distance metrics like cosine similarity.",
+                simple: "Converting words and sentences into lists of numbers that capture their meaning, so computers can measure how similar different pieces of text are.",
+                usage: "\"When a student searches for 'money for college,' embeddings help the system understand they're asking about financial aid, scholarships, and grants.\"",
+                related: ["Vector Database", "Semantic Search", "Cosine Similarity", "Model Fine-tuning"]
+            },
+            {
+                term: "Agentic AI",
+                category: "technical",
+                purpose: "AI systems that can autonomously use tools and take actions to complete multi-step tasks without constant human guidance.",
+                technical: "LLM-powered systems with access to external tools (APIs, databases, code interpreters) that can plan, execute, and iterate on multi-step workflows using frameworks like ReAct or function calling.",
+                simple: "AI that can use different tools (like searching the web, running calculations, or accessing databases) on its own to solve problems step by step.",
+                usage: "\"An agentic AI could help with student enrollment by checking course availability, verifying prerequisites, and submitting registration requests automatically.\"",
+                related: ["Tool Use", "Function Calling", "Multi-Agent Systems", "LangChain", "ReAct Pattern"]
+            },
+            {
+                term: "Fine-tuning",
+                category: "development",
+                purpose: "Customizing an AI model for specific tasks or domains by training it on specialized data.",
+                technical: "Continuing training of a pre-trained model on domain-specific data to adapt its behavior, using techniques like full fine-tuning, LoRA, or QLoRA to update model parameters efficiently.",
+                simple: "Teaching an existing AI model new skills or making it better at specific tasks by giving it examples from your field.",
+                usage: "\"We could fine-tune an LLM on ACC course catalogs and policies to create an AI assistant that understands ACC-specific terminology and procedures.\"",
+                related: ["LoRA", "PEFT", "Training Data", "Hyperparameters", "Base Model"]
+            },
+            {
+                term: "Hallucination",
+                category: "foundational",
+                purpose: "When AI confidently states false information as if it were true - a critical risk to manage in educational contexts.",
+                technical: "Generation of plausible-sounding but factually incorrect or unsupported information by LLMs, often due to training data patterns or insufficient grounding in retrieval context.",
+                simple: "When AI makes up facts or provides confident answers that are actually wrong - like a student giving a detailed but completely incorrect answer on a test.",
+                usage: "\"Without RAG, a chatbot might hallucinate ACC policies. With RAG, it's grounded in actual documents, dramatically reducing hallucinations.\"",
+                related: ["Grounding", "RAG", "Fact-Checking", "Verification", "Context Injection"]
+            },
+            {
+                term: "Token",
+                category: "foundational",
+                purpose: "The basic unit of text that AI processes - important for understanding costs and limitations.",
+                technical: "Subword unit used by language models for text processing, typically 3-4 characters on average, with costs and context limits measured in tokens (e.g., 8K, 128K token windows).",
+                simple: "Small chunks of text (roughly 3-4 letters) that AI reads and generates. Like how we read words, AI reads tokens. More tokens = more cost.",
+                usage: "\"This document is about 2,000 tokens, which would cost about $0.02 to process with GPT-4.\"",
+                related: ["Context Window", "Token Limit", "API Costs", "Tokenization"]
+            },
+            {
+                term: "Context Window",
+                category: "foundational",
+                purpose: "The maximum amount of information an AI can consider at once - critical for document analysis tasks.",
+                technical: "The maximum number of tokens (input + output) an LLM can process in a single request, typically ranging from 4K to 200K+ tokens in modern models.",
+                simple: "The amount of information AI can 'remember' at once - like having a limited amount of space on your desk to spread out papers you're working with.",
+                usage: "\"With a 128K context window, the AI can analyze an entire course syllabus at once instead of breaking it into smaller chunks.\"",
+                related: ["Token", "Long Context", "Chunking", "Memory"]
+            },
+            {
+                term: "Chain-of-Thought",
+                category: "development",
+                purpose: "A prompting technique that dramatically improves AI reasoning by having it think step-by-step.",
+                technical: "Prompting strategy that elicits intermediate reasoning steps before final answers, improving performance on complex tasks by explicitly modeling logical progression.",
+                simple: "Asking AI to 'show its work' - to explain its thinking step by step before giving a final answer, which leads to better results.",
+                usage: "\"When grading essays, chain-of-thought prompting helps the AI explain its evaluation criteria before giving a score, making assessment more transparent.\"",
+                related: ["Prompt Engineering", "Few-Shot Learning", "Reasoning", "Problem Solving"]
+            },
+            {
+                term: "Few-Shot Learning",
+                category: "development",
+                purpose: "Teaching AI new tasks by providing just a few examples in the prompt - no retraining needed.",
+                technical: "In-context learning where a small number of input-output examples are provided in the prompt to demonstrate the desired task pattern without updating model weights.",
+                simple: "Showing AI a few examples of what you want, and it figures out the pattern and applies it to new cases - like teaching by example.",
+                usage: "\"By showing the AI 3 examples of well-formatted course descriptions, it can then format new course descriptions in the same style.\"",
+                related: ["Prompt Engineering", "Zero-Shot", "In-Context Learning", "Examples"]
+            },
+            {
+                term: "Zero-Shot Learning",
+                category: "development",
+                purpose: "AI's ability to perform tasks it wasn't explicitly trained for, based only on instructions.",
+                technical: "Performing tasks without any task-specific training examples, relying solely on pre-training knowledge and natural language instructions.",
+                simple: "Asking AI to do something new without showing any examples - it figures it out from the instructions alone based on what it already knows.",
+                usage: "\"Zero-shot learning allows our AI to translate course content into multiple languages without ever seeing translation examples.\"",
+                related: ["Few-Shot Learning", "Prompt Engineering", "Generalization"]
+            },
+            {
+                term: "Temperature",
+                category: "development",
+                purpose: "A setting that controls how creative vs. predictable AI responses will be.",
+                technical: "Hyperparameter (0-2) controlling randomness in token selection during generation via softmax probability distribution, with lower values yielding deterministic outputs and higher values increasing diversity.",
+                simple: "A dial that controls AI creativity: Turn it down (0.2) for factual, consistent answers; turn it up (0.9) for creative, varied responses.",
+                usage: "\"For grading rubrics, use low temperature (0.2) for consistency. For brainstorming lesson ideas, use higher temperature (0.8) for creativity.\"",
+                related: ["Top-p", "Generation", "Hyperparameters", "Sampling"]
+            },
+            {
+                term: "API (Application Programming Interface)",
+                category: "development",
+                purpose: "The technical connection that allows software systems to talk to each other, including accessing AI services.",
+                technical: "Programmatic interface for accessing AI model functionality via HTTP requests, typically RESTful or streaming, with authentication and rate limiting.",
+                simple: "A connector that lets different computer programs talk to each other - like a phone line between your app and an AI service.",
+                usage: "\"Using OpenAI's API, we can integrate GPT-4 directly into our student portal without students needing separate accounts.\"",
+                related: ["REST API", "API Key", "Endpoint", "Integration", "SDK"]
+            },
+            {
+                term: "MLOps (Machine Learning Operations)",
+                category: "operations",
+                purpose: "The practices and tools for reliably deploying and maintaining AI systems in production environments.",
+                technical: "Engineering discipline combining ML system development with DevOps practices, covering model versioning, continuous training/deployment, monitoring, and infrastructure management.",
+                simple: "The IT practices for keeping AI systems running smoothly in the real world - like how DevOps keeps regular software systems running.",
+                usage: "\"Good MLOps ensures our AI chatbot stays accurate, fast, and available 24/7 even as thousands of students use it simultaneously.\"",
+                related: ["Model Deployment", "Monitoring", "CI/CD", "Model Registry", "Observability"]
+            },
+            {
+                term: "Inference",
+                category: "operations",
+                purpose: "The actual process of using a trained AI model to make predictions or generate responses.",
+                technical: "Forward pass through a trained neural network to generate predictions or outputs, measured in tokens/second for LLMs or images/second for vision models.",
+                simple: "When you actually use the AI - like asking ChatGPT a question and getting an answer back. The 'using' phase, not the 'training' phase.",
+                usage: "\"Faster inference means students get AI responses in 2 seconds instead of 10 seconds - a much better user experience.\"",
+                related: ["Latency", "Throughput", "GPU", "Batch Processing", "Real-time"]
+            },
+            {
+                term: "Model Training",
+                category: "development",
+                purpose: "The process of teaching an AI system by showing it examples, like how students learn from practice problems.",
+                technical: "Iterative process of optimizing model parameters using gradient descent on large datasets, requiring significant compute resources (GPUs/TPUs) and careful hyperparameter tuning.",
+                simple: "Teaching an AI by showing it millions of examples until it learns patterns - like practicing math problems until you understand the concept.",
+                usage: "\"Training a small AI model for ACC-specific tasks might take a few hours on a good GPU, while training GPT-4 took months on thousands of GPUs.\"",
+                related: ["Fine-tuning", "GPU", "Dataset", "Epochs", "Loss Function"]
+            },
+            {
+                term: "GPU (Graphics Processing Unit)",
+                category: "operations",
+                purpose: "Specialized computer chip essential for running AI models efficiently - much faster than regular processors.",
+                technical: "Massively parallel processor optimized for matrix operations, essential for neural network training and inference, with architectures like NVIDIA's A100/H100 dominating ML workloads.",
+                simple: "A special computer chip originally for graphics but now essential for AI - it can do thousands of calculations at the same time, making AI much faster.",
+                usage: "\"Running our AI models on GPUs instead of regular processors makes them 100x faster, enabling real-time student interactions.\"",
+                related: ["CUDA", "Tensor Core", "Cloud Compute", "Inference Speed"]
+            },
+            {
+                term: "Quantization",
+                category: "operations",
+                purpose: "Technique for making AI models smaller and faster by reducing numerical precision without losing much accuracy.",
+                technical: "Reducing model precision from FP32/FP16 to INT8/INT4, decreasing memory requirements and increasing inference speed, using techniques like GPTQ, AWQ, or k-bit quantization.",
+                simple: "Compressing an AI model to use less memory and run faster - like compressing a high-quality image to a smaller file size with minimal quality loss.",
+                usage: "\"Quantization lets us run a powerful AI model on a student's laptop instead of requiring cloud servers, improving privacy and reducing costs.\"",
+                related: ["Model Compression", "GPTQ", "AWQ", "Inference Speed", "Memory Optimization"]
+            },
+            {
+                term: "Transformer",
+                category: "foundational",
+                purpose: "The revolutionary architecture that made modern AI possible, underlying all major language models.",
+                technical: "Neural network architecture using self-attention mechanisms to process sequential data in parallel, introduced in 'Attention is All You Need' (2017), enabling models to handle long-range dependencies efficiently.",
+                simple: "The core design that lets AI understand relationships between words in a sentence, no matter how far apart they are - the breakthrough behind ChatGPT and similar AI.",
+                usage: "\"The transformer architecture is why modern AI can understand context across entire documents instead of just individual sentences.\"",
+                related: ["Attention Mechanism", "Self-Attention", "Encoder-Decoder", "BERT", "GPT"]
+            },
+            {
+                term: "Semantic Search",
+                category: "technical",
+                purpose: "Searching by meaning rather than exact word matches - finding relevant information even when phrased differently.",
+                technical: "Information retrieval using vector similarity between query and document embeddings rather than keyword matching, typically using cosine similarity or dot product metrics.",
+                simple: "Searching based on what things mean, not just matching exact words - so searching 'financial help' would find information about scholarships and grants.",
+                usage: "\"Semantic search in our course catalog lets students find 'math classes' even when searching for 'numbers courses' or 'calculus requirements.'\"",
+                related: ["Vector Database", "Embeddings", "RAG", "Similarity Search"]
+            },
+            {
+                term: "Prompt Injection",
+                category: "foundational",
+                purpose: "A security vulnerability where users trick AI systems into ignoring their instructions - important for system design.",
+                technical: "Adversarial input technique where malicious prompts override system instructions, potentially causing unauthorized behavior, data leakage, or bypassing safety guardrails.",
+                simple: "When someone tricks an AI by putting special instructions in their input to make it do things it shouldn't - like SQL injection but for AI.",
+                usage: "\"Without proper safeguards, a student could use prompt injection to make our AI chatbot reveal other students' information or bypass content filters.\"",
+                related: ["AI Security", "Jailbreak", "System Prompt", "Input Validation"]
+            },
+            {
+                term: "Function Calling",
+                category: "development",
+                purpose: "Allowing AI to use specific tools or access data sources when needed to complete tasks.",
+                technical: "LLM capability to generate structured function invocations from natural language, enabling integration with external APIs, databases, or computational tools during generation.",
+                simple: "Giving AI the ability to use tools - like letting it check a database, do calculations, or search the web when it needs to answer a question.",
+                usage: "\"With function calling, our AI advisor can check course availability in real-time when helping students plan their schedules.\"",
+                related: ["Agentic AI", "Tool Use", "API Integration", "ReAct"]
+            },
+            {
+                term: "LoRA (Low-Rank Adaptation)",
+                category: "development",
+                purpose: "Efficient method for customizing AI models that requires much less computing power and data than traditional fine-tuning.",
+                technical: "Parameter-efficient fine-tuning technique that freezes pre-trained weights and injects trainable low-rank decomposition matrices, reducing trainable parameters by 90%+ while maintaining performance.",
+                simple: "A smart way to teach an AI new skills by only updating a small part of it instead of retraining everything - like learning a new accent instead of a new language.",
+                usage: "\"Using LoRA, we can customize an AI for ACC's specific needs using just a laptop instead of requiring an expensive GPU cluster.\"",
+                related: ["Fine-tuning", "PEFT", "QLoRA", "Adapter", "Parameter Efficiency"]
+            },
+            {
+                term: "PEFT (Parameter-Efficient Fine-Tuning)",
+                category: "development",
+                purpose: "Family of techniques for customizing large AI models efficiently without massive computational resources.",
+                technical: "Collection of methods (LoRA, Adapter, Prefix-tuning, P-tuning) that reduce trainable parameters during fine-tuning, enabling customization on consumer hardware while maintaining model performance.",
+                simple: "Ways to customize huge AI models by only updating a tiny fraction of them, making it affordable for smaller organizations like community colleges.",
+                usage: "\"PEFT techniques let ACC create specialized AI models for different departments without needing a multimillion-dollar AI lab.\"",
+                related: ["LoRA", "QLoRA", "Fine-tuning", "Adapter Layers"]
+            },
+            {
+                term: "Chunking",
+                category: "technical",
+                purpose: "Breaking documents into smaller pieces that AI can effectively process and search through.",
+                technical: "Segmentation strategy for splitting documents into semantically coherent units that fit within embedding model and LLM context limits, using techniques like fixed-size, sentence-based, or recursive splitting.",
+                simple: "Dividing long documents into smaller, meaningful sections so AI can process them - like breaking a textbook into chapters and sections.",
+                usage: "\"Proper chunking of our course catalog ensures students get complete, coherent information when asking about specific programs.\"",
+                related: ["RAG", "Document Processing", "Context Window", "Semantic Chunking"]
+            },
+            {
+                term: "Reranking",
+                category: "technical",
+                purpose: "Refining search results to ensure the most relevant information appears first, improving answer quality.",
+                technical: "Second-stage retrieval process using cross-encoder or listwise models to reorder initially retrieved documents based on deeper semantic relevance to the query.",
+                simple: "After finding potentially relevant documents, sorting them again to put the truly most useful ones at the top - like double-checking your search results.",
+                usage: "\"Reranking improves our AI advisor's accuracy by ensuring it uses the most relevant policy documents, not just the first ones retrieved.\"",
+                related: ["RAG", "Semantic Search", "Cross-Encoder", "Relevance Scoring"]
+            },
+            {
+                term: "System Prompt",
+                category: "development",
+                purpose: "The foundational instructions that define an AI system's role, personality, and constraints.",
+                technical: "Initial context provided to an LLM that establishes role, behavior guidelines, output format, and safety constraints, persisting across the conversation session.",
+                simple: "The 'job description' for an AI - telling it who it is, how to behave, what rules to follow, and what style to use when responding.",
+                usage: "\"Our system prompt instructs the AI to act as an ACC advisor, use friendly language, cite ACC policies, and redirect sensitive questions to human staff.\"",
+                related: ["Prompt Engineering", "Role Prompting", "Instructions", "Constraints"]
+            },
+            {
+                term: "Latency",
+                category: "operations",
+                purpose: "The delay between asking AI a question and getting a response - critical for user experience.",
+                technical: "Time elapsed from request initiation to first token generation (TTFT) or complete response (total latency), affected by model size, infrastructure, and concurrent load.",
+                simple: "How long you wait after hitting 'send' before AI starts responding - like the pause before someone answers your question.",
+                usage: "\"Reducing latency from 5 seconds to 1 second dramatically improves student satisfaction with our AI tutoring system.\"",
+                related: ["Inference", "Throughput", "Streaming", "Response Time"]
+            },
+            {
+                term: "Streaming",
+                category: "operations",
+                purpose: "Showing AI responses word-by-word as they're generated instead of waiting for the complete answer.",
+                technical: "Token-by-token generation delivery using server-sent events (SSE) or WebSocket protocols, reducing perceived latency by displaying partial outputs progressively.",
+                simple: "Getting AI responses word-by-word as they're being written instead of waiting for the entire answer - like seeing someone type in real-time.",
+                usage: "\"Streaming makes our chatbot feel more responsive, even though the total time to complete an answer is the same.\"",
+                related: ["Latency", "User Experience", "WebSocket", "Progressive Generation"]
+            },
+            {
+                term: "Multimodal AI",
+                category: "foundational",
+                purpose: "AI systems that can understand and work with multiple types of data: text, images, audio, and video.",
+                technical: "Models trained to process and generate multiple data modalities (vision, language, audio) using shared embedding spaces or unified architectures like Flamingo or GPT-4V.",
+                simple: "AI that can understand and work with different types of content - text, pictures, sounds, and videos - not just one type.",
+                usage: "\"Multimodal AI can analyze both the text and diagrams in a student's science homework, providing more comprehensive feedback.\"",
+                related: ["Vision-Language Models", "GPT-4V", "CLIP", "Cross-Modal"]
+            },
+            {
+                term: "OCR (Optical Character Recognition)",
+                category: "technical",
+                purpose: "Technology that converts images of text (like scanned documents) into actual editable text.",
+                technical: "Computer vision technique for detecting and recognizing text in images, using deep learning models to achieve high accuracy across fonts, languages, and document layouts.",
+                simple: "Technology that reads text from pictures - like taking a photo of a page and having the computer type out all the words.",
+                usage: "\"OCR lets us convert scanned course materials into searchable, accessible text that AI can analyze and students can search.\"",
+                related: ["Document Intelligence", "Text Extraction", "Vision AI"]
+            },
+            {
+                term: "NLP (Natural Language Processing)",
+                category: "foundational",
+                purpose: "The field of AI focused on helping computers understand and work with human language.",
+                technical: "Branch of AI concerned with computational understanding and generation of natural language, encompassing tasks like translation, sentiment analysis, named entity recognition, and summarization.",
+                simple: "Teaching computers to understand human language - reading, writing, and comprehending text the way people do.",
+                usage: "\"NLP techniques help our AI understand when students are frustrated or confused based on how they phrase their questions.\"",
+                related: ["LLM", "Text Processing", "Language Understanding", "Tokenization"]
+            },
+            {
+                term: "Training Data",
+                category: "development",
+                purpose: "The examples used to teach an AI system - quality and quantity of data determines what AI can learn.",
+                technical: "Dataset of input-output pairs or sequences used to optimize model parameters during training, requiring careful curation, cleaning, and preprocessing to ensure model quality and reduce bias.",
+                simple: "The examples you show AI to teach it - like the practice problems and textbook readings students use to learn a subject.",
+                usage: "\"If our training data only includes English course descriptions, the AI won't be able to help Spanish-speaking students effectively.\"",
+                related: ["Fine-tuning", "Dataset", "Data Quality", "Bias"]
+            },
+            {
+                term: "Bias (AI Bias)",
+                category: "foundational",
+                purpose: "Unfair prejudices in AI systems, often reflecting biases in training data - critical issue for educational equity.",
+                technical: "Systematic errors in model predictions favoring certain groups or outcomes, stemming from training data imbalances, annotation bias, or structural inequities in represented populations.",
+                simple: "When AI treats some groups of people unfairly because of prejudices in the data it learned from - like if it assumed all engineers are men.",
+                usage: "\"We must audit our AI systems for bias to ensure they serve all ACC students fairly, regardless of their background or identity.\"",
+                related: ["Fairness", "Equity", "Training Data", "Evaluation", "Mitigation"]
+            },
+            {
+                term: "Model Evaluation",
+                category: "operations",
+                purpose: "Measuring how well an AI system actually performs - essential for quality assurance and improvement.",
+                technical: "Systematic assessment of model performance using quantitative metrics (accuracy, F1, BLEU, ROUGE, perplexity) and qualitative analysis (human evaluation, error analysis) on held-out test sets.",
+                simple: "Testing how well AI performs on new examples it hasn't seen before - like giving students a final exam to see what they've learned.",
+                usage: "\"Regular model evaluation ensures our AI chatbot maintains high accuracy as course policies change throughout the year.\"",
+                related: ["Metrics", "Benchmarking", "Testing", "Quality Assurance"]
+            },
+            {
+                term: "Benchmark",
+                category: "operations",
+                purpose: "Standardized tests that measure and compare AI system performance across different models or versions.",
+                technical: "Standardized evaluation datasets and tasks (e.g., GLUE, SuperGLUE, MMLU, HumanEval) used to compare model capabilities objectively across research and production systems.",
+                simple: "Standardized tests for AI systems - like the SAT for humans - that let us compare different AI models fairly.",
+                usage: "\"We benchmark our custom ACC AI against GPT-4 to ensure it provides comparable quality for student advising tasks.\"",
+                related: ["Evaluation", "Performance", "Comparison", "Standards"]
+            },
+            {
+                term: "Deployment",
+                category: "operations",
+                purpose: "The process of making an AI system available for actual use by students and staff.",
+                technical: "Production release of ML models via APIs, containerized services (Docker/Kubernetes), or embedded systems, with considerations for scaling, monitoring, versioning, and rollback procedures.",
+                simple: "Taking AI from the testing environment and making it available for real users - like publishing a finished app to the app store.",
+                usage: "\"Careful deployment planning ensures our AI systems launch smoothly without disrupting existing student services.\"",
+                related: ["MLOps", "Production", "Infrastructure", "CI/CD"]
+            },
+            {
+                term: "A/B Testing",
+                category: "operations",
+                purpose: "Comparing two versions of an AI system to see which performs better with real users.",
+                technical: "Controlled experiment where user traffic is randomly split between variant implementations, with statistical analysis determining which version achieves better outcomes on key metrics.",
+                simple: "Showing half your users version A and half version B to see which one works better - like trying two different teaching methods with different classes.",
+                usage: "\"A/B testing helps us determine if the new AI prompt style leads to better student satisfaction scores.\"",
+                related: ["Experimentation", "Metrics", "Statistical Significance", "Optimization"]
+            },
+            {
+                term: "Synthetic Data",
+                category: "development",
+                purpose: "Artificially generated training examples, useful when real data is scarce, private, or expensive to collect.",
+                technical: "Artificially generated data mimicking real-world patterns using generative models, simulation, or augmentation techniques, used to supplement limited datasets while preserving privacy.",
+                simple: "Fake but realistic training examples created by computers when you don't have enough real examples - like practice problems generated from templates.",
+                usage: "\"We can use synthetic data to train privacy-preserving AI without exposing actual student records.\"",
+                related: ["Training Data", "Data Augmentation", "Privacy", "GANs"]
+            },
+            {
+                term: "Explainability",
+                category: "foundational",
+                purpose: "The ability to understand and explain why an AI system made a particular decision - critical for trust and accountability.",
+                technical: "Techniques (SHAP, LIME, attention visualization) to interpret model decisions, identifying which input features influenced outputs and quantifying their contributions.",
+                simple: "Being able to explain why AI made a certain decision in terms humans can understand - like showing your work in math class.",
+                usage: "\"Explainability is crucial if we use AI in admissions decisions - we must be able to explain why certain applicants were recommended.\"",
+                related: ["Interpretability", "Transparency", "Trust", "Accountability"]
+            },
+            {
+                term: "Edge Computing",
+                category: "operations",
+                purpose: "Running AI on local devices (phones, laptops) instead of cloud servers - better for privacy and speed.",
+                technical: "Executing computation on endpoint devices rather than centralized cloud infrastructure, enabling low-latency inference, offline operation, and enhanced privacy by keeping data local.",
+                simple: "Running AI directly on a student's device instead of sending data to the cloud - faster, more private, and works offline.",
+                usage: "\"Edge computing lets students use AI tutoring tools even without internet access, improving equity for students with connectivity challenges.\"",
+                related: ["Local Models", "Privacy", "Latency", "Offline AI"]
+            },
+            {
+                term: "Foundation Model",
+                category: "foundational",
+                purpose: "Large, general-purpose AI models trained on broad data that can be adapted for many specific tasks.",
+                technical: "Large-scale pre-trained model (typically billions of parameters) serving as base for downstream tasks via fine-tuning or prompting, like GPT-4, Claude, or Llama.",
+                simple: "A very smart, general AI that has learned a lot about many topics and can then be specialized for specific jobs.",
+                usage: "\"Foundation models like GPT-4 can be adapted for ACC-specific tasks without training AI from scratch, saving millions in development costs.\"",
+                related: ["Base Model", "Pre-training", "Transfer Learning", "LLM"]
+            },
+            {
+                term: "Reinforcement Learning from Human Feedback (RLHF)",
+                category: "development",
+                purpose: "The technique used to train AI to be helpful, harmless, and honest by learning from human preferences.",
+                technical: "Training paradigm where humans rank model outputs, training a reward model from preferences, then using reinforcement learning (PPO) to optimize the base model against this reward signal.",
+                simple: "Training AI by having humans rate its answers as good or bad, then teaching it to give more of the good answers and fewer bad ones.",
+                usage: "\"RLHF is why ChatGPT is helpful and polite rather than giving random or offensive responses like earlier AI systems.\"",
+                related: ["Alignment", "Human Feedback", "Safety", "Constitutional AI"]
+            },
+            {
+                term: "Alignment",
+                category: "foundational",
+                purpose: "Making sure AI systems do what we actually want them to do and share our values and goals.",
+                technical: "Research field focused on ensuring AI systems pursue intended objectives reliably, avoiding specification gaming, reward hacking, or emergent harmful behaviors at scale.",
+                simple: "Making sure AI does what humans actually want, not just what we technically told it to do - like ensuring a robot asked to 'make people smile' doesn't force them to smile.",
+                usage: "\"Alignment work ensures our AI tutor actually helps students learn rather than just giving them answers to copy.\"",
+                related: ["RLHF", "Safety", "Constitutional AI", "Value Learning"]
+            },
+            {
+                term: "Jailbreak",
+                category: "foundational",
+                purpose: "Attempts to bypass AI safety features and make systems violate their guidelines - important security concern.",
+                technical: "Adversarial prompting techniques designed to circumvent model safety guardrails, often exploiting instruction-following capabilities or role-play scenarios to elicit prohibited content.",
+                simple: "Tricking AI into breaking its own rules - like convincing a well-behaved AI to say things it's supposed to refuse.",
+                usage: "\"We need jailbreak-resistant AI systems to prevent students from bypassing content filters or academic integrity checks.\"",
+                related: ["Prompt Injection", "AI Security", "Safety", "Red Teaming"]
+            },
+            {
+                term: "Red Teaming",
+                category: "operations",
+                purpose: "Systematically trying to break or misuse an AI system to find vulnerabilities before deployment.",
+                technical: "Adversarial testing methodology where security experts attempt to elicit harmful outputs, bypass safety features, or discover failure modes through systematic probing.",
+                simple: "Hiring people to deliberately try to break your AI system so you can fix problems before real users encounter them.",
+                usage: "\"Red teaming our AI chatbot revealed that students could potentially access other students' information through clever questioning - we fixed this before launch.\"",
+                related: ["Security Testing", "Jailbreak", "Safety", "Vulnerability Assessment"]
+            },
+            {
+                term: "Data Governance",
+                category: "foundational",
+                purpose: "Rules and practices for managing data responsibly, especially important with student information and AI.",
+                technical: "Framework of policies, roles, and processes ensuring data quality, security, privacy, and compliance throughout collection, storage, processing, and retention lifecycle.",
+                simple: "The rules and systems for taking care of data properly - making sure it's secure, used correctly, and follows privacy laws.",
+                usage: "\"Strong data governance ensures student information used to train our AI systems is protected and complies with FERPA regulations.\"",
+                related: ["Privacy", "FERPA", "Security", "Compliance", "Data Quality"]
+            },
+            {
+                term: "FERPA Compliance",
+                category: "foundational",
+                purpose: "Following federal laws that protect student privacy - critical requirement for any AI system using student data.",
+                technical: "Adherence to Family Educational Rights and Privacy Act regulations governing collection, storage, sharing, and retention of student education records, with specific provisions for electronic data and third-party services.",
+                simple: "Following the law that protects student privacy - making sure student information is kept safe and only shared with authorized people.",
+                usage: "\"Before deploying AI analytics on student performance data, we must ensure FERPA compliance through proper data handling and security measures.\"",
+                related: ["Privacy", "Data Governance", "Student Records", "Legal Compliance"]
+            },
+            {
+                term: "API Key",
+                category: "development",
+                purpose: "A secret password that identifies and authenticates your application when using AI services.",
+                technical: "Authentication credential used to identify and authorize API requests, typically a long alphanumeric string that must be kept secure and rotated regularly following security best practices.",
+                simple: "A secret code that proves you're allowed to use an AI service - like a password, but for your application rather than a person.",
+                usage: "\"Students should never see our API keys - embedding them in public code would let anyone use our AI budget on their personal projects.\"",
+                related: ["Authentication", "Security", "API", "Access Control"]
+            },
+            {
+                term: "Rate Limiting",
+                category: "operations",
+                purpose: "Controlling how many requests can be made to an AI system to prevent abuse and manage costs.",
+                technical: "Throttling mechanism restricting request frequency per user/IP/API key (e.g., 10 requests/minute) to prevent abuse, ensure fair access, and protect backend infrastructure from overload.",
+                simple: "Setting limits on how often someone can use an AI system - like allowing only 10 questions per minute to prevent abuse and control costs.",
+                usage: "\"Rate limiting prevents a single student from exhausting our entire AI budget by making thousands of requests.\"",
+                related: ["API", "Cost Control", "Security", "Abuse Prevention"]
+            },
+            {
+                term: "Kubernetes",
+                category: "operations",
+                purpose: "System for automatically managing and scaling AI applications across many computers.",
+                technical: "Container orchestration platform automating deployment, scaling, and management of containerized applications across clusters, essential for production ML infrastructure.",
+                simple: "Software that automatically manages running AI across many computers, handling crashes, updates, and adjusting to demand.",
+                usage: "\"Kubernetes automatically adds more AI servers when thousands of students register at once, ensuring smooth performance during peak times.\"",
+                related: ["Container", "Docker", "Orchestration", "Scaling", "Infrastructure"]
+            },
+            {
+                term: "Docker",
+                category: "development",
+                purpose: "Technology for packaging AI applications with everything they need to run consistently anywhere.",
+                technical: "Containerization platform enabling applications to run consistently across environments by packaging code, dependencies, and runtime in isolated containers.",
+                simple: "A way to package an application with everything it needs in a single box that works the same on any computer - like shipping container for software.",
+                usage: "\"Docker ensures our AI models run identically whether on a developer's laptop, testing server, or production system.\"",
+                related: ["Container", "Kubernetes", "DevOps", "Deployment"]
+            },
+            {
+                term: "CI/CD (Continuous Integration/Continuous Deployment)",
+                category: "operations",
+                purpose: "Automated systems for testing and deploying AI updates safely and frequently.",
+                technical: "DevOps practice automating code integration, testing, and deployment through pipelines (GitHub Actions, GitLab CI), enabling rapid, reliable releases with minimal manual intervention.",
+                simple: "Automated systems that test and deploy software changes automatically, ensuring updates don't break things and reach users quickly.",
+                usage: "\"CI/CD pipelines let us update our AI chatbot's responses daily based on new policy changes, with automatic testing to prevent errors.\"",
+                related: ["DevOps", "Automation", "Testing", "Deployment", "MLOps"]
+            }
+        ];
+
+        // Populate alphabet navigation
+        function createAlphabetNav() {
+            const nav = document.getElementById('alphabetNav');
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+            letters.forEach(letter => {
+                const btn = document.createElement('button');
+                btn.textContent = letter;
+                btn.onclick = () => filterByLetter(letter);
+                nav.appendChild(btn);
+            });
+
+            // Add "All" button
+            const allBtn = document.createElement('button');
+            allBtn.textContent = 'All';
+            allBtn.className = 'active';
+            allBtn.onclick = () => {
+                document.querySelectorAll('.alphabet-nav button').forEach(b => b.classList.remove('active'));
+                allBtn.classList.add('active');
+                renderTerms(terms);
+            };
+            nav.insertBefore(allBtn, nav.firstChild);
+        }
+
+        // Filter by letter
+        function filterByLetter(letter) {
+            document.querySelectorAll('.alphabet-nav button').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const filtered = terms.filter(t => t.term.toUpperCase().startsWith(letter));
+            renderTerms(filtered);
+        }
+
+        // Render terms
+        function renderTerms(termsToRender) {
+            const grid = document.getElementById('termsGrid');
+            grid.innerHTML = '';
+
+            termsToRender.forEach(term => {
+                const card = document.createElement('div');
+                card.className = 'term-card';
+                card.setAttribute('data-category', term.category);
+                card.setAttribute('data-searchable', `${term.term} ${term.purpose} ${term.technical} ${term.simple} ${term.usage} ${term.related.join(' ')}`.toLowerCase());
+
+                card.innerHTML = `
+                    <div class="term-header">
+                        <h3 class="term-name">${term.term}</h3>
+                        <span class="term-category">${term.category.replace('-', ' ')}</span>
+                    </div>
+
+                    <div class="term-purpose">
+                        <h4>💡 Why This Matters</h4>
+                        <p>${term.purpose}</p>
+                    </div>
+
+                    <div class="definition-section">
+                        <h4>🔬 Technical Definition</h4>
+                        <div class="technical-def">${term.technical}</div>
+                    </div>
+
+                    <div class="definition-section">
+                        <h4>✨ Simple Explanation</h4>
+                        <div class="simple-def">${term.simple}</div>
+                    </div>
+
+                    <div class="usage-example">
+                        <h4>📝 Usage Example</h4>
+                        <p>${term.usage}</p>
+                    </div>
+
+                    <div class="related-terms">
+                        <h4>Related Terms:</h4>
+                        <div>
+                            ${term.related.map(r => `<span class="related-tag">${r}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            // Update stats
+            document.getElementById('totalTerms').textContent = termsToRender.length;
+        }
+
+        // Category filtering
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const category = this.getAttribute('data-category');
+                const cards = document.querySelectorAll('.term-card');
+
+                if (category === 'all') {
+                    cards.forEach(card => card.style.display = 'block');
+                } else {
+                    cards.forEach(card => {
+                        card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.term-card');
+
+            cards.forEach(card => {
+                const searchableContent = card.getAttribute('data-searchable');
+                card.style.display = searchableContent.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Initialize
+        createAlphabetNav();
+        renderTerms(terms);
+    </script>
+</body>
+</html>

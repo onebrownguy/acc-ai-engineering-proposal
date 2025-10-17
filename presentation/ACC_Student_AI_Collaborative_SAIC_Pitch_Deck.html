@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC Student AI Collaborative (SAIC) - Committee Pitch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1e293b;
+            color: white;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 80px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ACC Brand Colors */
+        .acc-purple { color: #512888; }
+        .acc-orange { color: #FF6A13; }
+        .highlight { color: #fbbf24; }
+
+        /* Slide 1 - Title */
+        .slide-1 {
+            background: linear-gradient(135deg, #512888 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .slide-1 h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-1 .subtitle {
+            font-size: 2rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .slide-1 .tagline {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            color: #fbbf24;
+        }
+
+        .slide-1 .meta {
+            font-size: 1.3rem;
+            opacity: 0.85;
+            margin-top: 60px;
+        }
+
+        /* Slide 2 - Executive Mandate */
+        .slide-2 {
+            background: linear-gradient(135deg, #FF6A13 0%, #d97706 100%);
+        }
+
+        .slide-2 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .quote-box {
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .quote-box blockquote {
+            font-size: 2.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .quote-box cite {
+            font-size: 1.3rem;
+            display: block;
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .challenge-item {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Slide 3 - Industry Demand */
+        .slide-3 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .slide-3 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .stat-card .label {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* Slide 4 - SAIC Mission */
+        .slide-4 {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+
+        .slide-4 h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pillar-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .pillar-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .pillar-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 5 - Scaling */
+        .slide-5 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .slide-5 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .comparison-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .model-box {
+            flex: 1;
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .model-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .model-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .arrow-symbol {
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        /* Slide 6 - Entry Points */
+        .slide-6 {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .slide-6 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .level-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .level-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .level-card ul {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .level-card li::before {
+            content: '✓ ';
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Slide 7 - Tracks */
+        .slide-7 {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .slide-7 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .track-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .track-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .track-card .tools {
+            font-size: 1rem;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+
+        .track-card .example {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        /* Slide 8 - Student Org Support */
+        .slide-8 {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .slide-8 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .example-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .example-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .example-card .request {
+            font-size: 1rem;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .example-card .impact {
+            font-size: 1.1rem;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Slide 9 - Success Metrics */
+        .slide-9 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .slide-9 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .metrics-sections {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .metrics-section {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .metrics-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+            text-align: center;
+        }
+
+        .metrics-section ul {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .metrics-section li::before {
+            content: '✓ ';
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Slide 10 - Budget */
+        .slide-10 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .slide-10 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .budget-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .budget-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .budget-card ul {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .budget-card li {
+            margin-bottom: 10px;
+        }
+
+        /* Slide 11 - ROI */
+        .slide-11 {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .slide-11 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .roi-box {
+            background: rgba(255,255,255,0.15);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .roi-box h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #fbbf24;
+            text-align: center;
+        }
+
+        .roi-box ul {
+            list-style: none;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .roi-box li {
+            margin-bottom: 15px;
+        }
+
+        .roi-box .highlight-stat {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Slide 12 - The Ask */
+        .slide-12 {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .slide-12 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .ask-sections {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .ask-section {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .ask-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
+        .ask-section ul {
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .ask-section li::before {
+            content: '✓ ';
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Slide 13 - National Model */
+        .slide-13 {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .slide-13 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .why-acc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .why-acc-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .why-acc-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .why-acc-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 14 - Proven Infrastructure */
+        .slide-14 {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .slide-14 h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .proven-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .proven-card {
+            background: rgba(255,255,255,0.15);
+            padding: 35px;
+            border-radius: 15px;
+        }
+
+        .proven-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .proven-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .proven-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Slide 15 - Call to Action */
+        .slide-15 {
+            background: linear-gradient(135deg, #512888 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .slide-15 h1 {
+            font-size: 4rem;
+            margin-bottom: 50px;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.15);
+            padding: 60px;
+            border-radius: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #fbbf24;
+        }
+
+        .cta-box p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .cta-box .vote-list {
+            list-style: none;
+            font-size: 1.4rem;
+            line-height: 2;
+            margin: 30px 0;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-box .vote-list li::before {
+            content: '✓ ';
+            color: #fbbf24;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            font-size: 1.2rem;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Speaker Notes */
+        .speaker-notes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            padding: 20px 40px;
+            color: #fbbf24;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            z-index: 999;
+        }
+
+        .speaker-notes.show {
+            display: block;
+        }
+
+        .notes-toggle {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            z-index: 1001;
+        }
+
+        @media print {
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                position: relative;
+                height: 100vh;
+            }
+            .nav-buttons, .slide-counter, .notes-toggle, .speaker-notes {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="notes-toggle" onclick="toggleNotes()">Toggle Speaker Notes (N)</button>
+
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <div class="slide slide-1 active">
+            <h1>🚀 ACC Student AI Collaborative</h1>
+            <p class="subtitle">Implementing Dr. Reeves' Vision for AI Fluency</p>
+            <p class="tagline">By Students, For Students, With Faculty</p>
+            <div class="meta">
+                <p>AI Implementation Steering Committee</p>
+                <p>October 17, 2025</p>
+                <p style="margin-top: 20px; font-size: 1.1rem;">Presented by Abel Rincon, Student Representative</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Executive Mandate -->
+        <div class="slide slide-2">
+            <h1>📢 The Executive Mandate</h1>
+
+            <div class="quote-box">
+                <blockquote>"Industry partners are expecting students to come out with AI fluency."</blockquote>
+                <cite>— Dr. Monique Reeves, Executive Vice Chancellor for the Future (July 2025)</cite>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.15); padding: 30px; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: #fbbf24;">The Challenge:</h3>
+                <p style="font-size: 1.3rem; line-height: 1.6;">
+                    How do we deliver AI fluency to 40,000+ ACC students with limited faculty bandwidth and diverse student needs across Tech, Art, Business, and Health Sciences?
+                </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.15); padding: 30px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 2rem; font-weight: bold; color: #fbbf24;">
+                    SAIC: The Student-Led Implementation Vehicle
+                </p>
+                <p style="font-size: 1.3rem; margin-top: 15px;">
+                    Peer-to-peer AI fluency engine scaling to 500+ students Year 1
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Industry Demand -->
+        <div class="slide slide-3">
+            <h1>💼 What Industry Partners Are Asking For</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 20px;">From ACC's 1,300+ Employer Partnerships</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">2,000+</div>
+                    <div class="label">AI Jobs in Austin<br>(Indeed, LinkedIn, Glassdoor)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$70K-90K</div>
+                    <div class="label">Entry-Level AI Salaries<br>(→ $100K+ in 2-3 years)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">8%</div>
+                    <div class="label">Jobs Require Prompt Engineering<br>(Growing 32.8% annually)</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px; text-align: center; color: #fbbf24;">Skills Employers Expect:</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;">
+                    <div style="font-size: 1.2rem;">✓ AI tool fluency (ChatGPT, Claude, Midjourney)</div>
+                    <div style="font-size: 1.2rem;">✓ Prompt engineering skills</div>
+                    <div style="font-size: 1.2rem;">✓ Ethical AI understanding</div>
+                    <div style="font-size: 1.2rem;">✓ Cross-functional collaboration</div>
+                </div>
+            </div>
+
+            <p style="font-size: 1.1rem; text-align: center; margin-top: 30px; font-style: italic;">
+                Source: Job market verification conducted October 14, 2025
+            </p>
+        </div>
+
+        <!-- Slide 4: SAIC Mission -->
+        <div class="slide slide-4">
+            <h1>🎯 SAIC Mission: Three Pillars</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 20px;">"AI Access for All Students, AI Support for All Organizations"</p>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="icon">⚖️</div>
+                    <h3>EQUITY ENGINE</h3>
+                    <p>Building the Latino leadership pipeline in AI</p>
+                    <ul style="list-style: none; margin-top: 15px; font-size: 1rem; text-align: left;">
+                        <li>✓ 50% Latino Executive Council target</li>
+                        <li>✓ Spanish-language workshops</li>
+                        <li>✓ First-gen student focus (75% of ACC)</li>
+                        <li>✓ Non-technical entry points</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="icon">🎨</div>
+                    <h3>CROSS-DISCIPLINARY HUB</h3>
+                    <p>AI tools for every major</p>
+                    <ul style="list-style: none; margin-top: 15px; font-size: 1rem; text-align: left;">
+                        <li>✓ Creative AI (Art, Design, Music)</li>
+                        <li>✓ Business AI (Marketing, Analytics)</li>
+                        <li>✓ Health AI (Nursing, Health Sciences)</li>
+                        <li>✓ Tech AI (CS, Software Dev)</li>
+                    </ul>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="icon">🤝</div>
+                    <h3>STUDENT ORG SUPPORT HUB</h3>
+                    <p>AI as a service for all student organizations</p>
+                    <ul style="list-style: none; margin-top: 15px; font-size: 1rem; text-align: left;">
+                        <li>✓ 10+ orgs served Year 1</li>
+                        <li>✓ 25+ projects delivered</li>
+                        <li>✓ 500+ students benefiting</li>
+                        <li>✓ Dr. Reeves' collaboration vision</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; text-align: center;">
+                <p style="font-size: 1.5rem; font-weight: bold; color: #fbbf24;">
+                    "You don't need to code to use AI—you need ideas."
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Scaling AI Fluency -->
+        <div class="slide slide-5">
+            <h1>📈 How SAIC Scales AI Fluency</h1>
+
+            <div class="comparison-box">
+                <div class="model-box">
+                    <h3>❌ Traditional Model</h3>
+                    <p><strong>Faculty → Students</strong></p>
+                    <p style="margin-top: 15px;">1 to 30 ratio</p>
+                    <p>Limited by faculty time</p>
+                    <p>Doesn't scale to 40,000 students</p>
+                </div>
+
+                <div class="arrow-symbol">→</div>
+
+                <div class="model-box">
+                    <h3>✅ SAIC Peer Model</h3>
+                    <p><strong>Faculty → Student Leaders → Active Members → All Students</strong></p>
+                    <p style="margin-top: 15px;">Exponential reach:</p>
+                    <p>7 Council → 20 Leads → 100 Members → 500+ Students</p>
+                    <p style="color: #fbbf24; font-weight: bold; margin-top: 10px;">1 faculty advisor reaches 600+ students Year 1</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px;">
+                <div class="quote-box" style="margin: 0;">
+                    <blockquote style="font-size: 1.6rem;">"You can't ask your students to use AI if all of your staff and faculty haven't been trained first."</blockquote>
+                    <cite style="font-size: 1.1rem;">— Dr. Monique Reeves</cite>
+                </div>
+                <p style="font-size: 1.4rem; margin-top: 25px; text-align: center; font-weight: bold;">
+                    SAIC Delivers: Students train students, students support faculty, everyone gains AI fluency.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 6: Inclusive Entry Points -->
+        <div class="slide slide-6">
+            <h1>🚪 Inclusive Entry Points (No Barriers)</h1>
+
+            <div class="levels-grid">
+                <div class="level-card">
+                    <h3>Level 0: Observer</h3>
+                    <p style="margin-bottom: 15px; font-style: italic;">Anyone welcome, no registration</p>
+                    <ul>
+                        <li>Attend 1 event</li>
+                        <li>"Try AI" workshops</li>
+                        <li>Coffee chats with members</li>
+                    </ul>
+                </div>
+
+                <div class="level-card">
+                    <h3>Level 1: Explorer</h3>
+                    <p style="margin-bottom: 15px; font-style: italic;">ACC Student, any major</p>
+                    <ul>
+                        <li>Register via ACC email</li>
+                        <li>Choose track (Tech/Creative/Business/Health)</li>
+                        <li>Free tool access (Foundation tier)</li>
+                        <li>Event invites</li>
+                    </ul>
+                </div>
+
+                <div class="level-card">
+                    <h3>Level 2: Builder</h3>
+                    <p style="margin-bottom: 15px; font-style: italic;">Active Contributor (10+ hrs/semester)</p>
+                    <ul>
+                        <li>Complete 1 portfolio project OR help 1 student org</li>
+                        <li>Advanced tool access (Developer tier)</li>
+                        <li>Mentorship pairing</li>
+                        <li>Transcript notation</li>
+                    </ul>
+                </div>
+
+                <div class="level-card">
+                    <h3>Level 3-4: Leader & Executive</h3>
+                    <p style="margin-bottom: 15px; font-style: italic;">Work-study positions ($15/hr)</p>
+                    <ul>
+                        <li><strong>Committee Leads (20 students):</strong> 5 hrs/week, track management</li>
+                        <li><strong>Executive Council (7 students):</strong> 10 hrs/week, elected leadership</li>
+                        <li><strong>Equity requirement:</strong> 4 of 7 positions reserved for underrepresented minorities</li>
+                        <li>Advanced AI tools + industry board connections</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; text-align: center;">
+                <p style="font-size: 1.5rem; font-weight: bold; color: #fbbf24;">
+                    "I didn't think AI was for me" → 80% of new members (target Year 1)
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Cross-Disciplinary Tracks -->
+        <div class="slide slide-7">
+            <h1>🎨 Cross-Disciplinary Tracks (Everyone Welcome)</h1>
+
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <h3>🎨 Creative AI</h3>
+                    <p style="margin-bottom: 10px;"><strong>For:</strong> Art, Design, Music, Media students</p>
+                    <p class="tools"><strong>Tools:</strong> Midjourney, DALL-E, Runway, Suno, Adobe Firefly</p>
+                    <p class="example"><strong>Sample Projects:</strong> AI-generated album covers, brand identity systems, animated social media content for student orgs</p>
+                </div>
+
+                <div class="track-card">
+                    <h3>💼 Business AI</h3>
+                    <p style="margin-bottom: 10px;"><strong>For:</strong> Business, Entrepreneurship, Marketing students</p>
+                    <p class="tools"><strong>Tools:</strong> ChatGPT Enterprise, Claude, Tableau AI, HubSpot AI</p>
+                    <p class="example"><strong>Sample Projects:</strong> AI business plans for Entrepreneur Club, market analysis for local startups, customer service chatbots</p>
+                </div>
+
+                <div class="track-card">
+                    <h3>🏥 Health AI</h3>
+                    <p style="margin-bottom: 10px;"><strong>For:</strong> Nursing, Health Sciences, Wellness students</p>
+                    <p class="tools"><strong>Tools:</strong> Medical chatbots (HIPAA-compliant), health data analysis, patient education generators</p>
+                    <p class="example"><strong>Sample Projects:</strong> Symptom checker for ACC Health Center, mental health resource chatbot (bilingual), NCLEX study guide generator</p>
+                </div>
+
+                <div class="track-card">
+                    <h3>💻 Tech AI</h3>
+                    <p style="margin-bottom: 10px;"><strong>For:</strong> CS, Software Dev, Data Science students</p>
+                    <p class="tools"><strong>Tools:</strong> OpenAI/Anthropic APIs, Pinecone, GitHub Copilot, Cloud compute (AWS/Azure)</p>
+                    <p class="example"><strong>Sample Projects:</strong> RAG chatbots for ACC departments, student org website builders, portfolio project showcase platforms</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; text-align: center;">
+                <p style="font-size: 1.5rem;">
+                    <strong>Key Message:</strong> "I'm an art student who wants to learn AI tools to advance my business"<br>
+                    <span style="color: #fbbf24; font-weight: bold;">→ Welcome to Creative AI track!</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Student Org Support Hub -->
+        <div class="slide slide-8">
+            <h1>🤝 Student Org Support Hub: AI as a Service</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 30px;">How other student organizations get AI help from SAIC members</p>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3>Hispanic Student Association</h3>
+                    <p class="request">Request: Bilingual event chatbot + social media automation</p>
+                    <p><strong>SAIC Team:</strong> 3 students, 2-week sprint</p>
+                    <p class="impact">Impact: 500+ students reached, 2x event attendance</p>
+                </div>
+
+                <div class="example-card">
+                    <h3>Student Government</h3>
+                    <p class="request">Request: AI budget analysis tool + policy research assistant</p>
+                    <p><strong>SAIC Team:</strong> 2 students, 4-week project</p>
+                    <p class="impact">Impact: $50K budget optimized, 10 hours/week saved</p>
+                </div>
+
+                <div class="example-card">
+                    <h3>Nursing Student Association</h3>
+                    <p class="request">Request: NCLEX study guide generator + peer tutoring matcher</p>
+                    <p><strong>SAIC Team:</strong> 2 students, 3-week sprint</p>
+                    <p class="impact">Impact: 80% → 92% pass rate improvement</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: #fbbf24;">Dr. Reeves' Vision Embodied</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 1.2rem;">
+                    <div>✓ Not competitive, collaborative</div>
+                    <div>✓ Elevates all students</div>
+                    <div>✓ Cross-functional by design</div>
+                    <div>✓ Measurable impact on real needs</div>
+                </div>
+                <p style="font-size: 1.6rem; margin-top: 25px; text-align: center; font-style: italic;">
+                    "SAIC isn't asking to be elevated—we're asking to become the elevator."
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 9: Success Metrics -->
+        <div class="slide slide-9">
+            <h1>📊 Year 1 Success Metrics</h1>
+
+            <div class="metrics-sections">
+                <div class="metrics-section">
+                    <h3>Engagement Targets</h3>
+                    <ul>
+                        <li>500 registered students (Foundation)</li>
+                        <li>100 active members (Builder)</li>
+                        <li>20 committee leads (Leader)</li>
+                        <li>7 executive council positions filled</li>
+                        <li>Multi-campus representation (3+ campuses)</li>
+                    </ul>
+                </div>
+
+                <div class="metrics-section">
+                    <h3>Equity Targets</h3>
+                    <ul>
+                        <li>50% Latino Executive Council</li>
+                        <li>40% non-CS majors in active membership</li>
+                        <li>30% Spanish-language workshop attendance</li>
+                        <li>30% women in Tech track leadership</li>
+                        <li>75% first-gen students participate</li>
+                    </ul>
+                </div>
+
+                <div class="metrics-section">
+                    <h3>Collaboration Targets</h3>
+                    <ul>
+                        <li>10+ student orgs served</li>
+                        <li>25+ projects delivered</li>
+                        <li>500+ students indirectly benefiting</li>
+                        <li>95% satisfaction from requesting orgs</li>
+                        <li>20 events/year (10/semester)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: #fbbf24;">Career Outcomes (Year 2-3)</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: center; font-size: 1.2rem;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #fbbf24;">75%</div>
+                        <div>Report AI skills in job interviews</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #fbbf24;">25+</div>
+                        <div>Secure AI internships via 1,300+ partnerships</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold; color: #fbbf24;">10+</div>
+                        <div>Pursue AI Engineering certificate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Budget Request -->
+        <div class="slide slide-10">
+            <h1>💰 Year 1 Budget: $78,000</h1>
+
+            <div class="budget-grid">
+                <div class="budget-card">
+                    <h3>Personnel (Work-Study) - $45,000</h3>
+                    <ul>
+                        <li>7 Executive Council × $15/hr × 10 hrs/week × 30 weeks = <strong>$31,500</strong></li>
+                        <li>15 Committee Leads × $15/hr × 5 hrs/week × 30 weeks = <strong>$11,250</strong></li>
+                        <li>Faculty advisor stipend (Professor Watkins) = <strong>$2,250/semester × 2</strong></li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>Developer Ecosystem - $25,000</h3>
+                    <ul>
+                        <li>Tech track tools (APIs, cloud, databases) = <strong>$10,000</strong></li>
+                        <li>Creative track tools (Midjourney, Runway, Adobe) = <strong>$8,000</strong></li>
+                        <li>Business track tools (ChatGPT Enterprise, analytics) = <strong>$4,000</strong></li>
+                        <li>Health track tools (HIPAA-compliant platforms) = <strong>$3,000</strong></li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>Equity Initiatives - $8,000</h3>
+                    <ul>
+                        <li>Spanish translation services = <strong>$2,000</strong></li>
+                        <li>Bilingual marketing materials = <strong>$1,500</strong></li>
+                        <li>First-gen support (childcare, transportation) = <strong>$2,500</strong></li>
+                        <li>Accessibility accommodations = <strong>$2,000</strong></li>
+                    </ul>
+                </div>
+
+                <div class="budget-card">
+                    <h3>Funding Sources</h3>
+                    <ul>
+                        <li>ACC Foundation (Equity Initiative) = <strong>$35,000</strong></li>
+                        <li>Industry Sponsors (Diversity Partnerships) = <strong>$25,000</strong></li>
+                        <li>ACC Student Services = <strong>$10,000</strong></li>
+                        <li>Student Government = <strong>$8,000</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; background: rgba(255,255,255,0.15); padding: 25px; border-radius: 12px; text-align: center;">
+                <p style="font-size: 1.5rem;">
+                    <strong>After vendor partnerships (OpenAI Education, AWS Educate):</strong><br>
+                    <span style="font-size: 2rem; font-weight: bold; color: #fbbf24;">Net cost: $60K-65K/year</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 11: ROI -->
+        <div class="slide slide-11">
+            <h1>📈 Why This Makes Dollars and Sense</h1>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div class="quote-box" style="display: inline-block; max-width: 900px;">
+                    <blockquote style="font-size: 1.6rem;">"It has to make dollars and sense."</blockquote>
+                    <cite>— Dr. Monique Reeves</cite>
+                </div>
+            </div>
+
+            <div class="roi-grid">
+                <div class="roi-box">
+                    <h3>Student Investment</h3>
+                    <ul>
+                        <li>10-20 hours/semester participation</li>
+                        <li>Portfolio project completion</li>
+                        <li>Peer collaboration time</li>
+                    </ul>
+                    <h3 style="margin-top: 30px;">Student Return</h3>
+                    <ul>
+                        <li>Free AI tool access ($180-900/year value)</li>
+                        <li>Work-study income (Leaders: $2,250-4,500/year)</li>
+                        <li>AI fluency → $70K-90K starting salaries</li>
+                    </ul>
+                    <p class="highlight-stat">ROI: 350%+ in Year 1 of employment</p>
+                </div>
+
+                <div class="roi-box">
+                    <h3>ACC Investment</h3>
+                    <ul>
+                        <li>$78,000 Year 1 budget</li>
+                        <li>4 faculty advisors (2 hrs/week each)</li>
+                        <li>CGCS facility access</li>
+                    </ul>
+                    <h3 style="margin-top: 30px;">ACC Return</h3>
+                    <ul>
+                        <li>500+ students with AI fluency</li>
+                        <li>Peer training scales to 1,000+ by Year 2</li>
+                        <li>Industry partnerships strengthened</li>
+                        <li>National model for community colleges</li>
+                    </ul>
+                    <p class="highlight-stat">ROI: Institutional reputation + student outcomes</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.8rem; font-weight: bold; color: #fbbf24;">
+                    Cost per student with AI fluency: $156/year
+                </p>
+                <p style="font-size: 1.3rem; margin-top: 15px;">
+                    (Scales down to $78/student Year 2 as cohort grows to 1,000+)
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 12: The Ask -->
+        <div class="slide slide-12">
+            <h1>💼 What We're Asking For</h1>
+
+            <div class="ask-sections">
+                <div class="ask-section">
+                    <h3>From This Committee</h3>
+                    <ul>
+                        <li>Endorse SAIC as official student subcommittee</li>
+                        <li>4 Faculty advisors (1 per track, 2 hrs/week)</li>
+                        <li>$78,000 Year 1 budget commitment</li>
+                        <li>Champion SAIC across departments</li>
+                    </ul>
+                </div>
+
+                <div class="ask-section">
+                    <h3>From Student Leaders</h3>
+                    <ul>
+                        <li>Recruit 7 Executive Council + 20 Committee Leads</li>
+                        <li>Multilingual outreach to reach 500 students</li>
+                        <li>Deliver 10+ student org projects Year 1</li>
+                        <li>Quarterly reporting to committee</li>
+                    </ul>
+                </div>
+
+                <div class="ask-section">
+                    <h3>Implementation Timeline</h3>
+                    <ul>
+                        <li><strong>Oct 17, 2025:</strong> Committee approval</li>
+                        <li><strong>Nov 2025:</strong> Recruit Executive Council (elections)</li>
+                        <li><strong>Dec 2025:</strong> Tool access setup, SAIC Hub portal launch</li>
+                        <li><strong>Jan 2026:</strong> First workshops, student org request system opens</li>
+                        <li><strong>May 2026:</strong> Year 1 results presentation</li>
+                    </ul>
+                </div>
+
+                <div class="ask-section">
+                    <h3>Support Needed</h3>
+                    <ul>
+                        <li>CGCS facility access partnership</li>
+                        <li>Austin AI Alliance introduction (student liaison role)</li>
+                        <li>Connection to 1,300+ employer partnerships</li>
+                        <li>Quarterly check-ins with committee leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: National Model -->
+        <div class="slide slide-13">
+            <h1>🏆 Why ACC Should Lead Nationally</h1>
+
+            <div class="why-acc-grid">
+                <div class="why-acc-card">
+                    <h3>First Futurist in Higher Ed</h3>
+                    <p>ACC hired Dr. Monique Reeves as Executive Vice Chancellor for the Future (May 2025) — first "futurist" role in community college sector. Positioned to lead AI education innovation.</p>
+                </div>
+
+                <div class="why-acc-card">
+                    <h3>Hispanic-Serving Institution</h3>
+                    <p>ACC's commitment to equity makes this model replicable for 500+ HSIs nationwide. 50% Latino leadership pipeline addresses national underrepresentation in AI.</p>
+                </div>
+
+                <div class="why-acc-card">
+                    <h3>Austin's AI Hub Location</h3>
+                    <p>Access to 120+ AI companies via Austin AI Alliance, plus ACC's existing 1,300+ employer partnerships. Students connect directly with industry leaders.</p>
+                </div>
+
+                <div class="why-acc-card">
+                    <h3>Proven Experiential Learning</h3>
+                    <p>ACC already operates 45+ programs with internship/practicum models at scale. SAIC extends proven infrastructure into AI domain.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 40px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fbbf24; font-weight: bold;">
+                    National Visibility Opportunity
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 1.2rem;">
+                    <div>✓ SAIC model replicable at 1,000+ community colleges</div>
+                    <div>✓ Industry diversity pipeline validation</div>
+                    <div>✓ Media coverage: "ACC students build AI fluency at scale"</div>
+                    <div>✓ National conference presentations (AACC, League)</div>
+                </div>
+                <p style="font-size: 1.6rem; margin-top: 25px; font-style: italic;">
+                    "At ACC, we don't wait for the future—we build it with our students."
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Proven Infrastructure -->
+        <div class="slide slide-14">
+            <h1>✅ This Isn't New—It's Proven at Scale</h1>
+            <p style="font-size: 1.4rem; text-align: center; margin-bottom: 30px;">ACC Already Does This Successfully</p>
+
+            <div class="proven-grid">
+                <div class="proven-card">
+                    <div class="icon">🤝</div>
+                    <h3>1,300+ Employer Partnerships</h3>
+                    <p>Experiential learning infrastructure supporting 45+ programs with internship/practicum models. Nearly 1,000 internships placed annually.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">SAIC extends proven model to AI Engineering domain.</p>
+                </div>
+
+                <div class="proven-card">
+                    <div class="icon">💰</div>
+                    <h3>$35M Foundation Fundraising</h3>
+                    <p>ACC Foundation has raised $35 million total, with $16M permanent endowment and $12.5M in scholarships awarded. Proven capacity for securing funding.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">SAIC tool access follows established scholarship model.</p>
+                </div>
+
+                <div class="proven-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI-Assisted Career Services</h3>
+                    <p>ACC already uses AI for resume screening and career matching. Institutional trust in AI for student success established.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">SAIC teaches students to BUILD those AI systems.</p>
+                </div>
+
+                <div class="proven-card">
+                    <div class="icon">🏛️</div>
+                    <h3>Work-Study Infrastructure</h3>
+                    <p>ACC currently manages 100+ work-study positions across departments. Payroll, supervision, and evaluation systems already in place.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">SAIC adds 22 positions to existing framework.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.15); padding: 35px; border-radius: 15px; text-align: center;">
+                <p style="font-size: 1.8rem; font-weight: bold; color: #fbbf24;">
+                    Same Structure. Same Partners. Same Mission. New Domain: AI Engineering.
+                </p>
+                <p style="font-size: 1.3rem; margin-top: 15px;">
+                    SAIC isn't asking ACC to build new systems—we activate what already exists.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 15: Call to Action -->
+        <div class="slide slide-15">
+            <h1>🚀 Dr. Reeves, We're Ready</h1>
+
+            <div class="cta-box">
+                <h2>"Students are ready to implement your vision."</h2>
+
+                <p style="margin-top: 30px;">
+                    In July 2025, you publicly committed to delivering AI fluency because industry partners expect it.
+                    Today, students offer the peer-to-peer implementation vehicle to scale that vision across 40,000 students.
+                </p>
+
+                <div style="margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: #fbbf24;">Committee Vote Today:</h3>
+                    <ul class="vote-list">
+                        <li>Endorse SAIC as official student subcommittee</li>
+                        <li>Commit $78,000 Year 1 funding</li>
+                        <li>Assign 4 faculty advisors (1 per track)</li>
+                    </ul>
+                </div>
+
+                <div style="margin: 40px 0;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px; color: #fbbf24;">Together We Deliver:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; font-size: 1.2rem; text-align: left;">
+                        <div>✓ AI fluency for 500+ students Year 1</div>
+                        <div>✓ Latino leadership pipeline (50% Executive Council)</div>
+                        <div>✓ Cross-org collaboration (10+ student orgs served)</div>
+                        <div>✓ National model for community college AI education</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 50px; font-size: 2.5rem; font-weight: bold; color: #fbbf24;">
+                    "Let's not just prepare for the future.<br>Let's build it together."
+                </p>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <p style="font-size: 1.4rem;">Questions? Discussion? Let's talk about how we make this real.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">15</span>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="prevSlide()">← Previous</button>
+        <button class="nav-button" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <div class="speaker-notes" id="speaker-notes"></div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 15;
+
+        const speakerNotes = {
+            1: "OPENING (30 seconds): Welcome everyone. I'm Abel Rincon, student representative. Today I'm presenting SAIC - the student-led implementation vehicle for Dr. Reeves' AI fluency vision. This is ACC Student AI Collaborative.",
+            2: "EXECUTIVE MANDATE (1 minute): In July 2025, Dr. Reeves publicly stated that industry partners expect AI fluency from our students. The challenge: how do we deliver this to 40,000+ students with limited faculty bandwidth? SAIC is the peer-to-peer solution that scales AI training exponentially. We're not asking permission to start something new—we're offering to implement Dr. Reeves' vision.",
+            3: "INDUSTRY DEMAND (45 seconds): From ACC's existing 1,300+ employer partnerships, we know what industry wants: 2,000+ AI jobs in Austin right now, $70K-90K entry salaries, prompt engineering skills growing 32.8% annually. Employers expect AI tool fluency, ethical understanding, and cross-functional collaboration. This verification was conducted October 14, 2025.",
+            4: "SAIC MISSION (1 minute): Three pillars define us. EQUITY ENGINE: 50% Latino leadership target, Spanish workshops, first-gen focus addressing underrepresentation in B/C suites. CROSS-DISCIPLINARY HUB: AI for Art, Business, Health, Tech—everyone welcome. STUDENT ORG SUPPORT HUB: AI as a service for other student orgs. 10+ orgs served Year 1. This embodies Dr. Reeves' collaboration vision—we elevate all students, not just tech majors.",
+            5: "SCALING (45 seconds): Traditional faculty-to-student model doesn't scale to 40,000 students. SAIC peer model: 1 faculty advisor → 7 Executive Council → 20 Committee Leads → 100 Active Members → 500+ students Year 1. Dr. Reeves said you can't ask students to use AI until faculty are trained. SAIC delivers both: students train students AND support faculty. Everyone gains AI fluency.",
+            6: "ENTRY POINTS (45 seconds): No barriers. Level 0: Anyone can attend 1 event, no registration. Level 1: ACC students get free tools. Level 2: Active contributors get advanced tools, mentorship. Level 3-4: Work-study positions for leaders at $15/hr. Equity requirement: 4 of 7 Executive Council positions reserved for underrepresented minorities. Target: 80% of new members say 'I didn't think AI was for me.'",
+            7: "TRACKS (30 seconds): Four specialized tracks ensure every major has an entry point. Creative AI: Midjourney, Runway for art students. Business AI: ChatGPT Enterprise, analytics for business students. Health AI: Medical chatbots, HIPAA-compliant tools for nursing students. Tech AI: OpenAI APIs, cloud compute for CS students. 'You don't need to code to use AI—you need ideas.'",
+            8: "STUDENT ORG SUPPORT (1 minute): How this works: Hispanic Student Association requests bilingual chatbot, 3 SAIC students build it in 2 weeks, 500+ students benefit. Student Government requests budget analysis tool, 2 students deliver in 4 weeks, $50K optimized. Nursing Association requests study guide generator, 2 students build it, pass rates improve 80% to 92%. This is Dr. Reeves' collaboration vision—SAIC becomes the elevator for all student organizations.",
+            9: "SUCCESS METRICS (30 seconds): Three categories. Engagement: 500 registered, 100 active, 20 leads, 7 council. Equity: 50% Latino council, 40% non-CS majors, 30% Spanish workshops. Collaboration: 10+ orgs served, 25+ projects, 500+ indirect beneficiaries. Career outcomes by Year 2-3: 75% report AI skills in interviews, 25+ internships via 1,300+ partnerships.",
+            10: "BUDGET (45 seconds): $78K Year 1. Personnel: $45K for work-study positions—7 council, 15 leads, faculty advisor. Developer ecosystem: $25K for tools across all 4 tracks. Equity initiatives: $8K for Spanish translation, childcare, transportation. Funding sources: $35K ACC Foundation, $25K industry sponsors, $10K Student Services, $8K Student Government. After vendor partnerships like OpenAI Education and AWS Educate, net cost drops to $60K-65K.",
+            11: "ROI (45 seconds): Dr. Reeves said it has to make dollars and sense. Student investment: 10-20 hours/semester. Student return: Free tools worth $180-900/year, work-study income $2,250-4,500/year, AI fluency leading to $70K-90K salaries—350%+ ROI Year 1 of employment. ACC investment: $78K. ACC return: 500+ students with AI fluency scaling to 1,000+ Year 2, strengthened industry partnerships, national model. Cost per student: $156 Year 1, drops to $78 Year 2.",
+            12: "THE ASK (45 seconds): From committee: Endorse SAIC, assign 4 faculty advisors (2 hrs/week each), commit $78K budget, champion across departments. From students: Recruit 27 leaders, multilingual outreach to 500 students, deliver 10+ org projects, quarterly reporting. Timeline: Approval today Oct 17, recruitment Nov, setup Dec, launch Jan 2026, results presentation May 2026.",
+            13: "NATIONAL MODEL (30 seconds): Why ACC leads: First futurist in higher ed (Dr. Reeves, May 2025), HSI commitment makes model replicable for 500+ institutions, Austin AI hub with 120+ companies, proven experiential learning at scale with 1,300+ partners. SAIC positions ACC for national visibility, media coverage, conference presentations. 'At ACC, we don't wait for the future—we build it with our students.'",
+            14: "PROVEN INFRASTRUCTURE (30 seconds): ACC already does this successfully. 1,300+ employer partnerships with nearly 1,000 internships placed annually. $35M Foundation fundraising with $12.5M in scholarships—proven capacity. AI-assisted career services—institutional trust established. Work-study infrastructure managing 100+ positions already. SAIC adds 22 positions to existing framework. Same structure, same partners, same mission, new domain: AI Engineering.",
+            15: "CLOSING (1 minute): Dr. Reeves, in July you committed to AI fluency because industry partners expect it. Today, students offer the peer-to-peer vehicle to deliver that vision at scale. Committee vote today: Endorse SAIC, commit $78K, assign 4 advisors. Together we deliver: AI fluency for 500+ Year 1, Latino leadership pipeline, cross-org collaboration serving 10+ organizations, national model for community colleges. Let's not just prepare for the future—let's build it together. Questions?"
+        };
+
+        function updateSlide() {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.querySelector(`.slide-${currentSlide}`).classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide;
+            document.getElementById('speaker-notes').textContent = speakerNotes[currentSlide] || '';
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function toggleNotes() {
+            document.getElementById('speaker-notes').classList.toggle('show');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'n' || e.key === 'N') {
+                toggleNotes();
+            }
+        });
+
+        document.getElementById('total-slides').textContent = totalSlides;
+    </script>
+</body>
+</html>

@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic AI Initiatives Proposal - ACC Implementation Framework</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #22c55e;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --purple: #8b5cf6;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .context-banner {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 30px 40px;
+            border-left: 6px solid var(--accent);
+        }
+
+        .context-banner h2 {
+            color: #92400e;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .context-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .context-card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .context-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .gap-analysis {
+            background: #fee2e2;
+            padding: 30px 40px;
+            border-left: 6px solid var(--red);
+        }
+
+        .gap-analysis h2 {
+            color: #991b1b;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .gap-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .gap-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .gap-column.current h3 {
+            color: var(--secondary);
+        }
+
+        .gap-column.missing h3 {
+            color: var(--red);
+        }
+
+        .gap-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .gap-column.current .gap-item {
+            background: #d1fae5;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .gap-column.missing .gap-item {
+            background: #fee2e2;
+            border-left: 3px solid var(--red);
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .initiative-section {
+            margin-bottom: 60px;
+        }
+
+        .initiative-header {
+            background: linear-gradient(135deg, var(--purple), #6366f1);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .initiative-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .initiative-number {
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.3;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .initiative-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .initiative-header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .objective-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-left: 4px solid var(--primary);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .objective-box h3 {
+            color: #1e40af;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .objective-box p {
+            color: #1e3a8a;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .initiatives-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .initiative-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .initiative-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(14, 165, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .initiative-card::before {
+            content: '✓';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .initiative-card h4 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-right: 40px;
+        }
+
+        .initiative-card p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .initiative-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .meta-item strong {
+            color: var(--dark);
+        }
+
+        .alignment-section {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 60px;
+            border-left: 6px solid var(--secondary);
+        }
+
+        .alignment-section h2 {
+            color: #065f46;
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .alignment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .alignment-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .alignment-card h3 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .alignment-list {
+            list-style: none;
+        }
+
+        .alignment-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            color: #475569;
+        }
+
+        .alignment-list li:last-child {
+            border-bottom: none;
+        }
+
+        .alignment-list li strong {
+            color: var(--dark);
+        }
+
+        .metrics-section {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            border-left: 6px solid var(--accent);
+        }
+
+        .metrics-section h2 {
+            color: #92400e;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .gap-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .context-grid,
+            .alignment-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 Strategic AI Initiatives Framework</h1>
+            <p class="subtitle">Building Competitive AI Technical Training at ACC</p>
+        </header>
+
+        <div class="context-banner">
+            <h2>📊 Market Context & Student Opportunity</h2>
+            <div class="context-grid">
+                <div class="context-card">
+                    <h3>2,000+</h3>
+                    <p>AI Engineering positions verified in Austin (Oct 14, 2025: Indeed 1,224, LinkedIn 2,000+, Glassdoor 1,349)</p>
+                </div>
+                <div class="context-card">
+                    <h3>$70K-90K</h3>
+                    <p>Entry-level AI Engineer salaries in Austin (verified Salary.com), progressing to $100K+ in 2-3 years</p>
+                </div>
+                <div class="context-card">
+                    <h3>8%</h3>
+                    <p>Of positions currently require prompt engineering (growing 32.8% annually through 2030)</p>
+                </div>
+                <div class="context-card">
+                    <h3>$1,500/year</h3>
+                    <p>Tool cost barrier preventing ACC students from competing (verified vendor pricing)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="gap-analysis">
+            <h2>🔍 Current State Analysis: ACC Technology Access</h2>
+            <div class="gap-comparison">
+                <div class="gap-column current">
+                    <h3>✅ What ACC Currently Provides</h3>
+                    <div class="gap-item">
+                        <strong>Google Workspace:</strong> Free email, docs, drive, collaboration tools
+                    </div>
+                    <div class="gap-item">
+                        <strong>Microsoft Office 365:</strong> Free Word, Excel, PowerPoint for personal devices
+                    </div>
+                    <div class="gap-item">
+                        <strong>Adobe Creative Cloud:</strong> $10-50/semester for design software
+                    </div>
+                    <div class="gap-item">
+                        <strong>Computer Labs:</strong> 600+ computers at Highland Campus, CSIT labs
+                    </div>
+                    <div class="gap-item">
+                        <strong>Equipment Lending:</strong> iPads, webcams, calculators for semester
+                    </div>
+                    <div class="gap-item">
+                        <strong>Software Discounts:</strong> OnTheHub for various student software
+                    </div>
+                </div>
+
+                <div class="gap-column missing">
+                    <h3>❌ Critical Gaps for AI Development</h3>
+                    <div class="gap-item">
+                        <strong>AI Development APIs:</strong> No institutional access to GPT-4, Claude, Gemini
+                    </div>
+                    <div class="gap-item">
+                        <strong>Vector Databases:</strong> No Pinecone, Weaviate, Qdrant, or ChromaDB access
+                    </div>
+                    <div class="gap-item">
+                        <strong>Cloud Compute:</strong> No AWS/Azure credits for AI workloads (unlike UT Austin)
+                    </div>
+                    <div class="gap-item">
+                        <strong>Development Tools:</strong> GitHub Education Pack not promoted/facilitated
+                    </div>
+                    <div class="gap-item">
+                        <strong>AI Curriculum:</strong> No prompt engineering, RAG systems, or agentic AI courses
+                    </div>
+                    <div class="gap-item">
+                        <strong>Student Access to AI Infrastructure:</strong> CGCS facility and Austin AI Alliance membership exist but lack systematic student pathways
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 25px; padding: 20px; background: white; border-radius: 8px;">
+                <p style="color: #991b1b; font-weight: 600; font-size: 1.05rem;">
+                    <strong>The Problem:</strong> ACC successfully provides access to traditional productivity software (Office, Adobe, Google),
+                    but has no comparable model for AI development tools. This creates a competitive disadvantage where ACC students
+                    compete for the same $120K-$180K jobs as UT students, but without access to the same training infrastructure.
+                </p>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); padding: 30px 40px; border-left: 6px solid #3b82f6; margin-bottom: 40px;">
+            <h2 style="color: #1e40af; font-size: 1.5rem; margin-bottom: 15px;">🏛️ ACC's Existing AI Infrastructure (2024-2025)</h2>
+            <p style="color: #1e3a8a; font-size: 1.05rem; margin-bottom: 20px;">
+                <strong>Strategic Insight:</strong> ACC has already invested in significant AI infrastructure through CGCS facility
+                and Austin AI Alliance membership. This proposal activates these existing assets for systematic student access rather
+                than building new infrastructure from scratch.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 12px;">🏗️ CGCS Facility</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                        <strong>Founded:</strong> June 2024<br>
+                        <strong>Location:</strong> Rio Grande Campus, Building 3000<br>
+                        <strong>Capacity:</strong> Event space, simulation labs, civic partnerships<br>
+                        <strong>Opportunity:</strong> Expand mission to include AI + civic innovation programs
+                    </p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 12px;">🤝 Austin AI Alliance</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                        <strong>Membership:</strong> Full Member (501c6 consortium)<br>
+                        <strong>Network:</strong> 120+ companies, educational institutions, nonprofits<br>
+                        <strong>Access:</strong> Working groups, funded projects, workshops, networking events<br>
+                        <strong>Opportunity:</strong> Create structured student mentorship pathways through Alliance
+                    </p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #3b82f6; font-size: 1.2rem; margin-bottom: 12px;">✅ Proven Capability</h3>
+                    <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                        <strong>Scale AI Hackathon (2023):</strong> ACC successfully partnered with Scale AI for student
+                        AI hackathon, proving ability to execute industry-partnered AI programs<br>
+                        <strong>Model:</strong> Transform one-off events into semester-long structured programs
+                    </p>
+                </div>
+            </div>
+            <div style="margin-top: 20px; padding: 15px; background: #eff6ff; border-radius: 8px; border: 1px solid #3b82f6;">
+                <p style="color: #1e40af; font-weight: 600; font-size: 1rem;">
+                    💡 <strong>Strategic Positioning:</strong> This proposal maximizes ROI on existing institutional investments
+                    (CGCS facility, Austin AI Alliance membership) by creating systematic student access pathways. We're not asking
+                    for new infrastructure — we're activating what ACC already built.
+                </p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Initiative 1 -->
+            <div class="initiative-section">
+                <div class="initiative-header">
+                    <div class="initiative-number">01</div>
+                    <h2>AI Technology Access Program</h2>
+                    <p class="tagline">Expanding ACC's Proven Software Access Model to AI Development Tools</p>
+                </div>
+
+                <div class="objective-box">
+                    <h3>🎯 Strategic Objective</h3>
+                    <p>
+                        Remove financial barriers preventing ACC students from accessing modern AI development tools
+                        by extending ACC's existing technology access model (currently serving Office 365, Adobe, Google)
+                        to include AI APIs, vector databases, and cloud infrastructure. This positions ACC students to
+                        compete on equal footing with students from UT Austin, Texas A&M, and Texas State for high-paying
+                        AI engineering careers.
+                    </p>
+                </div>
+
+                <div class="initiatives-grid">
+                    <div class="initiative-card">
+                        <h4>Initiative 1.1: Enterprise AI API Access</h4>
+                        <p>
+                            Establish institutional partnerships with major AI providers (OpenAI, Anthropic, Google, Meta)
+                            to provide students with API credits for building AI applications. Similar to how ACC provides
+                            Adobe Creative Cloud at institutional rates, negotiate education pricing for AI development APIs.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>💰</span>
+                                <strong>Est. Cost:</strong> $600-900/student/year
+                            </div>
+                            <div class="meta-item">
+                                <span>👥</span>
+                                <strong>Target:</strong> CS, Software Dev, LAN Admin students
+                            </div>
+                            <div class="meta-item">
+                                <span>📈</span>
+                                <strong>Impact:</strong> Enables real-world AI application development
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 1.2: Vector Database Infrastructure</h4>
+                        <p>
+                            Provide access to vector database platforms (vendor-agnostic: Pinecone, Weaviate, Qdrant,
+                            ChromaDB, or Milvus) for students building RAG (Retrieval-Augmented Generation) systems.
+                            Essential for modern AI applications requiring semantic search and document intelligence.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>💰</span>
+                                <strong>Est. Cost:</strong> $200-400/student/year
+                            </div>
+                            <div class="meta-item">
+                                <span>🔧</span>
+                                <strong>Scope:</strong> Education tier with reasonable limits
+                            </div>
+                            <div class="meta-item">
+                                <span>📚</span>
+                                <strong>Use Case:</strong> RAG systems, semantic search, chatbots
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 1.3: Cloud Compute Resources</h4>
+                        <p>
+                            Secure institutional cloud credits (AWS Educate, Azure for Students, Google Cloud Education)
+                            for students deploying AI applications. Parity with UT Austin ($500+ AWS credits) and Texas
+                            A&M (Microsoft partnership) ensures ACC students can build production-ready portfolios.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>💰</span>
+                                <strong>Est. Cost:</strong> $300-500/student/year
+                            </div>
+                            <div class="meta-item">
+                                <span>☁️</span>
+                                <strong>Providers:</strong> AWS, Azure, Google Cloud (vendor neutral)
+                            </div>
+                            <div class="meta-item">
+                                <span>🚀</span>
+                                <strong>Purpose:</strong> Application deployment, GPU access, serverless
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 1.4: Developer Tool Ecosystem</h4>
+                        <p>
+                            Facilitate access to GitHub Education Pack (already free but underutilized at ACC),
+                            JetBrains educational licenses, and other professional development tools. Create streamlined
+                            onboarding process for students to claim these resources during course enrollment.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>💰</span>
+                                <strong>Cost:</strong> Mostly free (facilitation overhead only)
+                            </div>
+                            <div class="meta-item">
+                                <span>🎓</span>
+                                <strong>Benefit:</strong> GitHub Copilot, JetBrains IDEs, cloud credits
+                            </div>
+                            <div class="meta-item">
+                                <span>📝</span>
+                                <strong>Action:</strong> Automated enrollment, orientation sessions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-section">
+                    <h2>📊 Success Metrics - Initiative 1</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">80%</div>
+                            <div class="metric-label">Student tool activation rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">5+</div>
+                            <div class="metric-label">AI projects per student</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$75K</div>
+                            <div class="metric-label">Pilot budget (50 students)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">100,000%</div>
+                            <div class="metric-label">Student ROI (career earnings)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initiative 2 -->
+            <div class="initiative-section">
+                <div class="initiative-header" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
+                    <div class="initiative-number">02</div>
+                    <h2>AI Technical Curriculum Development</h2>
+                    <p class="tagline">Creating Structured Learning Pathways for High-Demand AI Skills</p>
+                </div>
+
+                <div class="objective-box" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-left-color: #0284c7;">
+                    <h3>🎯 Strategic Objective</h3>
+                    <p>
+                        Develop comprehensive, industry-aligned curriculum teaching modern AI development skills
+                        (prompt engineering, RAG systems, agentic AI) that 8% of Austin employers currently require (growing 32.8% annually through 2030) but ACC
+                        currently doesn't teach. Establish prompt engineering as a foundational competency that can
+                        serve as a general education requirement while providing technical depth for CSIT students.
+                    </p>
+                </div>
+
+                <div class="initiatives-grid">
+                    <div class="initiative-card">
+                        <h4>Initiative 2.1: Prompt Engineering Fundamentals (Course 1)</h4>
+                        <p>
+                            Foundational course teaching systematic prompt design, chain-of-thought reasoning,
+                            few-shot learning, and prompt testing methodologies. Accessible to all majors as potential
+                            gen ed competency (AI literacy), while providing depth for technical students. 3 credit hours.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>📖</span>
+                                <strong>Level:</strong> Beginner (no prerequisites)
+                            </div>
+                            <div class="meta-item">
+                                <span>🎯</span>
+                                <strong>Skills:</strong> Prompt design, testing, documentation
+                            </div>
+                            <div class="meta-item">
+                                <span>👥</span>
+                                <strong>Audience:</strong> All majors + CSIT technical track
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 2.2: RAG Systems & Document Intelligence (Course 2)</h4>
+                        <p>
+                            Intermediate course covering vector databases, semantic search, document chunking,
+                            embeddings, and retrieval-augmented generation architectures. Students build production
+                            RAG applications using institutional tool access. Prerequisite: Course 1 or programming experience.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>📖</span>
+                                <strong>Level:</strong> Intermediate (requires prompt eng or coding)
+                            </div>
+                            <div class="meta-item">
+                                <span>🎯</span>
+                                <strong>Skills:</strong> Vector search, embeddings, RAG architecture
+                            </div>
+                            <div class="meta-item">
+                                <span>🏗️</span>
+                                <strong>Project:</strong> Build production chatbot or Q&A system
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 2.3: Agentic AI & Multi-Step Systems (Course 3)</h4>
+                        <p>
+                            Advanced course teaching autonomous AI agents, tool use, multi-step reasoning, state machines,
+                            and complex workflows. Students build agents that can use external tools, make decisions, and
+                            execute multi-step plans. Capstone-level complexity. Prerequisite: Courses 1 & 2.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>📖</span>
+                                <strong>Level:</strong> Advanced (requires Courses 1 & 2)
+                            </div>
+                            <div class="meta-item">
+                                <span>🎯</span>
+                                <strong>Skills:</strong> Agent design, tool integration, orchestration
+                            </div>
+                            <div class="meta-item">
+                                <span>🚀</span>
+                                <strong>Outcome:</strong> Portfolio-ready autonomous AI system
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 2.4: Curriculum Integration & Faculty Development</h4>
+                        <p>
+                            Integrate AI curriculum into existing programs: add to CSIT degree plans, offer as certificate,
+                            position Course 1 as general education competency. Provide faculty professional development on
+                            teaching prompt engineering and AI systems. Partner with TLED for training infrastructure.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>👨‍🏫</span>
+                                <strong>Faculty PD:</strong> Summer workshops, ongoing support
+                            </div>
+                            <div class="meta-item">
+                                <span>📚</span>
+                                <strong>Integration:</strong> CS, Software Dev, LAN Admin programs
+                            </div>
+                            <div class="meta-item">
+                                <span>🎓</span>
+                                <strong>Pathways:</strong> Degree, certificate, gen ed options
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-section">
+                    <h2>📊 Success Metrics - Initiative 2</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">100+</div>
+                            <div class="metric-label">Students enrolled per year</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">90%</div>
+                            <div class="metric-label">Course completion rate</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">85%</div>
+                            <div class="metric-label">Student satisfaction (target)</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">5</div>
+                            <div class="metric-label">Faculty trained in AI instruction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initiative 3 -->
+            <div class="initiative-section">
+                <div class="initiative-header" style="background: linear-gradient(135deg, #10b981, #059669);">
+                    <div class="initiative-number">03</div>
+                    <h2>Industry Partnership & Portfolio Development</h2>
+                    <p class="tagline">Connecting ACC Students to Austin's AI Ecosystem</p>
+                </div>
+
+                <div class="objective-box" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0); border-left-color: #059669;">
+                    <h3>🎯 Strategic Objective</h3>
+                    <p>
+                        Establish structured partnerships with Austin AI companies to provide mentorship, real-world
+                        projects, and portfolio development opportunities. Bridge the gap between academic learning and
+                        industry practice, ensuring ACC graduates have competitive portfolios demonstrating production-ready
+                        AI skills valued by employers paying $120K-$180K starting salaries.
+                    </p>
+                </div>
+
+                <div class="initiatives-grid">
+                    <div class="initiative-card">
+                        <h4>Initiative 3.1: Industry Mentorship Program</h4>
+                        <p>
+                            <strong>Leverage ACC's Austin AI Alliance membership</strong> to establish structured mentorship pathways
+                            with member companies. The Alliance provides access to 120+ organizations including startups, tech giants,
+                            and AI-focused nonprofits. Partner with AI engineers to provide 1-on-1 or small-group mentorship for students
+                            building AI portfolios. Mentors review projects, provide industry insights, and connect students to hiring pipelines.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>🤝</span>
+                                <strong>Infrastructure:</strong> Austin AI Alliance network (120+ members)
+                            </div>
+                            <div class="meta-item">
+                                <span>🏢</span>
+                                <strong>Partners:</strong> Alliance member companies + Austin tech ecosystem
+                            </div>
+                            <div class="meta-item">
+                                <span>📅</span>
+                                <strong>Format:</strong> Monthly meetings, semester-long relationships
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 3.2: Structured Portfolio Projects</h4>
+                        <p>
+                            Design scaffolded project sequences that culminate in portfolio-ready AI applications.
+                            Students build: (1) Conversational AI assistant, (2) RAG-based document Q&A system,
+                            (3) Agentic workflow automation, (4) Capstone project of choice. All projects deployed
+                            publicly and documented professionally.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>🎨</span>
+                                <strong>Deliverables:</strong> 4 production-ready applications
+                            </div>
+                            <div class="meta-item">
+                                <span>🌐</span>
+                                <strong>Deployment:</strong> Public GitHub repos, live demos
+                            </div>
+                            <div class="meta-item">
+                                <span>📝</span>
+                                <strong>Documentation:</strong> Technical write-ups, READMEs
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 3.3: ACC AI Engineer Certification</h4>
+                        <p>
+                            Create ACC-branded certification recognizing completion of 3-course sequence, portfolio
+                            development, and demonstrated competency in AI systems. Signals to employers that graduate
+                            has production-ready skills in prompt engineering, RAG systems, and agentic AI.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>🏆</span>
+                                <strong>Requirements:</strong> 3 courses + 4 projects + capstone
+                            </div>
+                            <div class="meta-item">
+                                <span>🎓</span>
+                                <strong>Recognition:</strong> Digital badge, transcript notation
+                            </div>
+                            <div class="meta-item">
+                                <span>💼</span>
+                                <strong>Value:</strong> Employer-recognized competency signal
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="initiative-card">
+                        <h4>Initiative 3.4: Industry Showcase & Hiring Events</h4>
+                        <p>
+                            <strong>Host showcases at CGCS facility</strong> (Rio Grande Campus, Building 3000) where students present
+                            AI portfolio projects to Austin AI Alliance member companies and broader tech ecosystem. Leverage Alliance
+                            network and existing RiverHacks/Scale AI partnership model. Create direct hiring pipeline for companies
+                            seeking AI engineers, with internship and entry-level position postings for ACC program graduates.
+                        </p>
+                        <div class="initiative-meta">
+                            <div class="meta-item">
+                                <span>🏛️</span>
+                                <strong>Venue:</strong> CGCS facility (existing infrastructure)
+                            </div>
+                            <div class="meta-item">
+                                <span>🏢</span>
+                                <strong>Network:</strong> Austin AI Alliance + tech ecosystem (30+ companies)
+                            </div>
+                            <div class="meta-item">
+                                <span>📅</span>
+                                <strong>Frequency:</strong> Fall and Spring showcase events
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-section">
+                    <h2>📊 Success Metrics - Initiative 3</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-value">60%</div>
+                            <div class="metric-label">Job placement rate within 6 months</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">$100K+</div>
+                            <div class="metric-label">Average starting salary</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">25+</div>
+                            <div class="metric-label">Industry partner companies</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">80%</div>
+                            <div class="metric-label">Portfolio completion rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Strategic Alignment Section -->
+            <div class="alignment-section">
+                <h2>🔗 Strategic Alignment with Committee Priorities</h2>
+                <div class="alignment-grid">
+                    <div class="alignment-card">
+                        <h3>Governance & Policy (67% of committee)</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Emilie Kunze:</strong> Tool Access Program provides vetted, governable infrastructure (HB 149 compliant)</li>
+                            <li><strong>David Cantu:</strong> Integrates with data governance and cybersecurity frameworks</li>
+                            <li><strong>Enrique Suárez:</strong> Institutional tool access ensures FERPA compliance vs. consumer tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>AI Literacy & Training (61%)</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Marisa Mendoza:</strong> Curriculum provides technical training for workforce preparation</li>
+                            <li><strong>Ron Johns:</strong> Prompt Engineering Course 1 can serve as gen ed AI competency</li>
+                            <li><strong>Jennifer Black:</strong> Faculty PD ensures instructors can teach new curriculum</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>Equity & Accessibility (22%)</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Keri Moczygemba:</strong> Tool Access Program removes $1,500/year financial barrier (verified vendor pricing Oct 14, 2025)</li>
+                            <li><strong>Pamela Chukwuneke:</strong> Ensures equitable access across departments and student populations</li>
+                            <li><strong>Keri (cont.):</strong> Prompt Engineering accessible entry point for all students</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>Industry Partnerships & Implementation</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Shih-Ting Lee:</strong> Portfolio Development directly implements her industry partnership vision</li>
+                            <li><strong>Manuel Duran:</strong> Positions ACC as national leader in responsible AI integration</li>
+                            <li><strong>Jose Resendez:</strong> Structured implementation with change management support</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>Academic Integrity & Assessment</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Ron Johns (Assessment):</strong> Clear learning outcomes and assessment metrics for curriculum</li>
+                            <li><strong>Chris Davis:</strong> Students learn AI limitations hands-on, reducing misuse</li>
+                            <li><strong>Jason Martinez:</strong> AI literacy reduces academic integrity issues through education</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>Knowledge Management & Communication</h3>
+                        <ul class="alignment-list">
+                            <li><strong>Elizabeth Mosser Knight:</strong> RAG curriculum teaches technical implementation of "source of truth" systems</li>
+                            <li><strong>Robert Foster:</strong> Recognizes different departments need different AI approaches - curriculum offers flexibility</li>
+                            <li><strong>Jose Resendez:</strong> Comprehensive change management ensures smooth rollout</li>
+                        </ul>
+                    </div>
+
+                    <div class="alignment-card">
+                        <h3>Infrastructure Leverage & ROI</h3>
+                        <ul class="alignment-list">
+                            <li><strong>CGCS Partnership (Bryan Port):</strong> Facility expansion to AI + civic innovation maximizes existing space investment</li>
+                            <li><strong>Austin AI Alliance Activation:</strong> Student pathways maximize ROI on institutional membership fees</li>
+                            <li><strong>Scale AI Model:</strong> Proven 2023 hackathon success provides template for semester-long programs</li>
+                            <li><strong>Dr. Reeves' Vision:</strong> Implements strategic commitment to Alliance working groups and funded projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>ACC AI Implementation Steering Committee | October 2025</strong></p>
+            <p>Faculty Mentor: Professor Alex Watkins | Student Advocate: [Your Name]</p>
+            <p>Computer Science & Information Technology Division</p>
+        </footer>
+    </div>
+
+    <script>
+        // Print functionality
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+
+        // Smooth scroll for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

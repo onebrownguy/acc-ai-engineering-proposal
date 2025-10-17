@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC AI Innovation Society - One-Page Summary</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #1e293b;
+            background: white;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 20pt;
+            margin-bottom: 5px;
+        }
+
+        .header .tagline {
+            font-size: 12pt;
+            opacity: 0.95;
+        }
+
+        .section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            background: #f1f5f9;
+            color: #1e293b;
+            padding: 8px 12px;
+            font-size: 11pt;
+            font-weight: 600;
+            border-left: 4px solid #667eea;
+            margin-bottom: 8px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        .box h4 {
+            color: #667eea;
+            font-size: 10pt;
+            margin-bottom: 6px;
+        }
+
+        .box p {
+            font-size: 9pt;
+            line-height: 1.4;
+        }
+
+        .box ul {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-left: 15px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border: 2px solid #3b82f6;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box p {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1e40af;
+            text-align: center;
+        }
+
+        .charges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .charge-item {
+            background: white;
+            border-left: 3px solid #10b981;
+            padding: 8px;
+            font-size: 9pt;
+        }
+
+        .charge-item strong {
+            color: #059669;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric .number {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric .label {
+            font-size: 8pt;
+            color: #64748b;
+        }
+
+        .ask-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .ask-box {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .ask-box h4 {
+            color: #b45309;
+            font-size: 10pt;
+            margin-bottom: 5px;
+        }
+
+        .ask-box ul {
+            font-size: 9pt;
+            margin-left: 15px;
+            line-height: 1.3;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            font-size: 9pt;
+            color: #64748b;
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+            }
+        }
+
+        /* ============================================
+           INTELLIGENT LINK SYSTEM - Visual Affordances
+           ============================================ */
+
+        /* Override base link styling for better affordances */
+        a {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        a:hover {
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        a:active {
+            transform: scale(0.98);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--acc-orange);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Internal navigation links with orange arrow */
+        a[href^="#"]::after {
+            content: " →";
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--acc-orange);
+            font-weight: 700;
+        }
+
+        a[href^="#"]:hover::after {
+            opacity: 1;
+        }
+
+        /* Document links with icons */
+        a[href$=".html"]::before {
+            content: "📄 ";
+            font-size: 0.9em;
+            margin-right: 0.25em;
+        }
+
+        a[href$=".md"]::before {
+            content: "📝 ";
+            font-size: 0.9em;
+            margin-right: 0.25em;
+        }
+
+        a[href$=".html"]::after,
+        a[href$=".md"]::after {
+            content: " ↗";
+            opacity: 0.6;
+            font-size: 0.85em;
+            margin-left: 0.25em;
+            transition: opacity 0.3s;
+        }
+
+        a[href$=".html"]:hover::after,
+        a[href$=".md"]:hover::after {
+            opacity: 1;
+        }
+
+        /* Source citation links (footnote †) */
+        a[href="#sources"], sup a {
+            color: var(--acc-orange);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: rgba(255, 106, 19, 0.12);
+            position: relative;
+        }
+
+        a[href="#sources"]:hover, sup a:hover {
+            background: rgba(255, 106, 19, 0.24);
+            transform: scale(1.1);
+        }
+
+        /* Tooltip on citation hover */
+        a[href="#sources"]:hover::before, sup a:hover::before {
+            content: "View Sources";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--acc-dark-purple);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 10;
+            margin-bottom: 4px;
+        }
+
+        /* Button enhancements */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary::after {
+            content: " →";
+            transition: margin 0.3s;
+        }
+
+        .btn-primary:hover::after {
+            margin-left: 0.25rem;
+        }
+
+        /* Quick link card arrows (if applicable) */
+        .quick-link::before {
+            content: "→";
+            position: absolute;
+            right: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s, right 0.3s;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .quick-link:hover::before {
+            opacity: 1;
+            right: 0.5rem;
+        }
+
+        /* Table links with external indicators */
+        table a[href^="http"]::after,
+        table a[target="_blank"]::after {
+            content: " ↗";
+            opacity: 0.6;
+            font-size: 0.85em;
+            margin-left: 0.25em;
+        }
+
+        /* Email links */
+        a[href^="mailto:"]::before {
+            content: "✉️ ";
+            font-size: 0.9em;
+            margin-right: 0.25em;
+        }
+
+        /* Links in colored backgrounds */
+        .highlight-box a, .talking-point a {
+            color: var(--acc-dark-purple);
+            font-weight: 700;
+            text-decoration-thickness: 2px;
+        }
+
+        .highlight-box a:hover, .talking-point a:hover {
+            background: rgba(81, 40, 136, 0.15);
+            padding: 2px 6px;
+            margin: -2px -6px;
+            border-radius: 4px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            a {
+                text-decoration-thickness: 2px;
+            }
+            a:hover {
+                text-decoration-thickness: 3px;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            a, .btn, .quick-link {
+                transition: none;
+            }
+            a::after, .btn::after, .quick-link::before {
+                transition: none;
+            }
+        }
+
+        /* Mobile touch targets */
+        @media (max-width: 768px) {
+            .btn {
+                min-height: 48px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 ACC AI Innovation Society</h1>
+        <p class="tagline">By Students, For Students — Steering ACC's AI Narrative Together</p>
+    </div>
+
+    <div class="highlight-box">
+        <p>
+            Proposal: Create ACC's first inclusive student-led AI organization to give students agency in ACC's AI transformation
+            while implementing committee charges through structured student involvement.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🎯 The Opportunity & The Gap</div>
+        <div class="two-column">
+            <div class="box">
+                <h4>Students Want AI Involvement</h4>
+                <p>
+                    Students across ALL majors (Computer Science, Business, Liberal Arts, Health Sciences, Arts, Design)
+                    want to participate in the AI movement — whether directly through technical skills or indirectly through
+                    understanding AI's impact on their careers. Demand exists. Structure doesn't.
+                </p>
+            </div>
+            <div class="box">
+                <h4>Committee Lacks Student Voice</h4>
+                <p>
+                    40+ committee members (faculty, administrators, deans, IT professionals) shaping ACC's AI strategy.
+                    Zero organized student representation. Students receive policy, don't shape it. We need a seat at the
+                    table to steer our own narrative.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏛️ What is ACC AI Innovation Society?</div>
+        <p style="font-size: 9pt; margin-bottom: 8px;">
+            A Student Life registered organization operating on three pillars:
+        </p>
+        <div class="two-column">
+            <div class="box">
+                <h4>1. Learning Community</h4>
+                <p>Peer-led workshops, study groups, project showcases. Students teaching students. Accessible to all skill levels, all majors.</p>
+            </div>
+            <div class="box">
+                <h4>2. Industry Bridge</h4>
+                <p>Student liaison to Austin AI Alliance (120+ companies). Coordinates mentorships, site visits, career pathways.</p>
+            </div>
+        </div>
+        <div class="box" style="margin-top: 8px;">
+            <h4>3. Implementation Vehicle</h4>
+            <p>
+                Executes committee charges with real student involvement. Provides structure to test initiatives before institution-wide
+                rollout. Student org members = first pilot cohort (30-50 students) proving demand and demonstrating outcomes.
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">✅ Addressing 5 Committee Charges</div>
+        <div class="charges-grid">
+            <div class="charge-item">
+                <strong>Marisa Mendoza - Workforce Prep</strong>
+                Monthly workshops on AI tools Austin companies use (via Alliance partnerships)
+            </div>
+            <div class="charge-item">
+                <strong>Shih-Ting Lee - Industry Partnerships</strong>
+                Student liaison to Austin AI Alliance, mentor matching, site visits
+            </div>
+            <div class="charge-item">
+                <strong>Ron Johns - Gen Ed AI Competency</strong>
+                "AI Literacy" workshops for non-technical students (all majors)
+            </div>
+            <div class="charge-item">
+                <strong>Manuel Duran - Implementation & Leadership</strong>
+                Student org = pilot cohort with evaluation metrics built-in
+            </div>
+            <div class="charge-item" style="grid-column: 1 / -1;">
+                <strong>Keri Moczygemba - Equity & Accessibility</strong>
+                Free peer-led workshops, shared resources, equitable tool access removing $1,500/year barrier (verified cost). Multi-campus events.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">📅 Year 1 Activities & Success Metrics</div>
+        <div class="two-column">
+            <div class="box">
+                <h4>Activities</h4>
+                <ul style="margin-top: 5px;">
+                    <li>Weekly AI workshops (prompt engineering, RAG systems, tools)</li>
+                    <li>Monthly industry speaker series (Austin AI Alliance companies)</li>
+                    <li>Semester portfolio showcases (students present to industry)</li>
+                    <li>Peer mentorship programs (upper-level students mentor beginners)</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h4>Success = Student Involvement</h4>
+                <ul style="margin-top: 5px;">
+                    <li>50+ registered members by Spring 2026</li>
+                    <li>80% event satisfaction rating</li>
+                    <li>30+ active participants attending regularly</li>
+                    <li>10+ events per semester</li>
+                    <li>3+ campuses represented (equity metric)</li>
+                    <li>Waitlist = proof demand exceeds capacity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏗️ Leveraging Existing Infrastructure (Not Building New)</div>
+        <div class="two-column">
+            <div class="box">
+                <h4>CGCS Facility</h4>
+                <p>
+                    <strong>Location:</strong> Rio Grande Campus, Building 3000<br>
+                    <strong>Founded:</strong> June 2024<br>
+                    <strong>Current:</strong> Civic hackathons, simulation labs<br>
+                    <strong>Our Use:</strong> Weekly meetings, workshops, showcases<br>
+                    <strong>Partner:</strong> Bryan Port (CGCS Director)
+                </p>
+            </div>
+            <div class="box">
+                <h4>Austin AI Alliance</h4>
+                <p>
+                    <strong>ACC Status:</strong> Full Member (501c6 consortium)<br>
+                    <strong>Network:</strong> 120+ companies/orgs/institutions<br>
+                    <strong>Access:</strong> Working groups, funded projects<br>
+                    <strong>Our Role:</strong> Student liaison activating partnerships<br>
+                    <strong>Model:</strong> Scale AI Hackathon (2023) proves it works
+                </p>
+            </div>
+        </div>
+        <p style="font-size: 9pt; margin-top: 8px; text-align: center; font-weight: 600; color: #667eea;">
+            Strategic Positioning: We maximize ROI on ACC's existing investments by creating systematic student access pathways.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">💼 What We're Asking For</div>
+        <div class="ask-grid">
+            <div class="ask-box">
+                <h4>Official Support</h4>
+                <ul>
+                    <li>Committee endorsement for Student Life registration</li>
+                    <li>Faculty Advisor (recommend: Manuel Duran)</li>
+                    <li>CGCS facility access partnership</li>
+                    <li>Austin AI Alliance introduction</li>
+                </ul>
+            </div>
+            <div class="ask-box">
+                <h4>Strategic Guidance</h4>
+                <ul>
+                    <li>Quarterly check-ins with leadership</li>
+                    <li>Insight on institutional priorities</li>
+                    <li>Feedback on student initiatives</li>
+                    <li>Connections to stakeholders</li>
+                </ul>
+            </div>
+            <div class="ask-box">
+                <h4>Pilot Funding</h4>
+                <ul>
+                    <li><strong>Tool Access:</strong> $2.1K-2.7K for 50 students ($42-54/student verified Oct 2025)</li>
+                    <li><strong>Events:</strong> $3K-5K/year (speakers, materials, food)</li>
+                    <li><strong>Total:</strong> $5.1K-7.7K first year (much lower with verified costs!)</li>
+                </ul>
+            </div>
+            <div class="ask-box">
+                <h4>Timeline</h4>
+                <ul>
+                    <li><strong>Nov 2025:</strong> Committee approval</li>
+                    <li><strong>Dec 2025:</strong> Student Life registration</li>
+                    <li><strong>Jan 2026:</strong> First meeting, elect officers</li>
+                    <li><strong>Feb 2026:</strong> First event</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🌟 The Bigger Picture</div>
+        <div class="two-column">
+            <div class="box">
+                <h4>🏆 National Leadership</h4>
+                <p>
+                    ACC becomes the <strong>first community college</strong> with a thriving student-led AI organization.
+                    Model for institutions nationwide. Positions ACC as leader in student-centered AI integration.
+                </p>
+            </div>
+            <div class="box">
+                <h4>🎓 Student Agency</h4>
+                <p>
+                    Students aren't just learning about AI — we're <strong>shaping how ACC integrates AI</strong> into
+                    education and careers. Authentic student voice in institutional strategy.
+                </p>
+            </div>
+        </div>
+        <div class="box" style="margin-top: 8px;">
+            <h4>💼 Career Outcomes</h4>
+            <p>
+                ACC students compete for <strong>$70K-90K entry-level AI careers</strong> (progressing to $100K+ in 2-3 years; verified Salary.com Oct 2025) with competitive portfolios,
+                industry mentorships, and real-world experience. Removes barriers preventing ACC students from competing
+                with UT/Texas A&M graduates.
+            </p>
+        </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 15px;">
+        <p style="font-size: 11pt;">
+            Students are ready to lead. Demand exists. Infrastructure is ready. Opportunity is clear.<br>
+            <strong style="font-size: 12pt; display: block; margin-top: 5px;">
+                Let's steer our narrative together. 🚀
+            </strong>
+        </p>
+    </div>
+
+    <div class="footer">
+        <p><strong>Contact:</strong> [Your Name] | [Your ACC Email] | LAN Administration & Software Development Student</p>
+        <p><strong>Faculty Mentor:</strong> Professor Alex Watkins</p>
+        <p><strong>Date:</strong> October 17, 2025 | AI Implementation Steering Committee</p>
+    </div>
+</body>
+</html>

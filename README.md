@@ -8,13 +8,19 @@
 
 ## 📋 Quick Navigation
 
-**Start Here:** [INDEX.html](INDEX.html) - Complete documentation hub
+**Start Here:** [presentation/INDEX.html](presentation/INDEX.html) - Complete documentation hub
+
+**🔗 GitHub Pages Live Site:**
+- **Main Hub:** https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/INDEX.html
+- **Setup Guide:** [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) - Enable clickable links (5 min)
 
 **Key Documents for Friday:**
-- 📊 [Executive Summary](Executive_Summary_Integration.html) - Decision-ready overview
-- 🤝 [Committee Coalition Strategy](Committee_Charges_Comparative_Analysis.html) - Strategic positioning
-- 📄 [AI Innovation Society](ACC_AI_Innovation_Society_One_Pager.html) - Student org proposal
-- 📚 [Citations & Sources](CITATIONS.md) - Complete bibliography
+- 🎬 [**SLIDE DECK SCRIPT**](SLIDE_DECK_SCRIPT.md) - **NEW!** Complete presentation script with clickable GitHub links
+- 📊 [Executive Summary](presentation/Executive_Summary_Integration.html) - Decision-ready overview
+- 🤝 [Committee Coalition Strategy](presentation/Committee_Charges_Comparative_Analysis.html) - Strategic positioning
+- 📄 [AI Innovation Society](presentation/ACC_AI_Innovation_Society_One_Pager.html) - Student org proposal
+- 🎯 [5-Minute Pitch Script](strategy/Pitch_Script_5_Minutes.md) - Speaking notes
+- 📚 [Citations & Sources](verification/CITATIONS.md) - Complete bibliography
 
 ---
 
@@ -49,15 +55,61 @@
 
 ## 🗂️ Documentation Structure
 
-### Committee-Ready HTML Files
-- `INDEX.html` - Navigation hub and meeting prep
-- `Executive_Summary_Integration.html` - Complete proposal summary with sources
-- `Committee_Charges_Comparative_Analysis.html` - Coalition strategy with 8 allies
-- `ACC_AI_Innovation_Society_One_Pager.html` - Student organization proposal
-- `Committee_Members_Report.html` - Committee skills analysis
+### 🎤 **presentation/** - Friday's Core Files
+All HTML presentation materials for committee review
+- **[INDEX.html](presentation/INDEX.html)** - Main navigation hub
+- **[Executive Summary](presentation/Executive_Summary_Integration.html)** - Complete proposal with 3 charges
+- **[AI Systems Report](presentation/AI_Systems_Report.html)** - 15 AI system categories explained
+- **[AI Terms Glossary](presentation/AI_Terms_Glossary.html)** - 60+ technical terms defined
+- **[Committee Members Report](presentation/Committee_Members_Report.html)** - 40+ member profiles
+- **[Committee Charges Analysis](presentation/Committee_Charges_Comparative_Analysis.html)** - Coalition strategy
+- **[AI Innovation Society One-Pager](presentation/ACC_AI_Innovation_Society_One_Pager.html)** - Student org proposal
 
-### Supporting Documentation
-- `CITATIONS.md` - Complete bibliography with verification methodology
+### 📚 **curriculum/** - Course Implementation
+Complete 3-course curriculum ready for faculty review
+- **[Course 1: Prompt Engineering](curriculum/Course_1_Syllabus_Prompt_Engineering_Fundamentals.md)** - 26,000-word syllabus
+- **[Courses 2 & 3 Frameworks](curriculum/Courses_2_and_3_Frameworks.md)** - RAG Systems & Agentic AI
+- **[Portfolio Projects](curriculum/Portfolio_Project_Specifications.md)** - 9 project specs
+- **[Tool Access Catalog](curriculum/Tool_Access_Program_Catalog.md)** - Infrastructure requirements
+
+### ✅ **verification/** - Data Verification
+All statistics verified October 14, 2025 from official sources
+- **[Budget Verification Index](verification/00_BUDGET_VERIFICATION_INDEX.md)** - Budget validation summary
+- **[Job Market Verification](verification/JOB_MARKET_VERIFICATION.md)** - 2,000+ jobs verified
+- **[Tool Pricing Verification](verification/TOOL_PRICING_VERIFICATION.md)** - $42-54/student verified
+- **[Complete Citations](verification/CITATIONS.md)** - Full bibliography with URLs
+
+### 🤝 **committee/** - Coalition Building
+Committee member intelligence and tracking
+- **[Your Charge Suggestions](committee/Your_Charge_Suggestions.md)** - Original 3-charge proposal
+- **[Member Profiles Analysis](committee/Committee_Member_Profiles_Analysis.md)** - 40+ members analyzed
+- **[Tracking Template](committee/Committee_Tracking_Enhanced.csv)** - Member tracking
+
+### 🎯 **strategy/** - Pitch Preparation
+Speaking notes and presentation strategy
+- **[START HERE](strategy/00_START_HERE.md)** - Complete meeting prep guide
+- **[5-Minute Pitch Script](strategy/Pitch_Script_5_Minutes.md)** - Timed speaking notes
+- **[Copy-Paste Replacements](strategy/COPY_PASTE_REPLACEMENTS.md)** - Quick text updates
+
+### 📖 **guides/** - How-To Documentation
+Usage instructions for navigating materials
+- **[Quick Start Guide](guides/Quick_Start_Guide.md)** - Getting started
+- **[Link Enhancement Guide](guides/LINK_ENHANCEMENT_GUIDE.md)** - Intelligent link system docs
+
+### 🔬 **research/** - Supporting Research
+Background analysis and competitive intelligence
+- **[Curriculum Landscape Research](research/Curriculum_Landscape_Research.md)** - 45 pages analysis
+- **[Equipment Access Analysis](research/Equipment_Access_Competitive_Analysis.html)** - Tool access comparison
+
+### 📦 **archive/** - Session History
+Project development summaries
+- **[Session Wrap October 14](archive/SESSION_WRAP_ACC_AI_COMMITTEE_2025-10-14.md)** - Latest session
+- **[Project Prime Summary](archive/PROJECT_PRIME_SUMMARY_2025-10-14.html)** - Context primer
+
+### 🧪 **enhanced-ui-presentation-mode/** - Experimental UI
+Enhanced presentation version with slideshow features (optional for Friday)
+- Presentation mode with keyboard controls
+- Status: In development - use presentation/ folder for Friday meeting
 
 ---
 
@@ -78,6 +130,11 @@ All statistics verified **October 14, 2025** using multi-agent research workflow
 
 ## 🎯 Friday Meeting Prep
 
+**🎬 NEW: Complete Slide Deck Script Available!**
+- [SLIDE_DECK_SCRIPT.md](SLIDE_DECK_SCRIPT.md) - 12-slide presentation with GitHub links
+- All links work automatically when shared with faculty
+- Includes timing, speaker notes, Q&A responses
+
 **5-Minute Pitch Structure:**
 1. **Problem** - 2,000+ AI jobs, ACC students locked out
 2. **Solution** - 3-charge framework with verified costs
@@ -86,10 +143,13 @@ All statistics verified **October 14, 2025** using multi-agent research workflow
 5. **Coalition** - 8 allies aligned with proposal
 
 **Pre-Meeting Checklist:**
+- ✅ Enable GitHub Pages: [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) (5 minutes)
+- ✅ Review Slide Deck Script: [SLIDE_DECK_SCRIPT.md](SLIDE_DECK_SCRIPT.md)
 - ✅ Review Executive Summary (25 min)
 - ✅ Memorize key numbers (2,000+ jobs, $70K-90K salaries, 10-54% ROI)
 - ✅ Review coalition strategy (Manuel Duran = key ally)
-- ✅ Prepare Q&A responses (see Executive Summary)
+- ✅ Test all GitHub Pages links work
+- ✅ Share links with committee via email (template in GitHub Pages setup guide)
 
 ---
 

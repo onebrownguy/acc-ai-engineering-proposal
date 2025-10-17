@@ -1,0 +1,141 @@
+Academic Program Department Contacts
+Find program department contact info in the table below.
+
+Academic Department Contacts
+Search:
+Academic Program	First Name	Last Name	Phone	Email	Department Website
+Accounting	Germaine	Randolph	Call	Send Email	Visit Website
+Accounting	Larry	Stephens	Call	Send Email	Visit Website
+Advanced Manufacturing	Tim	Hemesath	Call	Send Email	Visit Website
+Agricultural Sciences	Savannah	Rugg	Call	Send Email	Visit Website
+American Sign Language-Interpreter Training	Emily	Anderson	Call	Send Email	Visit Website
+American Sign Language-Interpreter Training	Fallon	Brizendine	Call	Send Email	Visit Website
+Anthropology	Carleen	Sanchez	Call	Send Email	Visit Website
+Architectural and Engineering Computer Aided Design	Jeffrey	Muhammad	Call	Send Email	Visit Website
+Architectural and Engineering Computer Aided Design	Stacey	Ong-Thai	Call	Send Email	Visit Website
+Art	Bernardo	Diaz	Call	Send Email	Visit Website
+Audio Technology and Industry	Paul	Stautinger	Call	Send Email	Visit Website
+Audio Technology and Industry	Haley	Weber	Call	Send Email	Visit Website
+Automotive Collision Repair and Refinishing Technology	Thomas (TJ)	Bragg (ext. 74338)	Call	Send Email	Visit Website
+Automotive Techology and Outdoor Powered Equipment	Kristin	Land	Call	Send Email	Visit Website
+Automotive Technology and Outdoor Powered Equipment	Michael (Mike)	Shoebroek	Call	Send Email	Visit Website
+Bachelor of Applied Science in Cybersecurity	Mary	Kohls	Call	Send Email	Visit Website
+Bachelor of Applied Science in Software Development	La Tasha	Roberts	Call	Send Email	Visit Website
+Bachelor of Applied Technology in Manufacturing Engineering Technology (Advanced Manufacturing)	Sonia	Santamaria	Call	Send Email	Visit Website
+Biology	Curtis	Eckerman	Call	Send Email	Visit Website
+Biotechnology	Linnea	Fletcher	Call	Send Email	Visit Website
+Biotechnology	Steven	Spurlock	Call	Send Email	Visit Website
+Building Construction Technology	Joey	Case	Call	Send Email	Visit Website
+Business Administration	Ina	Midkiff	Call	Send Email	Visit Website
+Technical Communications	Lucinda	Smither	Call	Send Email	Visit Website
+Technical Communications	Risé	Lara	Call	Send Email	Visit Website
+Career ACCelerator: LAN Administrator	Mary	Kohls	Call	Send Email	Visit Website
+Chemistry	Brian	Bocknack	Call	Send Email	Visit Website
+Child Care and Development	Regina	McGough	Call	Send Email	Visit Website
+Communication Studies	Lucinda	Smither	Call	Send Email	Visit Website
+Communication Studies	Risé	Lara	Call	Send Email	Visit Website
+Computer Information Technology	Mary	Kohls	Call	Send Email	Visit Website
+Computer Science	Mary	Kohls	Call	Send Email	Visit Website
+Conservation Science and Wildlife Management	Mark	Shepherd	Call	Send Email	Visit Website
+Creative Writing	Tracy	Spohn	Call	Send Email	Visit Website
+Creative Writing	Prudence	Arceneaux	Call	Send Email	Visit Website
+Criminal Justice	Frederick (Dale)	Toler	Call	Send Email	Visit Website
+Culinary Arts	Stephanie	Herrington	Call	Send Email	Visit Website
+Dance	Catherine	Solaas	Call	Send Email	Visit Website
+Dental Hygiene	Teri	Frank	Call	Send Email	Visit Website
+Diagnostic Medical Imaging – Radiology	Rivers	Wright	Call	Send Email	Visit Website
+Drama	Cynthia	Gage	Call	Send Email	Visit Website
+Drama	Marcus	McQuirter	Call	Send Email	Visit Website
+Economics	Carleen	Sanchez	Call	Send Email	Visit Website
+Education Instruction	Regina (Jeanie)	McGough	Call	Send Email	Visit Website
+Emergency Management	Melissa	Brown	Call	Send Email	Visit Website
+Emergency Management	James	Daniels	Call	Send Email	Visit Website
+Emergency Medical Services Professions	Eric	Shipman	Call	Send Email	Visit Website
+Engineering	Joe	Brinkley	Call	Send Email	Visit Website
+Engineering	Oralia (Lala)	Guerra	Call	Send Email	Visit Website
+Engineering Technology	Rosa	Carrasco	Call	Send Email	Visit Website
+Engineering Technology	Alona	Rojo	Call	Send Email	Visit Website
+English	CLS Administrator		Call	Send Email	Visit Website
+English	Wendy	Elle	Call	Send Email	Visit Website
+English for Speakers of Other Languages (ESOL)	Susan	Das	Call	Send Email	Visit Website
+Environmental Science and Technology	Mark	Shepherd	Call	Send Email	Visit Website
+Exercise Science	Rebecca	James	Call	Send Email	Visit Website
+Fashion Design	Karla	Doolittle	Call	Send Email	Visit Website
+Fashion Design	Janie	Chang	Call	Send Email	Visit Website
+Fashion Marketing	Eileen	Collazo	Call	Send Email	Visit Website
+Fashion Marketing	Ina	Midkiff	Call	Send Email	Visit Website
+Fire Protection Technology	Ryan	Grinnell	Call	Send Email	Visit Website
+Fire Protection Technology	Kristi	Norton	Call	Send Email	Visit Website
+Fire Protection Technology	Nate	Zaleski	Call	Send Email	Visit Website
+General Studies in Arts	Jeanne	Vaughn	Call	Send Email	Visit Website
+Game Development, Animation, and Motion Graphics	Garry	Gaber	Call	Send Email	Visit Website
+Game Development, Animation, and Motion Graphics	Deanna	Whaley	Call	Send Email	Visit Website
+General Studies in Arts	Ray	Sandoval	Call	Send Email	Visit Website
+General Studies in Pre-Health Sciences	Health Sciences Information	Admissions Office	Call	Send Email	Visit Website
+General Studies in Science	Ray	Sandoval	Call	Send Email	Visit Website
+General Studies in Science	Jeanne	Vaughn	Call	Send Email	Visit Website
+Geographic Information Systems	Jennifer	Black	Call	Send Email	Visit Website
+Geographic Information Systems	Jeffrey	Muhammad	Call	Send Email	Visit Website
+Geography	Carleen	Sanchez	Call	Send Email	Visit Website
+Geology	Mark	Shepherd	Call	Send Email	Visit Website
+Geospatial Engineering	Jennifer	Black	Call	Send Email	Visit Website
+Geospatial Engineering	Jeffrey	Muhammad	Call	Send Email	Visit Website
+Government	Julz	Decker	Call	Send Email	Visit Website
+Health and Kinesiology	Rebecca	James	Call	Send Email	Visit Website
+Health Information Technology	Norma	Mercado	Call	Send Email	Visit Website
+Heating, Air Conditioning, and Refrigeration Technology	Tolly	James Jr.	Call	Send Email	Visit Website
+History	Allan	Purcell	Call	Send Email	Visit Website
+Hospitality Management and Meeting & Event Planning	Stacy (Liz)	Hundley	Call	Send Email	Visit Website
+Human Services	Raul	Garcia	Call	Send Email	Visit Website
+Interdisciplinary Studies	Carleen	Sanchez	Call	Send Email	Visit Website
+International Business	George	Frederickson	Call	Send Email	Visit Website
+International Business	Mary	Rincon	Call	Send Email	Visit Website
+Jewelry	Rachel	Hinojosa	Call	Send Email	Visit Website
+Journalism	Lucinda	Smither	Call	Send Email	Visit Website
+Journalism	Risé	Lara	Call	Send Email	Visit Website
+Logistics and Supply Chain Management	George	Frederickson	Call	Send Email	Visit Website
+Logistics and Supply Chain Management	Mary	Rincon	Call	Send Email	Visit Website
+Management	Johnny	Howard	Call	Send Email	Visit Website
+Management	Mary	Rincon	Call	Send Email	Visit Website
+Marketing	Eileen	Collazo	Call	Send Email	Visit Website
+Marketing	Ina	Midkiff	Call	Send Email	Visit Website
+Mathematics	Paige	Peschong	Call	Send Email	Visit Website
+Mathematics	Pedro	Merced	Call	Send Email	Visit Website
+Medical Laboratory Technology	Keri	Brophy-Martinez	Call	Send Email	Visit Website
+Mexican American Studies	Carleen	Sanchez	Call	Send Email	Visit Website
+Music	Shane	Anderson	Call	Send Email	Visit Website
+Nursing – Professional Nursing (ADN)	Cynthia	Quezada	Call	Send Email	Visit Website
+Nursing – Professional Nursing (RN-to-BSN)	Cindy	Gerardo-Ulibarri	Call	Send Email	Visit Website
+Nursing – Vocation	Hailey	Taylor	Call	Send Email	Visit Website
+Occupational Therapy Assistant	Amy	Anderson	Call	Send Email	Visit Website
+Office Administration and Technology	Deborah	Benavidez	Call	Send Email	Visit Website
+Office Administration and Technology	Karla	Doolittle	Call	Send Email	Visit Website
+Paralegal	Shawn	Slack	Call	Send Email	Visit Website
+Pharmacy Technician	Carol	Selman	Call	Send Email	Visit Website
+Philosophy	Samuel (Sam)	Carrillo	Call	Send Email	Visit Website
+Philosophy	Jean	Lauer	Call	Send Email	Visit Website
+Phlebotomy	Health Sciences Information	Admissions Office	Call	Send Email	Visit Website
+Physical Therapist Assistant	Jose	Milan	Call	Send Email	Visit Website
+Physical Therapist Assistant	Natasha	Kuhnke	Call	Send Email	Visit Website
+Physics	Joe	Brinkley	Call	Send Email	Visit Website
+Physics	Oralia (Lala)	Guerra	Call	Send Email	Visit Website
+Pre-Med	Richard	Espinosa	Call	Send Email	Visit Website
+Photography + Visual Media	Matthew	Krebs	Call	Send Email	Visit Website
+Photography + Visual Media	Sean	Perry	Call	Send Email	Visit Website
+Psychology	Dan	Dydek	Call	Send Email	Visit Website
+Radio-Television-Film	Mark	Cunningham	Call	Send Email	Visit Website
+Real Estate	Eileen	Collazo	Call	Send Email	Visit Website
+Real Estate	Ina	Midkiff	Call	Send Email	Visit Website
+Social Work	Blanca	Alvarado	Call	Send Email	Visit Website
+Sociology	Carleen	Sanchez	Call	Send Email	Visit Website
+Sonography	Driana	Gonzales Galvan	Call	Send Email	Visit Website
+Surgical Technology	Melanie	Jecker	Call	Send Email	Visit Website
+Technical Theater	Marcus	McQuirter	Call	Send Email	Visit Website
+Technical Theater	Samantha	Wells	Call	Send Email	Visit Website
+The App ACCelerator: Austin Can Code	Mary	Kohls	Call	Send Email	Visit Website
+Veterinary Technology	Kerry	Coombs	Call	Send Email	Visit Website
+Visual Communication	Taylor	Green	Call	Send Email	Visit Website
+Visual Communication	Josiah	Spence	Call	Send Email	Visit Website
+Welding Technology	Marjie	LaRowe	Call	Send Email	Visit Website
+Welding Technology	Haley	Woodward	Call	Send Email	Visit Website
+World Languages	Vanessa	Lazo	Call	Send Email	Visit Website

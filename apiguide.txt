@@ -1,0 +1,51 @@
+Search2
+API Calls
+The endpoint allows you to search for opportunities based on specific search parameters.
+
+Authentication and Authorization
+Authentication and authorization is not required for search2
+
+Getting Started
+Using your API test tool, make a POST call to the following URL: https://api.grants.gov/v1/api/search2, with the expected request in the body below, and you will receive a similar sample response.
+
+Expected Request Body:	Sample Response
+{ "rows": 10, "keyword": "20231011", "oppNum": "TEST-PTS-20231011-OPP1", "eligibilities": "", "agencies": "", "oppStatuses": "forecasted|posted", "aln": "", "fundingCategories": "" }	"errorcode": 0, "msg": "Webservice Succeeds", "token": "eyJ0eX……I1NiJ9. ", "data": { "searchParams": { "resultType": "json", "searchOnly": false, "oppNum": "", "aln": "", "sortBy": "", "oppStatuses": "forecasted|posted", "startRecordNum": 0, "eligibilities": "", "fundingInstruments": "", "fundingCategories": "", "agencies": "", "rows": 10, "keyword": "20231011", "keywordEncoded": true }, "hitCount": 1, "startRecord": 0, "oppHits": [ { "id": "219999", "number": "TEST-ABC-20231011-OPP1", "title": "Test-ABC-20231011-Opp1 title!", "agencyCode": "HHS", "agencyName": "Health & Human Services", "openDate": "10/11/2023", "closeDate": "", "oppStatus": "posted", "docType": "synopsis", "alnist": [ "93.223" ] } ], "oppStatusOptions": [ { "label": "posted", "value": "posted", "count": 1 }, { "label": "closed", "value": "closed", "count": 0 }, { "label": "archived", "value": "archived", "count": 0 }, { "label": "forecasted", "value": "forecasted", "count": 0 } ], "dateRangeOptions": [], "suggestion": "20201111", "eligibilities": [ { "label": "County governments", "value": "01", "count": 1 } ], "fundingCategories": [ { "label": "Arts", "value": "AR", "count": 1 } ], "fundingInstruments": [ { "label": "Grant", "value": "G", "count": 1 } ], "agencies": [], "accessKey": "", "errorMsgs": [] } }
+Here's a visualization of the high-level response:
+
+ID	Number	Title	Agency Code	Agency	Open Date	Close Date	Opportunity Status	Document Type	ALN List
+289999	TEST-PTS-20231011-OPP1	Test-PTS-20231011-Opp1 title!	HHS	HHS	10/11/2023		posted	synopsis	93.223
+Curl Samples
+URL: Search by Multiple Criteria
+The below cURL is a search by fundingCategories, agencies, oppStatuses, and ALN:
+
+curl -k -v -i --location 'https://api.grants.gov/v1/api/search2' --header 'Content-Type: application/json' --data '{"fundingCategories": "HL", "": "HHS-NIH11", "oppStatuses": "forecasted"}'
+
+URL: Search by Multiple Criteria with ALN
+The below cURL is a search by fundingCategories, agencies, and oppStatuses:
+
+curl -k -v -i --location 'https://api.grants.gov/v1/api/search2' --header 'Content-Type: application/json' --data '{"fundingCategories": "HL", "agencies": "HHS", "oppStatuses": "forecasted", "aln": "93.866"}'
+
+URL: Search by Combined Statuses and Keywords
+You might want to send combined statuses as an array or as separate key-value pairs based on your backend handling. Below is an example that treats combined statuses as an array:
+
+curl -k -v -i --location 'https://api.grants.gov/v1/api/search2' --header 'Content-Type: application/json' --data '{"oppStatuses": ["closed| archived"], "keywords": "points"}'
+
+Return to top
+
+
+fetchOpportunity
+Note: The below “Sample Response” column is sample data only.
+
+URL Path: 'https://api.grants.gov/v1/api/fetchOpportunity’
+
+Expected Request Body:	Sample Response
+{ "opportunityId": 289999 }	"errorcode": 0, "msg": "Webservice Succeeds", "token": "eyJ0eXAiO………X9ezvzaw", "data": { "id": 289999, "revision": 0, "opportunityNumber": "TEST-PTS-20231011-OPP1", "opportunityTitle": "Test-PTS-20231011-Opp1 title!", "owningAgencyCode": "HHS", "listed": "L", "publisherUid": "RatjJoeApplicant", "flag2006": "N", "opportunityCategory": { "category": "E", "description": "Earmark" }, "synopsis": { "opportunityId": 289999, "version": 1, "agencyCode": "HHS", "agencyName": "Health & Human Services", "agencyPhone": "TBD-", "agencyAddressDesc": "12", "agencyDetails": { "code": "HHS", "seed": "HHS", "agencyName": "HHS Agency", "agencyCode": "HSS", "topAgencyCode": "HSS" }, "topAgencyDetails": { "code": "HHS", "seed": "HHS", "agencyName": "HHS Agency", "agencyCode": "HHS", "topAgencyCode": "HHS" }, "agencyContactPhone": "TBD-", "agencyContactName": "Alison Applegate", "agencyContactDesc": "Phone TBD-", "agencyContactEmail": "12@hhs.gov", "agencyContactEmailDesc": "12", "synopsisDesc": "
+Desc
+
+", "responseDateDesc": "1", "postingDate": "Oct 11, 2023 12:00:00 AM EDT", "costSharing": false, "awardCeiling": "10", "awardCeilingFormatted": "10", "awardFloor": "8", "awardFloorFormatted": "8", "sendEmail": "Y", "createTimeStamp": "Oct 11, 2023 05:18:23 PM EDT", "createdDate": "Oct 11, 2023 05:17:55 PM EDT", "lastUpdatedDate": "Oct 11, 2023 05:17:55 PM EDT", "applicantTypes": [ { "id": "01", "description": "County governments" } ], "fundingInstruments": [ { "id": "G", "description": "Grant" } ], "fundingActivityCategories": [ { "id": "AR", "description": "Arts" } ], "postingDateStr": "2023-10-11-00-00-00", "createTimeStampStr": "2023-10-11-17-18-23" }, "agencyDetails": { "code": "HHS", "seed": "HHS", "agencyName": "Health & Human Services", "agencyCode": "HHS", "topAgencyCode": "HHS" }, "topAgencyDetails": { "code": "HHS", "seed": "HHS", "agencyName": "Health & Human Services", "agencyCode": "HHS", "topAgencyCode": "HHS" }, "synopsisAttachmentFolders": [ { "id": 1684, "opportunityId": 289999, "folderType": "Full Announcement", "folderName": "F1", "zipLobSize": 180032, "createdDate": "Oct 11, 2023 05:18:05 PM EDT", "lastUpdatedDate": "Oct 11, 2023 05:18:23 PM EDT", "synopsisAttachments": [ { "id": 10190, "opportunityId": 289999, "mimeType": "text/csv", "fileName": "grants-gov-opp-search--20230715011557.csv", "fileDescription": "F1", "fileLobSize": 1320700, "createdDate": "Oct 11, 2023 05:18:23 PM EDT", "synopsisAttFolderId": 1684 } ] } ], "synopsisDocumentURLs": [], "synAttChangeComments": [], "alns": [ { "id": 335392, "opportunityId": 289999, "alnNumber": "93.223", "programTitle": "Development and Coordination of Rural Health Services" } ], "opportunityHistoryDetails": [], "opportunityPkgs": [], "closedOpportunityPkgs": [], "originalDueDateDesc": "1", "synopsisModifiedFields": [], "forecastModifiedFields": [], "errorMessages": [], "synPostDateInPast": true, "docType": "synopsis", "forecastHistCount": 0, "synopsisHistCount": 0, "assistCompatible": false, "assistURL": "", "relatedOpps": [], "draftMode": "N" } }
+Here's a visualization of the high-level response:
+
+Opportunity ID	Opportunity Title	Owning Agency Code	Listed	Agency Contact Name	Agency Contact Email	Cost Sharing	Award Ceiling	Award Floor	Posting Date
+289999	Test-PTS-20231011-Opp1 title!	HHS	L	Allison Applegate	12@hhs.gov	false	10	8	Oct 11, 2023 12:00:00 AM EDT
+Return to top
+

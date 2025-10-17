@@ -1,0 +1,646 @@
+/* ============================================
+   INTELLIGENT LINK SYSTEM - Visual Affordances
+   ACC AI Engineering Proposal - Enhanced Link Design
+   ============================================ */
+
+/* ============================================
+   BASE LINK STYLING - All Links Get Clear Affordances
+   ============================================ */
+
+a {
+    color: var(--acc-purple);
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+a:hover {
+    color: var(--acc-dark-purple);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    background: linear-gradient(to right, rgba(81, 40, 136, 0.08), transparent);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+a:active {
+    transform: scale(0.98);
+}
+
+a:focus-visible {
+    outline: 3px solid var(--acc-orange);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   INTERNAL NAVIGATION LINKS (same-page anchors #)
+   ============================================ */
+
+a[href^="#"] {
+    text-decoration-color: var(--acc-orange);
+    font-weight: 500;
+    color: var(--acc-purple);
+}
+
+a[href^="#"]:hover {
+    background: linear-gradient(to right, rgba(255, 106, 19, 0.12), transparent);
+    padding: 2px 8px;
+    margin: -2px -8px;
+    border-radius: 4px;
+}
+
+a[href^="#"]::after {
+    content: " →";
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--acc-orange);
+    font-weight: 700;
+}
+
+a[href^="#"]:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   EXTERNAL DOCUMENT LINKS (.html, .md files)
+   ============================================ */
+
+a[href$=".html"],
+a[href$=".md"] {
+    color: var(--info);
+    font-weight: 600;
+    text-decoration-color: var(--info);
+}
+
+a[href$=".html"]::before {
+    content: "📄 ";
+    font-size: 0.9em;
+    margin-right: 0.25em;
+}
+
+a[href$=".md"]::before {
+    content: "📝 ";
+    font-size: 0.9em;
+    margin-right: 0.25em;
+}
+
+a[href$=".html"]::after,
+a[href$=".md"]::after {
+    content: " ↗";
+    opacity: 0.6;
+    font-size: 0.85em;
+    margin-left: 0.25em;
+    transition: opacity 0.3s;
+}
+
+a[href$=".html"]:hover,
+a[href$=".md"]:hover {
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.12), transparent);
+    padding: 2px 8px;
+    margin: -2px -8px;
+    border-radius: 4px;
+}
+
+a[href$=".html"]:hover::after,
+a[href$=".md"]:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   SOURCE CITATION LINKS (footnote † links)
+   ============================================ */
+
+a[href="#sources"],
+sup a {
+    color: var(--acc-orange);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(255, 106, 19, 0.12);
+    position: relative;
+}
+
+a[href="#sources"]:hover,
+sup a:hover {
+    background: rgba(255, 106, 19, 0.24);
+    transform: scale(1.1);
+}
+
+/* Optional tooltip on hover */
+a[href="#sources"]:hover::before,
+sup a:hover::before {
+    content: "View Sources";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--acc-dark-purple);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    margin-bottom: 4px;
+}
+
+/* ============================================
+   BUTTON-STYLE LINKS - Enhanced with Icons
+   ============================================ */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary::after {
+    content: " →";
+    margin-left: 0.5rem;
+    transition: margin 0.3s;
+}
+
+.btn-primary:hover::after {
+    margin-left: 1rem;
+}
+
+.btn-secondary::after {
+    content: " ↗";
+    opacity: 0.6;
+    transition: opacity 0.3s, margin 0.3s;
+}
+
+.btn-secondary:hover::after {
+    opacity: 1;
+    margin-left: 0.5rem;
+}
+
+/* ============================================
+   QUICK LINK CARDS - Obvious Hover States
+   ============================================ */
+
+.quick-link {
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.quick-link::before {
+    content: "→";
+    position: absolute;
+    right: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s, right 0.3s;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.quick-link:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(5px);
+}
+
+.quick-link:hover::before {
+    opacity: 1;
+    right: 0.5rem;
+}
+
+/* ============================================
+   DOC CARD LINKS - Entire Card Clickable
+   ============================================ */
+
+.doc-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.doc-card:hover {
+    box-shadow: 0 12px 32px rgba(81, 40, 136, 0.2);
+    transform: translateY(-4px) scale(1.01);
+    border-color: var(--acc-purple);
+}
+
+.doc-card::after {
+    content: "Click to view →";
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    opacity: 0;
+    color: var(--acc-orange);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.doc-card:hover::after {
+    opacity: 1;
+}
+
+/* ============================================
+   NAVIGATION LINKS - Underline Animations
+   ============================================ */
+
+nav a {
+    position: relative;
+    text-decoration: none;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--acc-orange);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.nav-content a {
+    position: relative;
+}
+
+.nav-content a:hover {
+    background: rgba(81, 40, 136, 0.08);
+}
+
+/* ============================================
+   LINK COLOR INSIDE COLORED BACKGROUNDS
+   ============================================ */
+
+.highlight-box a,
+.coalition-box a,
+.insight-box a {
+    color: var(--acc-dark-purple);
+    font-weight: 700;
+    text-decoration-color: var(--acc-orange);
+    text-decoration-thickness: 2px;
+}
+
+.highlight-box a:hover,
+.coalition-box a:hover,
+.insight-box a:hover {
+    background: rgba(81, 40, 136, 0.15);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   TABLE LINKS - With External Indicators
+   ============================================ */
+
+table a {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+table a[href^="http"]::after,
+table a[target="_blank"]::after {
+    content: " ↗";
+    opacity: 0.6;
+    font-size: 0.85em;
+    margin-left: 0.25em;
+}
+
+table a:hover {
+    background: rgba(81, 40, 136, 0.08);
+    padding: 2px 4px;
+    margin: -2px -4px;
+    border-radius: 3px;
+}
+
+/* ============================================
+   EMAIL LINKS - Distinct Styling
+   ============================================ */
+
+a[href^="mailto:"] {
+    color: var(--info);
+    text-decoration-style: dotted;
+}
+
+a[href^="mailto:"]::before {
+    content: "✉️ ";
+    font-size: 0.9em;
+    margin-right: 0.25em;
+}
+
+a[href^="mailto:"]:hover {
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.12), transparent);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   MEMBER NAME LINKS (Committee_Members_Report.html)
+   ============================================ */
+
+.member-name a,
+a.member-name {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.member-name a:hover,
+a.member-name:hover {
+    border-bottom-color: var(--accent);
+    background: linear-gradient(to right, rgba(55, 65, 81, 0.08), transparent);
+}
+
+/* ============================================
+   FILTER BUTTONS - Active State Indicators
+   ============================================ */
+
+.filter-btn {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active::after {
+    content: "✓";
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+
+/* ============================================
+   CONTACT LINKS (One-Pager) - With Icons
+   ============================================ */
+
+a[href^="tel:"] {
+    color: var(--acc-purple);
+    text-decoration: none;
+}
+
+a[href^="tel:"]::before {
+    content: "📞 ";
+    font-size: 0.9em;
+    margin-right: 0.25em;
+}
+
+a[href^="tel:"]:hover {
+    background: linear-gradient(to right, rgba(81, 40, 136, 0.12), transparent);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+    text-decoration: underline;
+}
+
+/* ============================================
+   CATEGORY HEADER LINKS - If Clickable
+   ============================================ */
+
+.category-header a,
+.category-title a {
+    color: var(--acc-purple);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.category-header a:hover,
+.category-title a:hover {
+    border-bottom-color: var(--acc-orange);
+}
+
+/* ============================================
+   LINKEDIN/EXTERNAL PROFILE LINKS
+   ============================================ */
+
+a[href*="linkedin.com"]::before {
+    content: "🔗 ";
+    font-size: 0.9em;
+    margin-right: 0.25em;
+}
+
+a[href*="linkedin.com"] {
+    color: #0077b5;
+    font-weight: 600;
+}
+
+a[href*="linkedin.com"]:hover {
+    background: linear-gradient(to right, rgba(0, 119, 181, 0.12), transparent);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   EXPAND/COLLAPSE BUTTONS
+   ============================================ */
+
+.expand-btn {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.expand-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.expand-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+/* ============================================
+   MEMBER CHARGE CARDS - Coalition Opportunities
+   ============================================ */
+
+.member-charge a {
+    color: var(--acc-purple);
+    font-weight: 600;
+    text-decoration-color: var(--acc-orange);
+}
+
+.member-charge a:hover {
+    background: rgba(255, 106, 19, 0.12);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   TALKING POINT LINKS
+   ============================================ */
+
+.talking-point a {
+    color: var(--acc-dark-purple);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+}
+
+.talking-point a:hover {
+    background: rgba(81, 40, 136, 0.15);
+    padding: 2px 6px;
+    margin: -2px -6px;
+    border-radius: 4px;
+}
+
+/* ============================================
+   PRINT BUTTON - Fixed Position
+   ============================================ */
+
+.print-btn {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(55, 65, 81, 0.5);
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Ensure all links have proper cursor */
+a,
+.btn,
+.quick-link,
+.doc-card,
+.filter-btn,
+.expand-btn,
+.print-btn {
+    cursor: pointer !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    a {
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+    }
+
+    a:hover {
+        text-decoration-thickness: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    a,
+    .btn,
+    .quick-link,
+    .doc-card,
+    .filter-btn,
+    .expand-btn {
+        transition: none;
+    }
+
+    a::after,
+    .btn::after,
+    .quick-link::before {
+        transition: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES - Preserve Readability
+   ============================================ */
+
+@media print {
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    .btn::before,
+    .quick-link::before,
+    .doc-card::after {
+        display: none;
+    }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Increase touch target size for mobile */
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .btn {
+        min-height: 48px;
+        padding: 12px 20px;
+    }
+
+    .quick-link {
+        min-height: 60px;
+        padding: 16px;
+    }
+}
+
+/* ============================================
+   END INTELLIGENT LINK SYSTEM
+   ============================================ */

@@ -1,0 +1,26 @@
+Name,Department,Title,Email,LinkedIn_URL,Education,Years_at_ACC,Previous_Roles,Technical_Background,Areas_of_Expertise,Professional_Network,Strategic_Notes
+
+Marisa Mendoza,,,,,,,,,,,
+Ron Johns,,,,,,,,,,,
+Shih-Ting Lee,,,,,,,,,,,
+Emilie Kunze,,,,,,,,,,,
+Keri Moczygemba,,,,,,,,,,,
+David Cantu,,,,,,,,,,,
+Elizabeth Mosser Knight,,,,,,,,,,,
+Manuel Duran,,,,,,,,,,,
+Robert Foster,,,,,,,,,,,
+Jennifer Black,,,,,,,,,,,
+
+# Instructions:
+# 1. Fill in what you find from LinkedIn, ACC website, Professor Watkins
+# 2. LinkedIn_URL: Full profile link
+# 3. Education: Degrees and institutions (e.g., "MBA UT Austin, BS Computer Science Texas State")
+# 4. Years_at_ACC: Approximate (e.g., "5-7 years", "15+ years")
+# 5. Previous_Roles: Before ACC (e.g., "Software Engineer at Dell", "Teacher at AISD")
+# 6. Technical_Background: Yes/No/Partial
+# 7. Areas_of_Expertise: Comma-separated (e.g., "Workforce development, Curriculum design, Industry partnerships")
+# 8. Professional_Network: Key connections (e.g., "Connected to hiring managers at Indeed, HomeAway")
+# 9. Strategic_Notes: Anything useful for coalition building
+
+# Example (fill in real data):
+# Marisa Mendoza,Workforce Development,Department Chair,marisa.mendoza@austincc.edu,linkedin.com/in/marisamendoza,MEd Workforce Dev - Texas State; BS Business - UT,8 years,"Workforce Coordinator at Capital Metro; Curriculum Developer at Skills Inc",Partial,"Workforce readiness, Industry partnerships, Career pathways","Connected to HR directors at Tesla, Indeed, Dell; Serves on Austin Chamber Education Committee","Strong industry connections; Can facilitate mentorship program; Previous experience designing technical training"

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Access Competitive Analysis - Peer Institution Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .executive-summary {
+            background: linear-gradient(135deg, #fef3c715 0%, #fde68a15 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+
+        .executive-summary h2 {
+            color: #f59e0b;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .key-finding {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-finding strong {
+            color: #f59e0b;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #f59e0b;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f59e0b20;
+        }
+
+        .institution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .institution-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        .institution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+        }
+
+        .institution-card h3 {
+            color: #f59e0b;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .institution-card .badge {
+            background: #f59e0b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .equipment-category {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .equipment-category h4 {
+            color: #475569;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .equipment-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .equipment-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #64748b;
+        }
+
+        .equipment-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .acc-current {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #3b82f6;
+        }
+
+        .acc-current h3 {
+            color: #1e40af;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+
+        .comparison-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #fef3c7;
+        }
+
+        .has-equipment {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .no-equipment {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .gap-analysis {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #ef4444;
+        }
+
+        .gap-analysis h3 {
+            color: #991b1b;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .gap-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #ef4444;
+        }
+
+        .gap-item h4 {
+            color: #ef4444;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #10b981;
+        }
+
+        .recommendations h3 {
+            color: #065f46;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .recommendation-card {
+            background: white;
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #10b981;
+        }
+
+        .recommendation-card h4 {
+            color: #10b981;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .cost-estimate {
+            background: #f0fdf4;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #10b981;
+        }
+
+        .cost-estimate strong {
+            color: #065f46;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .priority-high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .priority-medium {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .priority-low {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .institution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🖥️ Equipment Access Competitive Analysis</h1>
+            <p class="subtitle">What Advanced Equipment Do Peer Institutions Provide Students?</p>
+            <span class="date-badge">Competitive Research | October 13, 2025</span>
+        </div>
+
+        <div class="content">
+            <div class="executive-summary">
+                <h2>📊 Executive Summary</h2>
+                <p style="font-size: 1.15em; margin-bottom: 20px;">
+                    Research shows peer institutions provide extensive <strong>makerspace equipment</strong> (3D printers,
+                    laser cutters, CNC machines) and <strong>VR/AR headsets</strong> for student checkout. However,
+                    <strong>GPU workstation lending is rare</strong> — most universities provide remote HPC cluster access
+                    instead of physical GPU systems.
+                </p>
+
+                <div class="key-finding">
+                    <strong>🎯 Key Finding: Remote HPC > GPU Lending</strong>
+                    Major research universities (UT Austin, Texas A&M, MIT, Stanford) provide high-performance computing
+                    with GPU access through <strong>remote clusters</strong>, not checkout programs. Students access GPUs
+                    via terminal/cloud, not physical workstation loans.
+                </div>
+
+                <div class="key-finding">
+                    <strong>🏆 Makerspace Equipment is Standard</strong>
+                    Community colleges and universities alike provide extensive makerspace equipment: 3D printers
+                    (FDM, SLA, SLS), laser cutters, vinyl cutters, CNC machines, electronics benches, and fabrication tools.
+                </div>
+
+                <div class="key-finding">
+                    <strong>🥽 VR/AR Headsets Increasingly Common</strong>
+                    VR headsets (Oculus Quest, HTC Vive) available at UT Austin (Texas Immersive Institute), Stanford
+                    Tech Desk, Texas State (VR welding), and multiple community colleges. Typical checkout: 3-7 days.
+                </div>
+
+                <div class="key-finding">
+                    <strong>⚠️ ACC's Competitive Gap</strong>
+                    ACC provides basic equipment (iPads, webcams, calculators) but lacks: makerspaces with fabrication
+                    equipment, VR/AR headset checkout, remote GPU cluster access, and CAD workstation access.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏫 Major Research Universities</h2>
+
+                <div class="institution-grid">
+                    <div class="institution-card">
+                        <h3>
+                            University of Texas at Austin
+                            <span class="badge">Flagship</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>VR/AR Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Oculus Quest 2 VR headsets (required for some courses)</li>
+                                <li>Texas Immersive Institute provides VR access</li>
+                                <li>HTC Vive systems in research labs</li>
+                                <li>VR/AR studio spaces for student projects</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>Computing Resources</h4>
+                            <ul class="equipment-list">
+                                <li>Stampede3 supercomputer (remote access)</li>
+                                <li>Frontera supercomputer (NSF-funded, remote)</li>
+                                <li>No GPU workstation lending found</li>
+                                <li>AWS Educate credits for cloud computing</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>General Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Dell/MacBook laptop checkout (Law Library, 24-hour)</li>
+                                <li>AV equipment (McCombs, MBA students only)</li>
+                                <li>Portable electronics (Architecture School)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Texas A&M University
+                            <span class="badge">Flagship</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Makerspace Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>3D Printers: FDM, SLA, SLS models</li>
+                                <li>Laser cutters (multiple sizes)</li>
+                                <li>CNC machines and mills</li>
+                                <li>Design workstations with CAD software</li>
+                                <li>Electronics benches and soldering stations</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>High-Performance Computing</h4>
+                            <ul class="equipment-list">
+                                <li>Grace supercomputer with A100 GPUs (remote)</li>
+                                <li>Terra cluster with Quadro RTX 6000, T4, A40 GPUs</li>
+                                <li>New DGX SuperPOD: 760 NVIDIA Hopper GPUs (remote)</li>
+                                <li>Students access via SSH/web portal, not checkout</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>General Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Tech Bar: laptop/Chromebook checkout (7-day)</li>
+                                <li>Cameras, microphones, recording equipment</li>
+                                <li>No physical GPU workstation lending</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Texas State University
+                            <span class="badge">Regional</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>VR/AR Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>3 Lincoln VRTEX 360 VR welding simulators</li>
+                                <li>VR/AR/MR technologies in Virtual Design courses</li>
+                                <li>HoloLens and other mixed reality devices</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>Software & Tools</h4>
+                            <ul class="equipment-list">
+                                <li>Free Autodesk CAD software downloads (all students)</li>
+                                <li>Adobe Creative Cloud access</li>
+                                <li>Engineering simulation software</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>General Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Alkek Library equipment checkout (7-day periods)</li>
+                                <li>Laptops, tablets, cameras, projectors</li>
+                                <li>Audio/video recording equipment</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            MIT & Stanford
+                            <span class="badge">Elite</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>VR/AR Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Stanford Tech Desk: HTC Vive VR headsets (free)</li>
+                                <li>Oculus Quest systems for student projects</li>
+                                <li>3D scanners and motion capture equipment</li>
+                                <li>MIT Center for Advanced Virtuality labs</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>Computing Resources</h4>
+                            <ul class="equipment-list">
+                                <li>Stanford HPCC: high-performance computing cluster</li>
+                                <li>MIT Engaging cluster with GPU nodes</li>
+                                <li>Cloud computing credits (AWS, Google Cloud)</li>
+                                <li>Remote GPU access, not physical checkout</li>
+                            </ul>
+                        </div>
+
+                        <div class="equipment-category">
+                            <h4>Makerspace Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>Extensive 3D printing (multiple technologies)</li>
+                                <li>Laser cutters, CNC mills, waterjet cutters</li>
+                                <li>Electronics labs and PCB fabrication</li>
+                                <li>Professional-grade fabrication tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏛️ Community Colleges</h2>
+
+                <div class="institution-grid">
+                    <div class="institution-card">
+                        <h3>
+                            Hudson County Community College
+                            <span class="badge">NJ</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Makerspace Equipment</h4>
+                            <ul class="equipment-list">
+                                <li>3D Printers (free for students/staff)</li>
+                                <li>HTC Vive VR headset</li>
+                                <li>Oculus Go VR headset</li>
+                                <li>Design and fabrication tools</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Glendale Community College
+                            <span class="badge">AZ</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Library Makerspace</h4>
+                            <ul class="equipment-list">
+                                <li>2 3D Printers (free for GCC students/staff)</li>
+                                <li>Scheduled appointments for guided learning</li>
+                                <li>File submission service for printing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Lane Community College
+                            <span class="badge">OR</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Library Makerspace</h4>
+                            <ul class="equipment-list">
+                                <li>3D Printers with free first-time use (up to 3 hours)</li>
+                                <li>Nominal costs for continued use</li>
+                                <li>Training and support provided</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Houston Community College
+                            <span class="badge">TX</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Technology Lending</h4>
+                            <ul class="equipment-list">
+                                <li>ADA laptops (3-week checkout, renewable 5x)</li>
+                                <li>Assistive technology devices</li>
+                                <li>Short-term equipment to address acute needs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="institution-card">
+                        <h3>
+                            Dallas College
+                            <span class="badge">TX</span>
+                        </h3>
+
+                        <div class="equipment-category">
+                            <h4>Learning Commons Technology</h4>
+                            <ul class="equipment-list">
+                                <li>Laptops and tablets for enrolled students</li>
+                                <li>Semester-long checkout programs</li>
+                                <li>Must be enrolled in credit/continuing ed</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="acc-current">
+                <h3>🎓 ACC's Current Equipment Access</h3>
+                <p style="margin-bottom: 20px; font-size: 1.1em;">
+                    Based on public-facing resources and library equipment checkout pages:
+                </p>
+
+                <div class="equipment-category">
+                    <h4>Current Offerings</h4>
+                    <ul class="equipment-list">
+                        <li>iPads (various campuses, limited quantities)</li>
+                        <li>Webcams for online learning</li>
+                        <li>Calculators (graphing and scientific)</li>
+                        <li>Laptop checkout (select libraries, 24-hour periods)</li>
+                        <li>600+ computer labs with standard workstations</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 20px; color: #1e40af; font-weight: 600;">
+                    ⚠️ <strong>Note:</strong> ACC does not appear to have public-facing makerspace equipment, VR/AR
+                    headsets, or high-performance computing resources available for student checkout or use.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>📊 Equipment Comparison Matrix</h2>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Equipment Type</th>
+                            <th>UT Austin</th>
+                            <th>Texas A&M</th>
+                            <th>Texas State</th>
+                            <th>Community Colleges</th>
+                            <th>ACC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>VR/AR Headsets</strong></td>
+                            <td class="has-equipment">✓ Oculus, HTC Vive</td>
+                            <td class="no-equipment">✗ Not found</td>
+                            <td class="has-equipment">✓ VR welding units</td>
+                            <td class="has-equipment">✓ HTC Vive, Oculus</td>
+                            <td class="no-equipment">✗ None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3D Printers</strong></td>
+                            <td class="has-equipment">✓ Makerspaces</td>
+                            <td class="has-equipment">✓ FDM/SLA/SLS</td>
+                            <td class="has-equipment">✓ Various types</td>
+                            <td class="has-equipment">✓ Free use</td>
+                            <td class="no-equipment">✗ None public</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Laser Cutters</strong></td>
+                            <td class="has-equipment">✓ Makerspaces</td>
+                            <td class="has-equipment">✓ Multiple sizes</td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="has-equipment">✓ Some locations</td>
+                            <td class="no-equipment">✗ None public</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CNC Machines</strong></td>
+                            <td class="has-equipment">✓ Engineering</td>
+                            <td class="has-equipment">✓ Makerspaces</td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="no-equipment">✗ Rare</td>
+                            <td class="no-equipment">✗ None public</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPU Workstations (Checkout)</strong></td>
+                            <td class="no-equipment">✗ Remote only</td>
+                            <td class="no-equipment">✗ Remote HPC</td>
+                            <td class="no-equipment">✗ Not found</td>
+                            <td class="no-equipment">✗ Not found</td>
+                            <td class="no-equipment">✗ None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Remote GPU Cluster Access</strong></td>
+                            <td class="has-equipment">✓ Stampede3</td>
+                            <td class="has-equipment">✓ Grace, Terra</td>
+                            <td class="no-equipment">✗ Not found</td>
+                            <td class="no-equipment">✗ None</td>
+                            <td class="no-equipment">✗ None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CAD Software</strong></td>
+                            <td class="has-equipment">✓ Labs/downloads</td>
+                            <td class="has-equipment">✓ Workstations</td>
+                            <td class="has-equipment">✓ Free Autodesk</td>
+                            <td class="has-equipment">✓ Some locations</td>
+                            <td class="has-equipment">✓ OnTheHub</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Laptops (Checkout)</strong></td>
+                            <td class="has-equipment">✓ 24-hour (select)</td>
+                            <td class="has-equipment">✓ 7-day Tech Bar</td>
+                            <td class="has-equipment">✓ 7-day Alkek</td>
+                            <td class="has-equipment">✓ Semester-long</td>
+                            <td class="has-equipment">✓ 24-hour (select)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Basic Equipment (iPads, webcams)</strong></td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="has-equipment">✓ Available</td>
+                            <td class="has-equipment">✓ Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="gap-analysis">
+                <h3>⚠️ ACC's Competitive Equipment Gaps</h3>
+
+                <div class="gap-item">
+                    <h4>1. No Makerspace Fabrication Equipment</h4>
+                    <p>
+                        <strong>Gap:</strong> ACC lacks 3D printers, laser cutters, CNC machines, and fabrication tools
+                        that are standard at peer institutions (including community colleges).<br><br>
+                        <strong>Impact:</strong> Students in Design, Manufacturing, Construction & Applied Technologies
+                        (DMC&AT), Engineering, and Computer Science cannot prototype physical projects or learn
+                        industry-standard fabrication workflows.
+                    </p>
+                </div>
+
+                <div class="gap-item">
+                    <h4>2. No VR/AR Equipment Access</h4>
+                    <p>
+                        <strong>Gap:</strong> UT Austin, Texas State, and multiple community colleges provide VR/AR
+                        headsets for student checkout. ACC has none publicly available.<br><br>
+                        <strong>Impact:</strong> Students interested in game development, immersive media, healthcare
+                        simulation, or construction visualization cannot access emerging technology that competitors
+                        provide.
+                    </p>
+                </div>
+
+                <div class="gap-item">
+                    <h4>3. No High-Performance Computing (GPU Clusters)</h4>
+                    <p>
+                        <strong>Gap:</strong> UT Austin and Texas A&M provide remote HPC cluster access with GPUs for
+                        machine learning, AI training, and scientific computing. ACC has no equivalent.<br><br>
+                        <strong>Impact:</strong> Computer Science and Software Development students cannot train AI models,
+                        run large-scale simulations, or learn GPU programming without personal workstations (financial barrier).
+                    </p>
+                </div>
+
+                <div class="gap-item">
+                    <h4>4. Limited CAD Workstation Access</h4>
+                    <p>
+                        <strong>Gap:</strong> While ACC provides CAD software via OnTheHub, access to high-performance
+                        CAD workstations (like Texas A&M's makerspace design stations) is unclear/limited.<br><br>
+                        <strong>Impact:</strong> Engineering and design students may lack hardware capable of running
+                        complex CAD assemblies, simulations, or rendering tasks.
+                    </p>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>✅ Recommendations: Equipment Access Priorities</h3>
+
+                <div class="recommendation-card">
+                    <h4>Priority 1: Makerspace Equipment <span class="priority-badge priority-high">HIGH</span></h4>
+                    <p>
+                        <strong>Equipment Needed:</strong> 3D printers (FDM + SLA), laser cutter, vinyl cutter, electronics bench<br>
+                        <strong>Location:</strong> House at CGCS facility (Rio Grande Campus, Building 3000) for multi-campus access<br>
+                        <strong>Benefits:</strong> Serves Design/Manufacturing/Construction programs, CS hardware projects, Arts programs
+                    </p>
+                    <div class="cost-estimate">
+                        <strong>Cost Estimate:</strong> $25,000-45,000 initial setup
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Entry 3D printers (2-3 units): $3,000-8,000</li>
+                            <li>Professional SLA printer (1 unit): $5,000-10,000</li>
+                            <li>Laser cutter (desktop): $8,000-15,000</li>
+                            <li>Vinyl cutter: $500-1,500</li>
+                            <li>Electronics bench + tools: $3,000-5,000</li>
+                            <li>Supplies, maintenance, training: $5,000/year</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <h4>Priority 2: VR/AR Headset Checkout <span class="priority-badge priority-high">HIGH</span></h4>
+                    <p>
+                        <strong>Equipment Needed:</strong> 10-15 VR headsets (Meta Quest 3 or equivalent)<br>
+                        <strong>Checkout Model:</strong> 7-day periods via library system (similar to Texas State model)<br>
+                        <strong>Benefits:</strong> Supports game development, healthcare simulation, immersive media programs
+                    </p>
+                    <div class="cost-estimate">
+                        <strong>Cost Estimate:</strong> $6,000-7,500 initial + $1,500/year maintenance
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Meta Quest 3 (128GB): $500 × 10-15 units = $5,000-7,500</li>
+                            <li>Protective cases and cleaning supplies: $500-1,000</li>
+                            <li>Replacement/repair budget: $1,500/year (20% replacement rate)</li>
+                            <li>Software licenses (if needed): Variable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <h4>Priority 3: Remote GPU Cluster Access <span class="priority-badge priority-medium">MEDIUM</span></h4>
+                    <p>
+                        <strong>Solution:</strong> Partner with cloud providers or Texas Advanced Computing Center (TACC)<br>
+                        <strong>Alternative:</strong> Cloud GPU credits (AWS, Google Cloud, Azure) for student projects<br>
+                        <strong>Benefits:</strong> Enables AI model training, machine learning coursework, GPU programming
+                    </p>
+                    <div class="cost-estimate">
+                        <strong>Cost Estimate:</strong> $15,000-30,000/year for student GPU credits
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>100 students × $150-300/student/year in cloud GPU credits</li>
+                            <li>Alternative: TACC educational partnership (potentially lower cost)</li>
+                            <li>More cost-effective than physical GPU workstations ($3,000-5,000 each)</li>
+                            <li>Aligns with industry practice (cloud-based GPU access)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <h4>Priority 4: CAD Workstation Lab <span class="priority-badge priority-medium">MEDIUM</span></h4>
+                    <p>
+                        <strong>Equipment Needed:</strong> 15-20 high-performance workstations for CAD/rendering<br>
+                        <strong>Location:</strong> Dedicated lab space (potentially CGCS or Engineering campus)<br>
+                        <strong>Benefits:</strong> Supports engineering, architecture, design programs with complex CAD needs
+                    </p>
+                    <div class="cost-estimate">
+                        <strong>Cost Estimate:</strong> $60,000-100,000 for 20-workstation lab
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Workstations (NVIDIA RTX professional GPUs): $3,000-5,000 × 20 = $60,000-100,000</li>
+                            <li>Lab furniture and infrastructure: $10,000-15,000</li>
+                            <li>Software licenses (Autodesk, SolidWorks): Already covered via OnTheHub</li>
+                            <li>5-year replacement cycle</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <h4>Priority 5: Equipment Checkout Expansion <span class="priority-badge priority-low">LOW</span></h4>
+                    <p>
+                        <strong>Expansion Areas:</strong> Professional cameras, audio equipment, drawing tablets, drones<br>
+                        <strong>Model:</strong> 7-day checkout via library system (expand current iPad/webcam model)<br>
+                        <strong>Benefits:</strong> Supports Arts, Media, Communication programs with specialized equipment needs
+                    </p>
+                    <div class="cost-estimate">
+                        <strong>Cost Estimate:</strong> $15,000-25,000 initial investment
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Professional cameras (5-10 units): $5,000-10,000</li>
+                            <li>Audio recording equipment: $3,000-5,000</li>
+                            <li>Drawing tablets (Wacom): $2,000-4,000</li>
+                            <li>Drones for video production: $3,000-5,000</li>
+                            <li>Maintenance/replacement: $3,000/year</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎯 Strategic Implementation Approach</h2>
+
+                <div class="strategy-card" style="background: white; border: 2px solid #cbd5e1; padding: 30px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="color: #f59e0b; font-size: 1.6em; margin-bottom: 20px;">
+                        Phase 1: Quick Wins (3-6 months)
+                    </h3>
+                    <ul class="action-list" style="list-style: none; margin: 0;">
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>VR Headset Pilot:</strong> Purchase 5-10 Meta Quest 3 headsets, implement library
+                            checkout system at 1-2 campuses. <span style="color: #10b981; font-weight: 600;">Cost: $2,500-5,000</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>Cloud GPU Credits:</strong> Negotiate educational credits with AWS/Google Cloud for
+                            CS/Software Dev pilot cohort (30-50 students). <span style="color: #10b981; font-weight: 600;">Cost: $4,500-15,000</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>Basic 3D Printer:</strong> Install 1-2 entry-level 3D printers at CGCS as proof-of-concept.
+                            <span style="color: #10b981; font-weight: 600;">Cost: $1,500-4,000</span>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 1.05em; color: #475569;">
+                        <strong>Total Phase 1 Investment:</strong> $8,500-24,000 | <strong>Timeframe:</strong> 3-6 months
+                    </p>
+                </div>
+
+                <div class="strategy-card" style="background: white; border: 2px solid #cbd5e1; padding: 30px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="color: #f59e0b; font-size: 1.6em; margin-bottom: 20px;">
+                        Phase 2: Full Makerspace (12-18 months)
+                    </h3>
+                    <ul class="action-list" style="list-style: none; margin: 0;">
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>CGCS Makerspace Buildout:</strong> Full fabrication lab with 3D printers (FDM + SLA),
+                            laser cutter, vinyl cutter, electronics bench. <span style="color: #10b981; font-weight: 600;">Cost: $25,000-45,000</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>VR Fleet Expansion:</strong> Expand to 15-20 VR headsets across multiple campuses with
+                            library checkout system. <span style="color: #10b981; font-weight: 600;">Cost: $7,500-10,000</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>Equipment Checkout Expansion:</strong> Cameras, audio, drawing tablets, specialized equipment.
+                            <span style="color: #10b981; font-weight: 600;">Cost: $15,000-25,000</span>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 1.05em; color: #475569;">
+                        <strong>Total Phase 2 Investment:</strong> $47,500-80,000 | <strong>Timeframe:</strong> 12-18 months
+                    </p>
+                </div>
+
+                <div class="strategy-card" style="background: white; border: 2px solid #cbd5e1; padding: 30px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="color: #f59e0b; font-size: 1.6em; margin-bottom: 20px;">
+                        Phase 3: Advanced Resources (18-36 months)
+                    </h3>
+                    <ul class="action-list" style="list-style: none; margin: 0;">
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>CAD Workstation Lab:</strong> 15-20 high-performance workstations with professional GPUs
+                            for engineering/design programs. <span style="color: #10b981; font-weight: 600;">Cost: $60,000-100,000</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>HPC Partnership:</strong> Explore TACC educational partnership or expand cloud GPU
+                            credits program institution-wide. <span style="color: #10b981; font-weight: 600;">Cost: $20,000-40,000/year</span>
+                        </li>
+                        <li style="padding: 15px; margin: 10px 0; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 5px;">
+                            <strong>Advanced Fabrication:</strong> CNC machines, professional-grade equipment for specialized
+                            programs. <span style="color: #10b981; font-weight: 600;">Cost: $30,000-60,000</span>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 1.05em; color: #475569;">
+                        <strong>Total Phase 3 Investment:</strong> $110,000-200,000 | <strong>Timeframe:</strong> 18-36 months
+                    </p>
+                </div>
+            </div>
+
+            <div class="executive-summary" style="background: linear-gradient(135deg, #d1fae515 0%, #a7f3d015 100%); border-color: #10b981;">
+                <h2 style="color: #065f46;">🎯 Integration with Your AI Proposal</h2>
+                <p style="font-size: 1.15em; margin-bottom: 20px;">
+                    Equipment access and AI tool access are <strong>complementary strategies</strong> addressing different
+                    but related barriers. Your AI proposal focuses on software/API access; equipment strategy addresses
+                    hardware access.
+                </p>
+
+                <div class="key-finding" style="border-color: #10b981;">
+                    <strong>🔗 How They Connect</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Cloud GPU Credits</strong> (this report) support <strong>AI Tool Access Program</strong> (your proposal)</li>
+                        <li><strong>CGCS Makerspace</strong> provides physical space for AI hardware projects (Raspberry Pi, edge computing)</li>
+                        <li><strong>VR Headsets</strong> enable AI-powered immersive experiences (computer vision, spatial computing)</li>
+                        <li><strong>Workstations</strong> run local AI development environments (large models, training experiments)</li>
+                    </ul>
+                </div>
+
+                <div class="key-finding" style="border-color: #10b981;">
+                    <strong>💡 Strategic Positioning</strong>
+                    Present equipment access as <strong>"Phase 2: Hardware Infrastructure"</strong> following your
+                    <strong>"Phase 1: Software/API Access."</strong> This shows comprehensive thinking about student
+                    needs while keeping focus on your primary AI tool access proposal.
+                </div>
+
+                <p style="margin-top: 20px; font-size: 1.1em; color: #065f46; font-weight: 600;">
+                    🚀 <strong>Recommendation:</strong> Lead with AI tool access proposal (software barriers, lower cost,
+                    faster implementation). Use equipment analysis as supporting evidence of broader infrastructure gaps
+                    and future expansion opportunities.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

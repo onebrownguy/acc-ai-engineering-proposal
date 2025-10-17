@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Systems & Career Pathways - ACC Committee Report</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #22c55e;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .filter-btn {
+            padding: 10px 18px;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+        }
+
+        .filter-separator {
+            width: 1px;
+            height: 30px;
+            background: var(--border);
+            margin: 0 5px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .system-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .system-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .system-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .system-header .icon {
+            font-size: 1.6rem;
+        }
+
+        .system-body {
+            padding: 20px;
+        }
+
+        .system-description {
+            color: #64748b;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag.difficulty {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag.dept {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tag.career {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .tag.salary {
+            background: #fce7f3;
+            color: #9f1239;
+        }
+
+        .skills-list {
+            margin-bottom: 15px;
+        }
+
+        .skills-list h4 {
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .skills-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills-list li {
+            padding: 4px 0;
+            font-size: 0.85rem;
+            color: #64748b;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skills-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .companies {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .companies h4 {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .company-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .company-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .committee-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .committee-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-submitted {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .alignment-match {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            background: #dbeafe;
+            color: #1e40af;
+            margin: 2px;
+        }
+
+        .action-plan {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .action-plan h2 {
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+
+        .action-items {
+            display: grid;
+            gap: 15px;
+        }
+
+        .action-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .action-item h4 {
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .action-item p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .systems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .meta-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .print-btn:hover {
+            background: #0284c7;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 165, 233, 0.5);
+        }
+
+        @media print {
+            .filters, .print-btn {
+                display: none;
+            }
+
+            .system-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Systems & Career Pathways Report</h1>
+            <p>Comprehensive Analysis for ACC AI Implementation Committee</p>
+            <div class="meta-info">
+                <div class="meta-item">📅 October 2025</div>
+                <div class="meta-item">👥 40+ Committee Members</div>
+                <div class="meta-item">🎯 15 AI System Categories</div>
+                <div class="meta-item">💼 2,000+ Austin Jobs (verified Oct 14, 2025)</div>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card">
+                <h3>$70K-90K</h3>
+                <p>Entry-level AI Engineer salaries (verified Salary.com), progressing to $100K+ in 2-3 years</p>
+            </div>
+            <div class="card">
+                <h3>2,000+</h3>
+                <p>Open AI Engineering Positions verified Oct 14, 2025 (Indeed: 1,224, LinkedIn: 2,000+, Glassdoor: 1,349)</p>
+            </div>
+            <div class="card">
+                <h3>8%</h3>
+                <p>Job Postings Currently Requiring Prompt Engineering (growing 32.8% annually through 2030)</p>
+            </div>
+            <div class="card">
+                <h3>$42-54/student</h3>
+                <p>Annual Cost of AI Development Tools per Student ($2.1K-2.7K for 50 students, verified OpenAI, Anthropic, Pinecone pricing)</p>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Filter by:</label>
+                <button class="filter-btn active" data-filter="all">✨ All Systems</button>
+                <div class="filter-separator"></div>
+                <button class="filter-btn" data-filter="beginner">🟢 Beginner</button>
+                <button class="filter-btn" data-filter="intermediate">🟡 Intermediate</button>
+                <button class="filter-btn" data-filter="advanced">🔴 Advanced</button>
+                <div class="filter-separator"></div>
+                <button class="filter-btn" data-filter="computerscience">💻 Computer Science</button>
+                <button class="filter-btn" data-filter="lanadministration">🌐 LAN Admin</button>
+                <button class="filter-btn" data-filter="softwaredevelopment">⚙️ Software Dev</button>
+                <button class="filter-btn" data-filter="dataanalytics">📊 Data Analytics</button>
+                <button class="filter-btn" data-filter="cybersecurity">🔒 Cybersecurity</button>
+            </div>
+            <div class="filter-group" style="margin-top: 15px;">
+                <input type="text" class="search-box" id="searchBox" placeholder="Search by technology, skill, or company...">
+            </div>
+        </div>
+
+        <div class="systems-grid" id="systemsGrid">
+            <!-- Systems will be dynamically inserted here -->
+        </div>
+
+        <div class="committee-section">
+            <h2>📋 Committee Member Alignment Analysis</h2>
+            <p style="margin-bottom: 20px; color: #64748b;">
+                This analysis shows which committee members' charge suggestions align with specific AI systems and career pathways.
+                Use this to identify potential champions for each technical area.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Member Name</th>
+                        <th>Department/Role</th>
+                        <th>Submission Status</th>
+                        <th>Focus Areas</th>
+                        <th>Aligned AI Systems</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTable">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="action-plan">
+            <h2>🚀 Recommended Action Items</h2>
+            <div class="action-items">
+                <div class="action-item">
+                    <h4>1. Tool Access Program (IMMEDIATE - Q1 2025)</h4>
+                    <p>Establish partnerships with OpenAI, Anthropic, Pinecone for educational API access. Target: 50-100 students pilot in Spring 2025. Estimated cost: $75K-100K.</p>
+                </div>
+                <div class="action-item">
+                    <h4>2. Prompt Engineering Curriculum (Q1-Q2 2025)</h4>
+                    <p>Develop 3-course sequence covering fundamentals → RAG systems → AI agents. First course launch: Fall 2025. Faculty training: Summer 2025.</p>
+                </div>
+                <div class="action-item">
+                    <h4>3. Industry Partnership Program (Q2 2025)</h4>
+                    <p>Recruit 20+ AI engineers from Austin tech companies as mentors. Establish advisory board for curriculum review. Target companies: Indeed, Oracle, OpenAI partners.</p>
+                </div>
+                <div class="action-item">
+                    <h4>4. Portfolio Infrastructure (Q2 2025)</h4>
+                    <p>Create GitHub organization, deploy portfolio website (showcase.acc.edu/ai), establish project templates and evaluation rubrics.</p>
+                </div>
+                <div class="action-item">
+                    <h4>5. Student Survey & Demand Validation (IMMEDIATE)</h4>
+                    <p>Conduct formal survey of technical program students to quantify demand, identify specific barriers, and validate salary expectations.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print Report</button>
+    </div>
+
+    <footer>
+        <p>Prepared for ACC AI Implementation Steering Committee | October 2025</p>
+        <p>Data sources: LinkedIn Jobs, Indeed, Glassdoor, UT Austin CS Dept, Texas Workforce Commission</p>
+    </footer>
+
+    <script>
+        // AI Systems Data
+        const aiSystems = [
+            {
+                id: 1,
+                name: "Agentic AI Systems",
+                icon: "🤖",
+                description: "Autonomous agents that can use tools, make decisions, and complete multi-step tasks without constant human oversight.",
+                difficulty: "Advanced",
+                departments: ["Computer Science", "Software Development"],
+                technologies: ["LangGraph", "LangChain", "CrewAI", "AutoGPT", "Semantic Kernel"],
+                skills: [
+                    "State machine design",
+                    "Tool integration (APIs, databases)",
+                    "Multi-agent coordination",
+                    "Error handling & guardrails",
+                    "Agent memory management"
+                ],
+                companies: ["OpenAI", "Anthropic", "Microsoft", "Salesforce", "Google"],
+                salary: "$130K-$170K",
+                careerPath: "AI Engineer, Autonomous Systems Engineer",
+                examples: [
+                    "Customer service agents with database access",
+                    "Research assistants that search and synthesize",
+                    "DevOps agents for deployment automation"
+                ]
+            },
+            {
+                id: 2,
+                name: "RAG Systems",
+                icon: "📚",
+                description: "Retrieval-Augmented Generation systems that combine LLMs with external knowledge bases for accurate, contextual responses.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Software Development", "Data Analytics"],
+                technologies: ["LangChain", "LlamaIndex", "Pinecone", "Weaviate", "FAISS"],
+                skills: [
+                    "Vector embeddings & semantic search",
+                    "Chunking strategies",
+                    "Reranking algorithms",
+                    "Prompt engineering for retrieval",
+                    "RAG evaluation (RAGAS)"
+                ],
+                companies: ["Every AI startup", "Glean", "Hebbia", "Harvey AI", "Kensho"],
+                salary: "$120K-$160K",
+                careerPath: "AI Engineer, ML Engineer",
+                examples: [
+                    "Enterprise chatbots with company docs",
+                    "Legal research assistants",
+                    "Medical diagnosis support systems"
+                ]
+            },
+            {
+                id: 3,
+                name: "Fine-tuning & Model Customization",
+                icon: "🎯",
+                description: "Adapting pre-trained LLMs for specific tasks, domains, or use cases through targeted training.",
+                difficulty: "Advanced",
+                departments: ["Computer Science", "Data Science"],
+                technologies: ["LoRA", "QLoRA", "PEFT", "Axolotl", "Unsloth", "RLHF"],
+                skills: [
+                    "Dataset preparation & cleaning",
+                    "Hyperparameter tuning",
+                    "Distributed training (multi-GPU)",
+                    "Model evaluation metrics",
+                    "Model merging techniques"
+                ],
+                companies: ["Hugging Face", "Together AI", "Anyscale", "Databricks", "Replicate"],
+                salary: "$140K-$190K",
+                careerPath: "ML Engineer, AI Research Engineer",
+                examples: [
+                    "Medical chatbots trained on clinical guidelines",
+                    "Legal document analysis specialized models",
+                    "Code generation for specific frameworks"
+                ]
+            },
+            {
+                id: 4,
+                name: "AI Infrastructure & MLOps",
+                icon: "⚙️",
+                description: "Production systems for deploying, monitoring, and scaling AI models at enterprise scale.",
+                difficulty: "Advanced",
+                departments: ["LAN Administration", "Computer Science", "Software Development"],
+                technologies: ["vLLM", "TensorRT", "Kubernetes", "Ray", "MLflow", "LangSmith"],
+                skills: [
+                    "Docker & Kubernetes orchestration",
+                    "Model quantization techniques",
+                    "Load balancing & caching",
+                    "Observability & monitoring",
+                    "GPU cost optimization"
+                ],
+                companies: ["Anyscale", "Databricks", "AWS SageMaker", "Google Vertex AI", "Modal Labs"],
+                salary: "$130K-$180K",
+                careerPath: "MLOps Engineer, AI Infrastructure Engineer",
+                examples: [
+                    "Serving millions of ChatGPT requests/day",
+                    "Auto-scaling inference clusters",
+                    "A/B testing model versions"
+                ]
+            },
+            {
+                id: 5,
+                name: "Prompt Engineering",
+                icon: "✍️",
+                description: "The art and science of designing inputs to LLMs to achieve desired outputs reliably.",
+                difficulty: "Beginner to Intermediate",
+                departments: ["All Technical Programs"],
+                technologies: ["OpenAI API", "Anthropic Claude", "Google Gemini", "PromptLayer", "LangSmith"],
+                skills: [
+                    "Chain-of-thought prompting",
+                    "Few-shot learning",
+                    "Role-based prompting",
+                    "Prompt evaluation frameworks",
+                    "Cost optimization"
+                ],
+                companies: ["Anthropic", "OpenAI", "Every tech company"],
+                salary: "$100K-$175K",
+                careerPath: "Prompt Engineer, AI Application Developer",
+                examples: [
+                    "Advanced chatbot conversation design",
+                    "Code generation prompts",
+                    "Content creation systems"
+                ]
+            },
+            {
+                id: 6,
+                name: "Multimodal AI Systems",
+                icon: "🎨",
+                description: "Systems that process and generate multiple data types: text, images, audio, and video.",
+                difficulty: "Advanced",
+                departments: ["Computer Science", "Digital Media"],
+                technologies: ["GPT-4V", "Claude 3", "DALL-E", "Whisper", "Stable Diffusion"],
+                skills: [
+                    "Vision transformer architectures",
+                    "Cross-modal embedding alignment",
+                    "Image/video preprocessing",
+                    "Audio feature extraction",
+                    "Multimodal prompt engineering"
+                ],
+                companies: ["OpenAI", "Meta", "Adobe", "Runway ML", "Stability AI"],
+                salary: "$140K-$190K",
+                careerPath: "Multimodal AI Engineer, Computer Vision Engineer",
+                examples: [
+                    "Medical imaging analysis with patient history",
+                    "Content moderation (images + text)",
+                    "Accessibility tools (image descriptions)"
+                ]
+            },
+            {
+                id: 7,
+                name: "Conversational AI & Voice",
+                icon: "💬",
+                description: "Building dialogue systems, chatbots, and voice assistants with natural interactions.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Software Development"],
+                technologies: ["Whisper", "ElevenLabs", "WebRTC", "Rasa", "Botpress"],
+                skills: [
+                    "Real-time speech processing",
+                    "WebSocket programming",
+                    "Low-latency optimization",
+                    "Dialogue state tracking",
+                    "Natural language understanding"
+                ],
+                companies: ["ElevenLabs", "AssemblyAI", "Deepgram", "Voiceflow", "Rasa"],
+                salary: "$110K-$150K",
+                careerPath: "Conversational AI Engineer, Voice Systems Developer",
+                examples: [
+                    "Restaurant reservation bots",
+                    "Healthcare appointment scheduling",
+                    "Voice-controlled home automation"
+                ]
+            },
+            {
+                id: 8,
+                name: "Computer Vision Systems",
+                icon: "👁️",
+                description: "Image and video analysis including object detection, segmentation, and recognition.",
+                difficulty: "Advanced",
+                departments: ["Computer Science", "Robotics"],
+                technologies: ["YOLO", "SAM", "OpenCV", "Tesseract", "MediaPipe"],
+                skills: [
+                    "CNN architectures",
+                    "Data augmentation techniques",
+                    "Real-time inference optimization",
+                    "Transfer learning",
+                    "Edge device deployment"
+                ],
+                companies: ["Tesla", "Waymo", "Standard Cognition", "Scale AI", "Roboflow"],
+                salary: "$130K-$180K",
+                careerPath: "Computer Vision Engineer, Autonomous Systems Engineer",
+                examples: [
+                    "Autonomous vehicle perception",
+                    "Retail checkout automation",
+                    "Medical image analysis"
+                ]
+            },
+            {
+                id: 9,
+                name: "AI Observability & Evaluation",
+                icon: "📊",
+                description: "Systems to monitor, evaluate, and improve AI models in production environments.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Data Analytics"],
+                technologies: ["RAGAS", "LangSmith", "Weights & Biases", "Helicone", "TruLens"],
+                skills: [
+                    "LLM evaluation metrics design",
+                    "Statistical significance testing",
+                    "Log analysis & anomaly detection",
+                    "Dashboard design",
+                    "Cost optimization strategies"
+                ],
+                companies: ["LangChain", "Weights & Biases", "Arize AI", "WhyLabs"],
+                salary: "$120K-$160K",
+                careerPath: "AI Evaluation Engineer, ML Observability Engineer",
+                examples: [
+                    "Detecting chatbot hallucinations",
+                    "Monitoring prompt injection attempts",
+                    "A/B testing prompts"
+                ]
+            },
+            {
+                id: 10,
+                name: "Document Intelligence",
+                icon: "📄",
+                description: "Understanding and extracting structured information from documents, PDFs, and forms.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Software Development"],
+                technologies: ["LayoutLM", "Donut", "PyMuPDF", "Camelot", "TrOCR"],
+                skills: [
+                    "PDF structure understanding",
+                    "Layout analysis",
+                    "OCR pipeline optimization",
+                    "Table extraction",
+                    "Multi-page document handling"
+                ],
+                companies: ["DocuSign", "UiPath", "Kofax", "Nanonets", "Rossum"],
+                salary: "$110K-$150K",
+                careerPath: "Document AI Engineer, Automation Engineer",
+                examples: [
+                    "Invoice processing automation",
+                    "Insurance claims extraction",
+                    "Legal contract analysis"
+                ]
+            },
+            {
+                id: 11,
+                name: "Code Generation AI",
+                icon: "💻",
+                description: "AI systems that write, review, debug, and optimize code.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Software Development"],
+                technologies: ["CodeLlama", "StarCoder", "Copilot", "Tabnine", "Cursor"],
+                skills: [
+                    "Code representation (AST)",
+                    "Retrieval from codebase context",
+                    "Code evaluation metrics",
+                    "IDE integration",
+                    "Security analysis of generated code"
+                ],
+                companies: ["GitHub", "Tabnine", "Replit", "Sourcegraph", "Cursor"],
+                salary: "$120K-$170K",
+                careerPath: "AI Tooling Engineer, Developer Tools Engineer",
+                examples: [
+                    "GitHub Copilot code completion",
+                    "Automated PR reviews",
+                    "Test case generation"
+                ]
+            },
+            {
+                id: 12,
+                name: "AI Security Systems",
+                icon: "🔒",
+                description: "Protecting AI systems from attacks, misuse, and adversarial inputs.",
+                difficulty: "Advanced",
+                departments: ["Cybersecurity", "Computer Science"],
+                technologies: ["Red teaming frameworks", "Adversarial ML", "Model watermarking"],
+                skills: [
+                    "Threat modeling for AI",
+                    "Adversarial example generation",
+                    "Defense techniques",
+                    "AI-generated content detection",
+                    "Security evaluation frameworks"
+                ],
+                companies: ["OpenAI Safety", "Anthropic", "Meta Responsible AI", "HiddenLayer"],
+                salary: "$140K-$200K",
+                careerPath: "AI Security Engineer, AI Safety Researcher",
+                examples: [
+                    "Preventing prompt injection attacks",
+                    "Detecting deepfakes",
+                    "Model watermarking"
+                ]
+            },
+            {
+                id: 13,
+                name: "Knowledge Graphs + AI",
+                icon: "🕸️",
+                description: "Combining structured knowledge representation with neural models.",
+                difficulty: "Advanced",
+                departments: ["Computer Science", "Data Science"],
+                technologies: ["Neo4j", "TigerGraph", "GraphRAG", "GNNs"],
+                skills: [
+                    "Graph database querying",
+                    "Entity & relation extraction",
+                    "Graph embedding techniques",
+                    "Symbolic-neural integration",
+                    "Graph visualization"
+                ],
+                companies: ["Google Knowledge Graph", "Microsoft", "Neo4j", "TigerGraph"],
+                salary: "$130K-$180K",
+                careerPath: "Knowledge Graph Engineer, Graph AI Researcher",
+                examples: [
+                    "Google's Knowledge Graph in search",
+                    "Financial fraud detection networks",
+                    "Drug discovery networks"
+                ]
+            },
+            {
+                id: 14,
+                name: "Recommendation Systems",
+                icon: "🎯",
+                description: "AI systems that predict user preferences and suggest relevant content or products.",
+                difficulty: "Intermediate",
+                departments: ["Computer Science", "Data Analytics"],
+                technologies: ["Collaborative filtering", "Neural CF", "GNNs", "Bandits"],
+                skills: [
+                    "Matrix factorization",
+                    "Cold start solutions",
+                    "A/B testing for recommendations",
+                    "Real-time feature engineering",
+                    "Fairness in recommendations"
+                ],
+                companies: ["Netflix", "Spotify", "Meta", "Pinterest", "Instacart"],
+                salary: "$120K-$170K",
+                careerPath: "Recommendation Systems Engineer, Personalization Engineer",
+                examples: [
+                    "Netflix movie recommendations",
+                    "Spotify playlist generation",
+                    "E-commerce product suggestions"
+                ]
+            },
+            {
+                id: 15,
+                name: "Time Series & Forecasting",
+                icon: "📈",
+                description: "Predicting future values based on historical temporal data patterns.",
+                difficulty: "Intermediate",
+                departments: ["Data Analytics", "Computer Science"],
+                technologies: ["ARIMA", "Prophet", "LSTMs", "TimeGPT", "N-BEATS"],
+                skills: [
+                    "Time series preprocessing",
+                    "Feature engineering (lags, windows)",
+                    "Seasonality handling",
+                    "Uncertainty quantification",
+                    "Evaluation metrics (MAPE, RMSE)"
+                ],
+                companies: ["Amazon Forecasting", "Uber", "Stripe", "DataRobot", "Nixtla"],
+                salary: "$110K-$160K",
+                careerPath: "Time Series ML Engineer, Forecasting Analyst",
+                examples: [
+                    "Stock price prediction",
+                    "Retail demand forecasting",
+                    "Energy consumption prediction"
+                ]
+            }
+        ];
+
+        // Committee Members Data
+        const committeeMembers = [
+            {
+                name: "Emilie Kunze",
+                department: "Policy & Compliance",
+                status: "submitted",
+                focusAreas: ["Governance", "Training", "Tool Vetting"],
+                alignedSystems: [5, 9], // Prompt Engineering, Observability
+                notes: "Strong interest in AI literacy programs and compliance frameworks"
+            },
+            {
+                name: "David Cantu",
+                department: "IT Infrastructure",
+                status: "submitted",
+                focusAreas: ["Data Governance", "Cybersecurity", "Compliance"],
+                alignedSystems: [4, 12], // MLOps, Security
+                notes: "Focus on integrating AI with data governance"
+            },
+            {
+                name: "Marisa Mendoza",
+                department: "Workforce Development",
+                status: "submitted",
+                focusAreas: ["Career Preparation", "Industry Training"],
+                alignedSystems: [1, 2, 5, 11], // All practical career systems
+                notes: "Strong workforce preparation focus - key ally"
+            },
+            {
+                name: "Ron Johns",
+                department: "Academic Affairs",
+                status: "submitted",
+                focusAreas: ["Curriculum", "Gen Ed Competency", "Academic Integrity"],
+                alignedSystems: [5], // Prompt Engineering as foundation
+                notes: "Proposed AI fluency as gen ed competency"
+            },
+            {
+                name: "Keri Moczygemba",
+                department: "Student Success",
+                status: "submitted",
+                focusAreas: ["Equity", "Accessibility", "Student Outcomes"],
+                alignedSystems: [5, 7, 10], // Accessible systems
+                notes: "Equity champion - important for access argument"
+            },
+            {
+                name: "Elizabeth Mosser Knight",
+                department: "Implementation & Communication",
+                status: "submitted",
+                focusAreas: ["Knowledge Management", "Communication", "Google Gemini"],
+                alignedSystems: [2, 5, 13], // RAG, Prompt Eng, Knowledge Graphs
+                notes: "Wants 'source of truth' - knowledge systems align"
+            },
+            {
+                name: "Manuel Duran",
+                department: "Executive Leadership",
+                status: "submitted",
+                focusAreas: ["Strategic Vision", "National Leadership", "Oversight"],
+                alignedSystems: [4, 9], // Infrastructure & Evaluation
+                notes: "Big picture thinker - permanent oversight focus"
+            },
+            {
+                name: "Jennifer Black",
+                department: "Faculty Development",
+                status: "submitted",
+                focusAreas: ["Training Programs", "Tool Assessment"],
+                alignedSystems: [5, 9], // Prompt Eng, Evaluation
+                notes: "Practical training focus"
+            },
+            {
+                name: "Chris Davis",
+                department: "Academic Technology",
+                status: "submitted",
+                focusAreas: ["AI Hallucinations", "Academic Honesty", "Copyright"],
+                alignedSystems: [9, 12], // Evaluation, Security
+                notes: "Technical understanding of AI limitations"
+            },
+            {
+                name: "Pamela Chukwuneke",
+                department: "Faculty Affairs",
+                status: "submitted",
+                focusAreas: ["Faculty Guidelines", "Role Impact", "Equity"],
+                alignedSystems: [5], // Prompt Engineering
+                notes: "Concerned about AI impact on roles"
+            },
+            {
+                name: "Robert Foster",
+                department: "Academic Programs",
+                status: "submitted",
+                focusAreas: ["Standardization", "Departmental Autonomy"],
+                alignedSystems: [1, 2, 3, 6, 8, 11], // All technical systems
+                notes: "Recognizes different departments have different needs"
+            },
+            {
+                name: "Jason Martinez",
+                department: "Student Services",
+                status: "submitted",
+                focusAreas: ["Plagiarism Detection", "Student Education"],
+                alignedSystems: [9, 12], // Evaluation, Security
+                notes: "Student education focus"
+            },
+            {
+                name: "Enrique Suárez",
+                department: "Compliance",
+                status: "submitted",
+                focusAreas: ["FERPA", "Privacy", "AI Limitations"],
+                alignedSystems: [12], // Security
+                notes: "Privacy and compliance expert"
+            },
+            {
+                name: "Jose Resendez",
+                department: "Change Management",
+                status: "submitted",
+                focusAreas: ["Communications", "Stakeholder Management"],
+                alignedSystems: [5], // Prompt Engineering
+                notes: "Process and communication focus"
+            },
+            {
+                name: "Shih-Ting Lee",
+                department: "Industry Partnerships",
+                status: "submitted",
+                focusAreas: ["Community Partnerships", "Industry Connections"],
+                alignedSystems: [1, 2, 3, 4, 6, 8, 11], // All high-demand systems
+                notes: "Industry partnership champion - key for mentorships"
+            },
+            {
+                name: "La Tasha Roberts",
+                department: "Assessment",
+                status: "submitted",
+                focusAreas: ["Academic Integrity Tools"],
+                alignedSystems: [9], // Evaluation
+                notes: "Tool benchmarking interest"
+            },
+            {
+                name: "[Your Name]",
+                department: "Student - LAN Admin & Software Dev",
+                status: "pending",
+                focusAreas: ["Tool Access", "Technical Training", "Career Equity"],
+                alignedSystems: [1, 2, 3, 4, 5, 6, 11], // All builder systems
+                notes: "Student voice - technical depth advocate"
+            },
+            {
+                name: "Abel Rincon",
+                department: "Unknown",
+                status: "pending",
+                focusAreas: [],
+                alignedSystems: [],
+                notes: "No submission yet"
+            },
+            {
+                name: "Meena Momand",
+                department: "Unknown",
+                status: "pending",
+                focusAreas: [],
+                alignedSystems: [],
+                notes: "No submission yet"
+            }
+        ];
+
+        // Render Systems
+        function renderSystems(filteredSystems = aiSystems) {
+            const grid = document.getElementById('systemsGrid');
+            grid.innerHTML = '';
+
+            filteredSystems.forEach(system => {
+                const card = document.createElement('div');
+                card.className = 'system-card';
+                card.setAttribute('data-difficulty', system.difficulty.toLowerCase());
+                card.setAttribute('data-dept', system.departments.map(d => d.toLowerCase().replace(/ /g, '')).join(','));
+
+                const techString = system.technologies.join(' ').toLowerCase();
+                const skillString = system.skills.join(' ').toLowerCase();
+                const companyString = system.companies.join(' ').toLowerCase();
+                card.setAttribute('data-searchable', `${system.name} ${system.description} ${techString} ${skillString} ${companyString}`.toLowerCase());
+
+                card.innerHTML = `
+                    <div class="system-header">
+                        <h3><span class="icon">${system.icon}</span> ${system.name}</h3>
+                        <p style="font-size: 0.9rem; opacity: 0.95; margin-top: 5px;">${system.description}</p>
+                    </div>
+                    <div class="system-body">
+                        <div class="tags">
+                            <span class="tag difficulty">${system.difficulty}</span>
+                            ${system.departments.map(d => `<span class="tag dept">${d}</span>`).join('')}
+                            <span class="tag career">${system.careerPath}</span>
+                            <span class="tag salary">${system.salary}</span>
+                        </div>
+
+                        <div class="skills-list">
+                            <h4>🔧 Key Skills Required:</h4>
+                            <ul>
+                                ${system.skills.slice(0, 5).map(skill => `<li>${skill}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="skills-list">
+                            <h4>🛠️ Technologies:</h4>
+                            <ul>
+                                ${system.technologies.slice(0, 5).map(tech => `<li>${tech}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="skills-list" style="margin-bottom: 0;">
+                            <h4>💼 Real-World Examples:</h4>
+                            <ul>
+                                ${system.examples.map(ex => `<li>${ex}</li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <div class="companies">
+                            <h4>🏢 Hiring Companies:</h4>
+                            <div class="company-tags">
+                                ${system.companies.map(company => `<span class="company-tag">${company}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Committee Members
+        function renderCommitteeMembers() {
+            const table = document.getElementById('memberTable');
+
+            committeeMembers.forEach(member => {
+                const row = document.createElement('tr');
+
+                const statusClass = member.status === 'submitted' ? 'status-submitted' : 'status-pending';
+                const statusText = member.status === 'submitted' ? 'Submitted' : 'Pending';
+
+                const alignedSystemsText = member.alignedSystems.length > 0
+                    ? member.alignedSystems.map(id => {
+                        const system = aiSystems.find(s => s.id === id);
+                        return `<span class="alignment-match">${system.icon} ${system.name}</span>`;
+                    }).join(' ')
+                    : '<span style="color: #94a3b8;">No alignment identified</span>';
+
+                row.innerHTML = `
+                    <td><strong>${member.name}</strong></td>
+                    <td>${member.department}</td>
+                    <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    <td>${member.focusAreas.length > 0 ? member.focusAreas.join(', ') : '<span style="color: #94a3b8;">None specified</span>'}</td>
+                    <td>${alignedSystemsText}</td>
+                `;
+
+                table.appendChild(row);
+            });
+        }
+
+        // Filtering Logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.system-card');
+
+                if (filter === 'all') {
+                    cards.forEach(card => card.style.display = 'block');
+                } else if (['beginner', 'intermediate', 'advanced'].includes(filter)) {
+                    cards.forEach(card => {
+                        card.style.display = card.getAttribute('data-difficulty') === filter ? 'block' : 'none';
+                    });
+                } else {
+                    cards.forEach(card => {
+                        const depts = card.getAttribute('data-dept').split(',');
+                        card.style.display = depts.includes(filter) ? 'block' : 'none';
+                    });
+                }
+            });
+        });
+
+        // Search Logic
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.system-card');
+
+            cards.forEach(card => {
+                const searchableContent = card.getAttribute('data-searchable');
+                card.style.display = searchableContent.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Initialize
+        renderSystems();
+        renderCommitteeMembers();
+    </script>
+</body>
+</html>
