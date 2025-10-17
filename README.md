@@ -8,19 +8,25 @@
 
 ## 📋 Quick Navigation
 
-**Start Here:** [presentation/INDEX.html](presentation/INDEX.html) - Complete documentation hub
+**🌐 GitHub Pages Live Site (Share These Links!):**
 
-**🔗 GitHub Pages Live Site:**
-- **Main Hub:** https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/INDEX.html
-- **Setup Guide:** [GITHUB_PAGES_SETUP.md](GITHUB_PAGES_SETUP.md) - Enable clickable links (5 min)
+### Interactive Presentations
+- 🎬 **[Pitch Deck (Interactive)](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_Pitch_Deck.html)** - Full presentation with speaker notes
+- 📝 **[Speaker Script (HTML)](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/SPEAKER_SCRIPT_PITCH_DECK.html)** - Print-friendly presentation guide
+- 🏠 **[Main Hub](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/INDEX.html)** - Complete documentation navigation
 
-**Key Documents for Friday:**
-- 🎬 [**SLIDE DECK SCRIPT**](SLIDE_DECK_SCRIPT.md) - **NEW!** Complete presentation script with clickable GitHub links
-- 📊 [Executive Summary](presentation/Executive_Summary_Integration.html) - Decision-ready overview
-- 🤝 [Committee Coalition Strategy](presentation/Committee_Charges_Comparative_Analysis.html) - Strategic positioning
-- 📄 [AI Innovation Society](presentation/ACC_AI_Innovation_Society_One_Pager.html) - Student org proposal
-- 🎯 [5-Minute Pitch Script](strategy/Pitch_Script_5_Minutes.md) - Speaking notes
-- 📚 [Citations & Sources](verification/CITATIONS.md) - Complete bibliography
+### Key Committee Documents
+- 📊 [Executive Summary](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Executive_Summary_Integration.html) - Decision-ready overview
+- 🤝 [Coalition Strategy](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Committee_Charges_Comparative_Analysis.html) - Strategic positioning
+- 👥 [Committee Members Report](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Committee_Members_Report.html) - 40+ member profiles
+- 📄 [AI Innovation Society One-Pager](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_One_Pager.html) - Student org proposal
+- 🤖 [AI Systems Report](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/AI_Systems_Report.html) - Technical overview
+- 📖 [AI Terms Glossary](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/AI_Terms_Glossary.html) - Definitions
+
+### Additional Resources
+- 📚 [Complete Citations](https://github.com/onebrownguy/acc-ai-engineering-proposal/blob/master/verification/CITATIONS.md) - All sources (Oct 14, 2025)
+- 🎯 [5-Minute Pitch Script](https://github.com/onebrownguy/acc-ai-engineering-proposal/blob/master/strategy/Pitch_Script_5_Minutes.md) - Speaking notes
+- 📖 [Course 1 Syllabus](https://github.com/onebrownguy/acc-ai-engineering-proposal/blob/master/curriculum/Course_1_Syllabus_Prompt_Engineering_Fundamentals.md) - Faculty-ready
 
 ---
 
@@ -56,14 +62,21 @@
 ## 🗂️ Documentation Structure
 
 ### 🎤 **presentation/** - Friday's Core Files
-All HTML presentation materials for committee review
-- **[INDEX.html](presentation/INDEX.html)** - Main navigation hub
-- **[Executive Summary](presentation/Executive_Summary_Integration.html)** - Complete proposal with 3 charges
-- **[AI Systems Report](presentation/AI_Systems_Report.html)** - 15 AI system categories explained
-- **[AI Terms Glossary](presentation/AI_Terms_Glossary.html)** - 60+ technical terms defined
-- **[Committee Members Report](presentation/Committee_Members_Report.html)** - 40+ member profiles
-- **[Committee Charges Analysis](presentation/Committee_Charges_Comparative_Analysis.html)** - Coalition strategy
-- **[AI Innovation Society One-Pager](presentation/ACC_AI_Innovation_Society_One_Pager.html)** - Student org proposal
+All HTML presentation materials for committee review (click links to view live)
+
+**Interactive Presentations:**
+- 🎬 **[Pitch Deck](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_Pitch_Deck.html)** - 12-slide interactive presentation with keyboard navigation
+- 📝 **[Speaker Script (HTML)](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/SPEAKER_SCRIPT_PITCH_DECK.html)** - Formatted speaker notes with timing
+- 🎤 **[Alternative Pitch Deck (SAIC)](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_Student_AI_Collaborative_SAIC_Pitch_Deck.html)** - Student AI Collaborative version
+
+**Committee Documentation:**
+- 🏠 **[INDEX.html](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/INDEX.html)** - Main navigation hub
+- 📊 **[Executive Summary](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Executive_Summary_Integration.html)** - Complete proposal with 3 charges
+- 🤝 **[Committee Charges Analysis](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Committee_Charges_Comparative_Analysis.html)** - Coalition strategy
+- 👥 **[Committee Members Report](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/Committee_Members_Report.html)** - 40+ member profiles
+- 🤖 **[AI Systems Report](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/AI_Systems_Report.html)** - 15 AI system categories explained
+- 📖 **[AI Terms Glossary](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/AI_Terms_Glossary.html)** - 60+ technical terms defined
+- 📄 **[AI Innovation Society One-Pager](https://onebrownguy.github.io/acc-ai-engineering-proposal/presentation/ACC_AI_Innovation_Society_One_Pager.html)** - Student org proposal
 
 ### 📚 **curriculum/** - Course Implementation
 Complete 3-course curriculum ready for faculty review
